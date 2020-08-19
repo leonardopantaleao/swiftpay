@@ -55,5 +55,11 @@ class ViewController: UITableViewController {
         
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        let client = clients[indexPath.row]
+        let ac = UIAlertController(title: "Cliente", message: <#T##String?#>, preferredStyle: <#T##UIAlertController.Style#>)
+    }
+    
 }
 
