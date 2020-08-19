@@ -1,0 +1,21 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'iOSSwiftPay' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for iOSSwiftPay
+
+  target 'iOSSwiftPayTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'iOSSwiftPayUITests' do
+    # Pods for testing
+    use_frameworks!
+    pod 'iOSSnapshotTestCase'
+  end
+
+end
