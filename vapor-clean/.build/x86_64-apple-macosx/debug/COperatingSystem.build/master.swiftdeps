@@ -1,0 +1,5 @@
+version: "Apple Swift version 5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)"
+options: "37ee971dc44218188cdaf4885432d1af"
+build_time: [1597548672, 833736000]
+inputs:
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/core/Sources/COperatingSystem/libc.swift": [1597548659, 162658180]

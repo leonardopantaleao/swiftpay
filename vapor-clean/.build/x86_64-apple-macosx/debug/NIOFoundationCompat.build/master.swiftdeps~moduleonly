@@ -1,0 +1,5 @@
+version: "Apple Swift version 5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)"
+options: "b0467b01e74822cbcf8a32e0e94ce165"
+build_time: [1597548695, 52550000]
+inputs:
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/swift-nio/Sources/NIOFoundationCompat/ByteBuffer-foundation.swift": [1597548657, 305827848]

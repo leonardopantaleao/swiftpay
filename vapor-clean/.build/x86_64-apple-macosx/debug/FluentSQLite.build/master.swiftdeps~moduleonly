@@ -1,0 +1,16 @@
+version: "Apple Swift version 5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)"
+options: "14df7c5570f16deec8f8927403888a53"
+build_time: [1597555087, 336238000]
+inputs:
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/fluent-sqlite/Sources/FluentSQLite/Exports.swift": [1597555071, 608752415]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/fluent-sqlite/Sources/FluentSQLite/FluentSQLiteError.swift": [1597555071, 608937010]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/fluent-sqlite/Sources/FluentSQLite/FluentSQLiteProvider.swift": [1597555071, 609237981]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/fluent-sqlite/Sources/FluentSQLite/FluentSQLiteQuery.swift": [1597555071, 609572162]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/fluent-sqlite/Sources/FluentSQLite/FluentSQLiteSchema.swift": [1597555071, 609777381]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/fluent-sqlite/Sources/FluentSQLite/SQLiteDatabase+JoinSupporting.swift": [1597555071, 610071809]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/fluent-sqlite/Sources/FluentSQLite/SQLiteDatabase+MigrationSupporting.swift": [1597555071, 610270449]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/fluent-sqlite/Sources/FluentSQLite/SQLiteDatabase+QuerySupporting.swift": [1597555071, 610597305]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/fluent-sqlite/Sources/FluentSQLite/SQLiteDatabase+SchemaSupporting.swift": [1597555071, 610842625]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/fluent-sqlite/Sources/FluentSQLite/SQLiteDatabase+TransactionSupporting.swift": [1597555071, 611103062]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/fluent-sqlite/Sources/FluentSQLite/SQLiteModels.swift": [1597555071, 611318425]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/fluent-sqlite/Sources/FluentSQLite/SQLiteTypes.swift": [1597555071, 611607478]

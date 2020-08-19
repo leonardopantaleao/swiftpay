@@ -1,0 +1,20 @@
+version: "Apple Swift version 5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)"
+options: "47d97405cbb1c72036b47a813e7e41df"
+build_time: [1597548726, 419435000]
+inputs:
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/console/Sources/Command/Base/CommandOption.swift": [1597548661, 776025858]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/console/Sources/Command/Base/CommandRunnable.swift": [1597548661, 776530172]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/console/Sources/Command/Command/Command.swift": [1597548661, 777083005]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/console/Sources/Command/Command/CommandArgument.swift": [1597548661, 777425585]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/console/Sources/Command/Config/CommandConfig.swift": [1597548661, 777776609]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/console/Sources/Command/Config/Commands.swift": [1597548661, 778010998]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/console/Sources/Command/Group/BasicCommandGroup.swift": [1597548661, 778298678]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/console/Sources/Command/Group/CommandGroup.swift": [1597548661, 778500680]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/console/Sources/Command/Run/CommandContext.swift": [1597548661, 778925234]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/console/Sources/Command/Run/CommandInput.swift": [1597548661, 779250047]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/console/Sources/Command/Run/Console+Run.swift": [1597548661, 779486688]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/console/Sources/Command/Run/Output+Autocomplete.swift": [1597548661, 779713223]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/console/Sources/Command/Run/Output+Help.swift": [1597548661, 779921416]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/console/Sources/Command/Utilities/CommandError.swift": [1597548661, 780214287]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/console/Sources/Command/Utilities/Exports.swift": [1597548661, 780394386]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/console/Sources/Command/Utilities/Utilities.swift": [1597548661, 780600345]

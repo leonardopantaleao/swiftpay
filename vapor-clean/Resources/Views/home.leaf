@@ -1,0 +1,21 @@
+<html>
+<body>
+<h1>SwiftPay</h1>
+<p>Bem-vindo ao SwiftPay!</p>
+<ul>
+	#for(client in clients){
+		<li>#(client.name)</li>
+	}
+</ul>
+
+<h2>Adicionar cliente</h2>
+<form method="post" action="/add">
+	<p>Nome: <input type="text" name="name" /></p>
+	<p>Cpf: <input type="text" name="cpf"/></p>
+	<button type="submit">Adicionar</button>
+</form>
+
+
+
+</body>
+</html>

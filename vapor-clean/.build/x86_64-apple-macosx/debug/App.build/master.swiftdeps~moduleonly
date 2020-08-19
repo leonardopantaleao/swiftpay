@@ -1,0 +1,8 @@
+version: "Apple Swift version 5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)"
+options: "e5d532aee860956a95afa3acee7a7ad7"
+build_time: [1597555089, 277953000]
+inputs:
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/Sources/App/Client.swift": [9223372036, 854775807]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/Sources/App/boot.swift": [1597548456, 12202024]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/Sources/App/configure.swift": [1597549810, 715230389]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/Sources/App/routes.swift": [1597552808, 153506136]

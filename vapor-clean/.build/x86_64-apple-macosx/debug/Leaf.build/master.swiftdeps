@@ -1,0 +1,12 @@
+version: "Apple Swift version 5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)"
+options: "aa086ac2916f82dde93049aad43fe9cd"
+build_time: [1597549199, 825849000]
+inputs:
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/leaf/Sources/Leaf/Parser/Byte+Leaf.swift": [1597549198, 147585599]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/leaf/Sources/Leaf/Parser/LeafParser.swift": [1597549198, 148203585]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/leaf/Sources/Leaf/Renderer/LeafRenderer.swift": [1597549198, 148582639]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/leaf/Sources/Leaf/Service/LeafConfig.swift": [1597549198, 148948453]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/leaf/Sources/Leaf/Service/LeafProvider.swift": [1597549198, 149250108]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/leaf/Sources/Leaf/Service/LeafTagConfig.swift": [1597549198, 149473947]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/leaf/Sources/Leaf/Utilities/Data.swift": [1597549198, 149921271]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/leaf/Sources/Leaf/Utilities/Exports.swift": [1597549198, 150174359]

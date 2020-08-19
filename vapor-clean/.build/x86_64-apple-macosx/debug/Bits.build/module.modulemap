@@ -1,0 +1,4 @@
+module Bits {
+    header "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/x86_64-apple-macosx/debug/Bits.build/Bits-Swift.h"
+    requires objc
+}

@@ -1,0 +1,7 @@
+version: "Apple Swift version 5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)"
+options: "5909d1f7c3da5b6ac1a8cb9b2fd0fe78"
+build_time: [1597548672, 297380000]
+inputs:
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/core/Sources/Debugging/Debuggable.swift": [1597548659, 169140730]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/core/Sources/Debugging/Demangler.swift": [1597548659, 169380061]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/core/Sources/Debugging/SourceLocation.swift": [1597548659, 169674308]

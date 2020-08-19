@@ -1,0 +1,11 @@
+{
+  "": {
+    "swift-dependencies": "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/x86_64-apple-macosx/debug/COperatingSystem.build/master.swiftdeps"
+  },
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/core/Sources/COperatingSystem/libc.swift": {
+    "dependencies": "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/x86_64-apple-macosx/debug/COperatingSystem.build/libc.d",
+    "object": "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/x86_64-apple-macosx/debug/COperatingSystem.build/libc.swift.o",
+    "swiftmodule": "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/x86_64-apple-macosx/debug/COperatingSystem.build/libc~partial.swiftmodule",
+    "swift-dependencies": "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/x86_64-apple-macosx/debug/COperatingSystem.build/libc.swiftdeps"
+  }
+}

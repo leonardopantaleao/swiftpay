@@ -1,0 +1,23 @@
+version: "Apple Swift version 5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)"
+options: "6fdf14ffc4213593494df95ad9cd593d"
+build_time: [1597548720, 630194000]
+inputs:
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/crypto/Sources/Crypto/BCrypt/BCryptDigest.swift": [1597548662, 720479869]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/crypto/Sources/Crypto/Cipher/AuthenticatedCipher.swift": [1597548662, 721061297]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/crypto/Sources/Crypto/Cipher/AuthenticatedCipherAlgorithm.swift": [1597548662, 721539138]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/crypto/Sources/Crypto/Cipher/Cipher.swift": [1597548662, 721967255]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/crypto/Sources/Crypto/Cipher/CipherAlgorithm.swift": [1597548662, 722340869]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/crypto/Sources/Crypto/Cipher/OpenSSLCipherAlgorithm.swift": [1597548662, 722676967]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/crypto/Sources/Crypto/Cipher/OpenSSLStreamCipher.swift": [1597548662, 723057381]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/crypto/Sources/Crypto/Digest/Digest.swift": [1597548662, 723593726]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/crypto/Sources/Crypto/Digest/DigestAlgorithm.swift": [1597548662, 723940895]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/crypto/Sources/Crypto/MAC/HMAC.swift": [1597548662, 724683234]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/crypto/Sources/Crypto/MAC/OTP.swift": [1597548662, 724949158]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/crypto/Sources/Crypto/RSA/RSA.swift": [1597548662, 725349490]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/crypto/Sources/Crypto/RSA/RSAKey.swift": [1597548662, 725582983]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/crypto/Sources/Crypto/RSA/RSAPadding.swift": [1597548662, 725814459]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/crypto/Sources/Crypto/Random/CryptoRandom.swift": [1597548662, 726158096]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/crypto/Sources/Crypto/Utilities/Base32.swift": [1597548662, 726468848]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/crypto/Sources/Crypto/Utilities/CryptoError.swift": [1597548662, 726759707]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/crypto/Sources/Crypto/Utilities/Deprecated.swift": [1597548662, 727050965]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/crypto/Sources/Crypto/Utilities/Exports.swift": [1597548662, 727283746]

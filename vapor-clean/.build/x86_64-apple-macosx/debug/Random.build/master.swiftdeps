@@ -1,0 +1,8 @@
+version: "Apple Swift version 5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)"
+options: "ee124fe0555d8ac6418aa70fe5b14e83"
+build_time: [1597548700, 108079000]
+inputs:
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/crypto/Sources/Random/Array+Random.swift": [1597548662, 727593831]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/crypto/Sources/Random/OSRandom.swift": [1597548662, 727822190]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/crypto/Sources/Random/RandomProtocol.swift": [1597548662, 728037361]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/crypto/Sources/Random/URandom.swift": [1597548662, 728256807]

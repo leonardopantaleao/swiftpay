@@ -1,0 +1,23 @@
+{
+  "": {
+    "swift-dependencies": "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/x86_64-apple-macosx/debug/Debugging.build/master.swiftdeps"
+  },
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/core/Sources/Debugging/Debuggable.swift": {
+    "dependencies": "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/x86_64-apple-macosx/debug/Debugging.build/Debuggable.d",
+    "object": "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/x86_64-apple-macosx/debug/Debugging.build/Debuggable.swift.o",
+    "swiftmodule": "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/x86_64-apple-macosx/debug/Debugging.build/Debuggable~partial.swiftmodule",
+    "swift-dependencies": "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/x86_64-apple-macosx/debug/Debugging.build/Debuggable.swiftdeps"
+  },
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/core/Sources/Debugging/Demangler.swift": {
+    "dependencies": "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/x86_64-apple-macosx/debug/Debugging.build/Demangler.d",
+    "object": "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/x86_64-apple-macosx/debug/Debugging.build/Demangler.swift.o",
+    "swiftmodule": "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/x86_64-apple-macosx/debug/Debugging.build/Demangler~partial.swiftmodule",
+    "swift-dependencies": "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/x86_64-apple-macosx/debug/Debugging.build/Demangler.swiftdeps"
+  },
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/core/Sources/Debugging/SourceLocation.swift": {
+    "dependencies": "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/x86_64-apple-macosx/debug/Debugging.build/SourceLocation.d",
+    "object": "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/x86_64-apple-macosx/debug/Debugging.build/SourceLocation.swift.o",
+    "swiftmodule": "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/x86_64-apple-macosx/debug/Debugging.build/SourceLocation~partial.swiftmodule",
+    "swift-dependencies": "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/x86_64-apple-macosx/debug/Debugging.build/SourceLocation.swiftdeps"
+  }
+}

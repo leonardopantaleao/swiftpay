@@ -1,0 +1,12 @@
+version: "Apple Swift version 5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)"
+options: "a821bfe23433d18bede06359f71f8d0a"
+build_time: [1597548707, 847678000]
+inputs:
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/url-encoded-form/Sources/URLEncodedForm/Codable/URLEncodedFormDecoder.swift": [1597548661, 116332736]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/url-encoded-form/Sources/URLEncodedForm/Codable/URLEncodedFormEncoder.swift": [1597548661, 116591972]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/url-encoded-form/Sources/URLEncodedForm/Data/URLEncodedFormData.swift": [1597548661, 116893020]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/url-encoded-form/Sources/URLEncodedForm/Data/URLEncodedFormDataConvertible.swift": [1597548661, 117106614]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/url-encoded-form/Sources/URLEncodedForm/Data/URLEncodedFormParser.swift": [1597548661, 117360859]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/url-encoded-form/Sources/URLEncodedForm/Data/URLEncodedFormSerializer.swift": [1597548661, 117814234]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/url-encoded-form/Sources/URLEncodedForm/Utilities/Exports.swift": [1597548661, 118272326]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/url-encoded-form/Sources/URLEncodedForm/Utilities/URLEncodedFormError.swift": [1597548661, 118547441]

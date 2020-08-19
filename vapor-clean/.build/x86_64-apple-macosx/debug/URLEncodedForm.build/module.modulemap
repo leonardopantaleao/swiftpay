@@ -1,0 +1,4 @@
+module URLEncodedForm {
+    header "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/x86_64-apple-macosx/debug/URLEncodedForm.build/URLEncodedForm-Swift.h"
+    requires objc
+}

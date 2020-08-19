@@ -1,0 +1,6 @@
+version: "Apple Swift version 5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)"
+options: "49465712f76c63e39536d4a3b4d3794d"
+build_time: [1597548687, 18715000]
+inputs:
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/swift-nio/Sources/NIOConcurrencyHelpers/atomics.swift": [1597548657, 304147398]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/swift-nio/Sources/NIOConcurrencyHelpers/lock.swift": [1597548657, 304705347]

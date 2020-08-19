@@ -1,0 +1,19 @@
+version: "Apple Swift version 5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)"
+options: "1ca9bf157117e6e5e25079f02d0fd7fc"
+build_time: [1597548698, 368894000]
+inputs:
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/core/Sources/Async/Async+NIO.swift": [1597548659, 156362361]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/core/Sources/Async/AsyncError.swift": [1597548659, 156589305]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/core/Sources/Async/Collection+Future.swift": [1597548659, 156829314]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/core/Sources/Async/Deprecated.swift": [1597548659, 157057753]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/core/Sources/Async/Exports.swift": [1597548659, 157243619]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/core/Sources/Async/Future+DoCatch.swift": [1597548659, 157446165]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/core/Sources/Async/Future+Flatten.swift": [1597548659, 157680441]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/core/Sources/Async/Future+Global.swift": [1597548659, 158002737]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/core/Sources/Async/Future+Map.swift": [1597548659, 158239571]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/core/Sources/Async/Future+Transform.swift": [1597548659, 158441302]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/core/Sources/Async/Future+Variadic.swift": [1597548659, 158700863]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/core/Sources/Async/Future+Void.swift": [1597548659, 158963802]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/core/Sources/Async/FutureType.swift": [1597548659, 159166957]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/core/Sources/Async/QueueHandler.swift": [1597548659, 159505419]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/core/Sources/Async/Worker.swift": [1597548659, 159742331]

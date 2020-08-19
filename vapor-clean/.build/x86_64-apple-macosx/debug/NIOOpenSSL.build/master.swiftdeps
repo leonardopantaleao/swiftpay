@@ -1,0 +1,21 @@
+version: "Apple Swift version 5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)"
+options: "b669b14fc6956e5d26cc82ea08d965a2"
+build_time: [1597548699, 348435000]
+inputs:
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/swift-nio-ssl/Sources/NIOOpenSSL/ByteBufferBIO.swift": [1597548660, 483383429]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/swift-nio-ssl/Sources/NIOOpenSSL/IdentityVerification.swift": [1597548660, 483791782]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/swift-nio-ssl/Sources/NIOOpenSSL/OpenSSLClientHandler.swift": [1597548660, 484063785]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/swift-nio-ssl/Sources/NIOOpenSSL/OpenSSLHandler.swift": [1597548660, 484508564]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/swift-nio-ssl/Sources/NIOOpenSSL/OpenSSLServerHandler.swift": [1597548660, 484769129]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/swift-nio-ssl/Sources/NIOOpenSSL/PosixPort.swift": [1597548660, 485003219]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/swift-nio-ssl/Sources/NIOOpenSSL/SSLCertificate.swift": [1597548660, 485294438]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/swift-nio-ssl/Sources/NIOOpenSSL/SSLConnection.swift": [1597548660, 485597176]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/swift-nio-ssl/Sources/NIOOpenSSL/SSLContext.swift": [1597548660, 485925061]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/swift-nio-ssl/Sources/NIOOpenSSL/SSLErrors.swift": [1597548660, 486278809]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/swift-nio-ssl/Sources/NIOOpenSSL/SSLInit.swift": [1597548660, 486527284]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/swift-nio-ssl/Sources/NIOOpenSSL/SSLPKCS12Bundle.swift": [1597548660, 486801421]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/swift-nio-ssl/Sources/NIOOpenSSL/SSLPointerTricks.swift": [1597548660, 487008602]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/swift-nio-ssl/Sources/NIOOpenSSL/SSLPrivateKey.swift": [1597548660, 487312298]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/swift-nio-ssl/Sources/NIOOpenSSL/SSLPublicKey.swift": [1597548660, 487522337]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/swift-nio-ssl/Sources/NIOOpenSSL/SSLVerificationCallbacks.swift": [1597548660, 487731806]
+  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/swift-nio-ssl/Sources/NIOOpenSSL/TLSConfiguration.swift": [1597548660, 487997467]

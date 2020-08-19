@@ -1,0 +1,4 @@
+module CCryptoOpenSSL {
+    umbrella "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/crypto/Sources/CCryptoOpenSSL/include"
+    export *
+}
