@@ -9,11 +9,12 @@
 import UIKit
 
 class ViewController: UITableViewController {
+    @IBOutlet var clientsTableView: UITableView!
     var clients = [Client]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        clientsTableView.backgroundColor = .red
         fetchData()
     }
 

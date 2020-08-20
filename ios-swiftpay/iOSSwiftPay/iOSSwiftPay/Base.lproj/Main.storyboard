@@ -46,6 +46,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Yh7-xP-Rx5"/>
+                    <connections>
+                        <outlet property="clientsTableView" destination="4eP-IC-4qo" id="JYh-cy-bKt"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UUh-Ww-aGS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

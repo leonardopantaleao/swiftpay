@@ -16,9 +16,6 @@
 		A74B810124EB06C70081EF4B /* iOSSwiftPayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74B810024EB06C70081EF4B /* iOSSwiftPayTests.swift */; };
 		A74B810C24EB06C70081EF4B /* iOSSwiftPayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74B810B24EB06C70081EF4B /* iOSSwiftPayUITests.swift */; };
 		A74B811A24EB0C970081EF4B /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74B811924EB0C970081EF4B /* Client.swift */; };
-		BF99ECF89CFDB99F502ABB0B /* Pods_iOSSwiftPayTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71921192A82A49FDAEE48F8F /* Pods_iOSSwiftPayTests.framework */; };
-		C2C0A75234B6016A0555EF7A /* Pods_iOSSwiftPay_iOSSwiftPayUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D07F03DAB5BC4FD3F58222CA /* Pods_iOSSwiftPay_iOSSwiftPayUITests.framework */; };
-		E4957B07889BD01A95757D32 /* Pods_iOSSwiftPay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E07A2428D5CAB05BF5BFD2E /* Pods_iOSSwiftPay.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,11 +36,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1AAB64F36536C5CC059A3517 /* Pods-iOSSwiftPay-iOSSwiftPayUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSSwiftPay-iOSSwiftPayUITests.debug.xcconfig"; path = "Target Support Files/Pods-iOSSwiftPay-iOSSwiftPayUITests/Pods-iOSSwiftPay-iOSSwiftPayUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		2FDC0DD1F25F77ED30AD5BC9 /* Pods-iOSSwiftPay-iOSSwiftPayUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSSwiftPay-iOSSwiftPayUITests.release.xcconfig"; path = "Target Support Files/Pods-iOSSwiftPay-iOSSwiftPayUITests/Pods-iOSSwiftPay-iOSSwiftPayUITests.release.xcconfig"; sourceTree = "<group>"; };
-		71921192A82A49FDAEE48F8F /* Pods_iOSSwiftPayTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSSwiftPayTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7CA1C348D6B6A62A23FE09B5 /* Pods-iOSSwiftPayTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSSwiftPayTests.release.xcconfig"; path = "Target Support Files/Pods-iOSSwiftPayTests/Pods-iOSSwiftPayTests.release.xcconfig"; sourceTree = "<group>"; };
-		9E07A2428D5CAB05BF5BFD2E /* Pods_iOSSwiftPay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSSwiftPay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A74B80E624EB06C40081EF4B /* iOSSwiftPay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSSwiftPay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A74B80E924EB06C40081EF4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A74B80EB24EB06C40081EF4B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,10 +51,6 @@
 		A74B810B24EB06C70081EF4B /* iOSSwiftPayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSSwiftPayUITests.swift; sourceTree = "<group>"; };
 		A74B810D24EB06C70081EF4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A74B811924EB0C970081EF4B /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
-		C7A5F906CB571C5DAAB0121D /* Pods-iOSSwiftPayTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSSwiftPayTests.debug.xcconfig"; path = "Target Support Files/Pods-iOSSwiftPayTests/Pods-iOSSwiftPayTests.debug.xcconfig"; sourceTree = "<group>"; };
-		D00F8651E953DAEE67F88996 /* Pods-iOSSwiftPay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSSwiftPay.debug.xcconfig"; path = "Target Support Files/Pods-iOSSwiftPay/Pods-iOSSwiftPay.debug.xcconfig"; sourceTree = "<group>"; };
-		D07F03DAB5BC4FD3F58222CA /* Pods_iOSSwiftPay_iOSSwiftPayUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSSwiftPay_iOSSwiftPayUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E169AF50A4E56EE661A9FF40 /* Pods-iOSSwiftPay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSSwiftPay.release.xcconfig"; path = "Target Support Files/Pods-iOSSwiftPay/Pods-iOSSwiftPay.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +58,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4957B07889BD01A95757D32 /* Pods_iOSSwiftPay.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,7 +65,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF99ECF89CFDB99F502ABB0B /* Pods_iOSSwiftPayTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,23 +72,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2C0A75234B6016A0555EF7A /* Pods_iOSSwiftPay_iOSSwiftPayUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		41F9AC314CE0B8A53713A931 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				9E07A2428D5CAB05BF5BFD2E /* Pods_iOSSwiftPay.framework */,
-				D07F03DAB5BC4FD3F58222CA /* Pods_iOSSwiftPay_iOSSwiftPayUITests.framework */,
-				71921192A82A49FDAEE48F8F /* Pods_iOSSwiftPayTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		A74B80DD24EB06C40081EF4B = {
 			isa = PBXGroup;
 			children = (
@@ -110,8 +85,6 @@
 				A74B80FF24EB06C70081EF4B /* iOSSwiftPayTests */,
 				A74B810A24EB06C70081EF4B /* iOSSwiftPayUITests */,
 				A74B80E724EB06C40081EF4B /* Products */,
-				B92A59051A93998F7211733A /* Pods */,
-				41F9AC314CE0B8A53713A931 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -158,20 +131,6 @@
 			path = iOSSwiftPayUITests;
 			sourceTree = "<group>";
 		};
-		B92A59051A93998F7211733A /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				D00F8651E953DAEE67F88996 /* Pods-iOSSwiftPay.debug.xcconfig */,
-				E169AF50A4E56EE661A9FF40 /* Pods-iOSSwiftPay.release.xcconfig */,
-				1AAB64F36536C5CC059A3517 /* Pods-iOSSwiftPay-iOSSwiftPayUITests.debug.xcconfig */,
-				2FDC0DD1F25F77ED30AD5BC9 /* Pods-iOSSwiftPay-iOSSwiftPayUITests.release.xcconfig */,
-				C7A5F906CB571C5DAAB0121D /* Pods-iOSSwiftPayTests.debug.xcconfig */,
-				7CA1C348D6B6A62A23FE09B5 /* Pods-iOSSwiftPayTests.release.xcconfig */,
-			);
-			name = Pods;
-			path = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -179,7 +138,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A74B811024EB06C70081EF4B /* Build configuration list for PBXNativeTarget "iOSSwiftPay" */;
 			buildPhases = (
-				F4CBD73CFD916573F6DCCFF8 /* [CP] Check Pods Manifest.lock */,
 				A74B80E224EB06C40081EF4B /* Sources */,
 				A74B80E324EB06C40081EF4B /* Frameworks */,
 				A74B80E424EB06C40081EF4B /* Resources */,
@@ -197,7 +155,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A74B811324EB06C70081EF4B /* Build configuration list for PBXNativeTarget "iOSSwiftPayTests" */;
 			buildPhases = (
-				E1B532F40D8460689D9BCF5D /* [CP] Check Pods Manifest.lock */,
 				A74B80F824EB06C70081EF4B /* Sources */,
 				A74B80F924EB06C70081EF4B /* Frameworks */,
 				A74B80FA24EB06C70081EF4B /* Resources */,
@@ -216,11 +173,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A74B811624EB06C70081EF4B /* Build configuration list for PBXNativeTarget "iOSSwiftPayUITests" */;
 			buildPhases = (
-				A15E60A50375FEDF2FF5E3EC /* [CP] Check Pods Manifest.lock */,
 				A74B810324EB06C70081EF4B /* Sources */,
 				A74B810424EB06C70081EF4B /* Frameworks */,
 				A74B810524EB06C70081EF4B /* Resources */,
-				9EA9889FC045C9827C7F29B6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -301,92 +256,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		9EA9889FC045C9827C7F29B6 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-iOSSwiftPay-iOSSwiftPayUITests/Pods-iOSSwiftPay-iOSSwiftPayUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-iOSSwiftPay-iOSSwiftPayUITests/Pods-iOSSwiftPay-iOSSwiftPayUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iOSSwiftPay-iOSSwiftPayUITests/Pods-iOSSwiftPay-iOSSwiftPayUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A15E60A50375FEDF2FF5E3EC /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-iOSSwiftPay-iOSSwiftPayUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E1B532F40D8460689D9BCF5D /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-iOSSwiftPayTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F4CBD73CFD916573F6DCCFF8 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-iOSSwiftPay-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A74B80E224EB06C40081EF4B /* Sources */ = {
@@ -567,7 +436,6 @@
 		};
 		A74B811124EB06C70081EF4B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D00F8651E953DAEE67F88996 /* Pods-iOSSwiftPay.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -585,7 +453,6 @@
 		};
 		A74B811224EB06C70081EF4B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E169AF50A4E56EE661A9FF40 /* Pods-iOSSwiftPay.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -603,7 +470,6 @@
 		};
 		A74B811424EB06C70081EF4B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C7A5F906CB571C5DAAB0121D /* Pods-iOSSwiftPayTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -625,7 +491,6 @@
 		};
 		A74B811524EB06C70081EF4B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7CA1C348D6B6A62A23FE09B5 /* Pods-iOSSwiftPayTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -647,7 +512,6 @@
 		};
 		A74B811724EB06C70081EF4B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1AAB64F36536C5CC059A3517 /* Pods-iOSSwiftPay-iOSSwiftPayUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -667,7 +531,6 @@
 		};
 		A74B811824EB06C70081EF4B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2FDC0DD1F25F77ED30AD5BC9 /* Pods-iOSSwiftPay-iOSSwiftPayUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
