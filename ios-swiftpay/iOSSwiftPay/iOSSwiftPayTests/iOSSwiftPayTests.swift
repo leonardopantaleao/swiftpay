@@ -17,6 +17,7 @@ class iOSSwiftPayTests: FBSnapshotTestCase {
     override func setUp(){
         super.setUp()
         sut = ViewController()
+        recordMode = true
     }
     
     override func tearDown(){
@@ -25,6 +26,7 @@ class iOSSwiftPayTests: FBSnapshotTestCase {
     }
     
     func testBackgroundColor(){
+//        FBSnapshotVerifyViewController(sut)
         FBSnapshotVerifyView(sut.view)
     }
 

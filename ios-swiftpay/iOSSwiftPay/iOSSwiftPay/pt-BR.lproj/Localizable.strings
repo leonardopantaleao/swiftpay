@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  iOSSwiftPay
+
+  Created by Leonardo on 10/09/20.
+  Copyright © 2020 Leonardo. All rights reserved.
+*/
+"passwordPlaceholder" = "Insira a senha";
+"signInBtnText" = "Entrar";
+"createAccountBtnText" = "Criar Conta";
