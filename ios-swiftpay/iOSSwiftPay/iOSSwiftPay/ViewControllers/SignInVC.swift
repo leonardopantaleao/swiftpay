@@ -13,15 +13,43 @@ class SignInVC: UIViewController {
     @IBOutlet weak var passwordTxField: UITextField!
     @IBOutlet weak var errorStatusLabel: UILabel!
     @IBOutlet weak var SignInBtn: UIButton!
+    @IBOutlet weak var copyrightLabel: UILabel!
     @IBOutlet weak var createAccountBtn: UIButton!
+    
+    private let validation: ValidationService
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setPlaceholders()
+        styleVisualElements()
+        copyrightLabel.text = NSLocalizedString("copyright", comment: "development info")
+        
+        errorStatusLabel.alpha = 0
+    }
+    
+    init(validation: ValidationService) {
+        self.validation = validation
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        self.validation = ValidationService()
+        super.init(coder: coder)
+    }
+    
+    func styleVisualElements()
+    {
+        Utilities.styleTextField(emailTxField)
+        Utilities.styleTextField(passwordTxField)
+        Utilities.styleFilledButton(createAccountBtn)
+        Utilities.styleHollowButton(SignInBtn)
+    }
+    
+    func setPlaceholders()
+    {
         passwordTxField.placeholder = NSLocalizedString("passwordPlaceholder", comment: "insert password placeholder")
         SignInBtn.setTitle(NSLocalizedString("signInBtnText", comment: "sign in button text"), for: UIControl.State.normal)
         createAccountBtn.setTitle(NSLocalizedString("createAccountBtnText", comment: "create account button text"), for: UIControl.State.normal)
-        
-        errorStatusLabel.alpha = 0
     }
     
 

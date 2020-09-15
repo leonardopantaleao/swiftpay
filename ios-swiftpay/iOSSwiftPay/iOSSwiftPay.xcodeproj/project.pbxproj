@@ -17,6 +17,8 @@
 		A74B810124EB06C70081EF4B /* iOSSwiftPayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74B810024EB06C70081EF4B /* iOSSwiftPayTests.swift */; };
 		A74B810C24EB06C70081EF4B /* iOSSwiftPayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74B810B24EB06C70081EF4B /* iOSSwiftPayUITests.swift */; };
 		A74B811A24EB0C970081EF4B /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74B811924EB0C970081EF4B /* Client.swift */; };
+		A7A2D8EB250FA7CF00A10DBB /* ValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A2D8EA250FA7CF00A10DBB /* ValidationService.swift */; };
+		A7A2D8ED25103A8800A10DBB /* ValidationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A2D8EC25103A8800A10DBB /* ValidationServiceTests.swift */; };
 		A7C0A7E0250AE7D60019A841 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C0A7DF250AE7D60019A841 /* SignInVC.swift */; };
 		A7C0A7E4250AEB090019A841 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C0A7E2250AEB070019A841 /* Constants.swift */; };
 		A7C0A7E5250AEB090019A841 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C0A7E3250AEB090019A841 /* Utilities.swift */; };
@@ -59,6 +61,8 @@
 		A74B810B24EB06C70081EF4B /* iOSSwiftPayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSSwiftPayUITests.swift; sourceTree = "<group>"; };
 		A74B810D24EB06C70081EF4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A74B811924EB0C970081EF4B /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		A7A2D8EA250FA7CF00A10DBB /* ValidationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationService.swift; sourceTree = "<group>"; };
+		A7A2D8EC25103A8800A10DBB /* ValidationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationServiceTests.swift; sourceTree = "<group>"; };
 		A7C0A7DF250AE7D60019A841 /* SignInVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		A7C0A7E2250AEB070019A841 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A7C0A7E3250AEB090019A841 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -155,6 +159,7 @@
 			children = (
 				A74B810024EB06C70081EF4B /* iOSSwiftPayTests.swift */,
 				A74B810224EB06C70081EF4B /* Info.plist */,
+				A7A2D8EC25103A8800A10DBB /* ValidationServiceTests.swift */,
 			);
 			path = iOSSwiftPayTests;
 			sourceTree = "<group>";
@@ -182,6 +187,7 @@
 			children = (
 				A7C0A7E2250AEB070019A841 /* Constants.swift */,
 				A7C0A7E3250AEB090019A841 /* Utilities.swift */,
+				A7A2D8EA250FA7CF00A10DBB /* ValidationService.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -369,6 +375,7 @@
 				A74B811A24EB0C970081EF4B /* Client.swift in Sources */,
 				A74B80EC24EB06C40081EF4B /* SceneDelegate.swift in Sources */,
 				A7C0A7E0250AE7D60019A841 /* SignInVC.swift in Sources */,
+				A7A2D8EB250FA7CF00A10DBB /* ValidationService.swift in Sources */,
 				A7C0A7E4250AEB090019A841 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -377,6 +384,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7A2D8ED25103A8800A10DBB /* ValidationServiceTests.swift in Sources */,
 				A74B810124EB06C70081EF4B /* iOSSwiftPayTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

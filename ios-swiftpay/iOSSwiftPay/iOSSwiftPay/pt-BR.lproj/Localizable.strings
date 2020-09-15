@@ -8,3 +8,10 @@
 "passwordPlaceholder" = "Insira a senha";
 "signInBtnText" = "Entrar";
 "createAccountBtnText" = "Criar Conta";
+"copyright" = "2020 desenvolvido por Leonardo Panta Leão, leonardopspl@gmail.com";
+"invalidValue" = "Você inseriu um valor inválido.";
+"passwordTooLong" = "Sua senha é muito longa.";
+"passwordTooShort" = "Sua senha é muito curta.";
+"usernameTooLong" = "Seu nome de usuário é muito longo.";
+"usernameTooShort" = "Seu nome de usuário é muito curto.";
+"notValidPassword" = "A senha deve ser maior que 8 ou menor que 20 caracteres e conter ao menos um caractere especial.";
