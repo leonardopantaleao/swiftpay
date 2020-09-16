@@ -27,6 +27,19 @@ class SignInVC: UIViewController {
         errorStatusLabel.alpha = 0
     }
     
+    @IBAction func SignInBtnTapped(_ sender: Any) {
+        errorStatusLabel.alpha = 0
+        do{
+            guard let email = try? validation.validateEmail(emailTxField.text) else { throw ValidationError.emailNotValid }
+            guard let password = try? validation.validatePassword(passwordTxField.text) else { throw ValidationError.passwordNotValid }
+        } catch
+        {
+            errorStatusLabel.alpha = 1
+            errorStatusLabel.text = error.localizedDescription
+        }
+            
+    }
+    
     init(validation: ValidationService) {
         self.validation = validation
         super.init(nibName: nil, bundle: nil)

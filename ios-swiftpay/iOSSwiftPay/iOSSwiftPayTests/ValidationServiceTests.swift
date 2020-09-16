@@ -41,7 +41,7 @@ class ValidationServiceTests: XCTestCase {
     }
     
     func test_password_too_short() throws {
-        let expectedError = ValidationError.passwordTooShort
+        let expectedError = ValidationError.passwordNotValid
         var error: ValidationError?
         
         XCTAssertThrowsError(try validation.validatePassword("leo")) { thrownError in
@@ -54,7 +54,7 @@ class ValidationServiceTests: XCTestCase {
     }
     
     func test_password_too_long() throws {
-        let expectedError = ValidationError.passwordTooLong
+        let expectedError = ValidationError.passwordNotValid
         var error: ValidationError?
         let password = "teste senha muito longa"
         
@@ -67,5 +67,24 @@ class ValidationServiceTests: XCTestCase {
         XCTAssertEqual(expectedError, error)
         
         XCTAssertEqual(expectedError.errorDescription, error?.errorDescription)
+    }
+    
+    func test_email_is_nil() throws {
+        let expectedError = ValidationError.invalidValue
+        var error: ValidationError?
+        
+        XCTAssertThrowsError(try validation.validateEmail(nil)) { throwError in
+            error = throwError as? ValidationError
+        }
+        
+        XCTAssertEqual(expectedError, error)
+        XCTAssertEqual(expectedError.errorDescription, error?.errorDescription)
+    }
+    
+    func test_is_valid_email() throws {
+        XCTAssertNoThrow(try validation.validateEmail("leonardopspl@gmail.com"))
+        XCTAssertThrowsError(try validation.validateEmail("teste.com"))
+        XCTAssertThrowsError(try validation.validateEmail(".@com"))
+        XCTAssertThrowsError(try validation.validateEmail("leo@com.1"))
     }
 }

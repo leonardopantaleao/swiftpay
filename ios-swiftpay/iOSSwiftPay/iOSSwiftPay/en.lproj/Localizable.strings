@@ -10,8 +10,5 @@
 "createAccountBtnText" = "Create Account";
 "copyright" = "2020 developed by Leonardo Panta Leão, leonardopspl@gmail.com";
 "invalidValue" = "You have entered an invalid value.";
-"passwordTooLong" = "Your password is too long.";
-"passwordTooShort" = "Your password is too short.";
-"usernameTooLong" = "Your username is too long.";
-"usernameTooShort" = "Your username is too short.";
 "notValidPassword" = "Password must be greater than 8 or less than 20 characters long and having at least one special character.";
+"notValidEmail" = "You have entered an invalid e-mail.";

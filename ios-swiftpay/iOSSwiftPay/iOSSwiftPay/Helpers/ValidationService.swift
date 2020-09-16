@@ -9,19 +9,17 @@
 import Foundation
 
 struct ValidationService {
-    func validateUsername(_ username: String?) throws -> String {
-        guard let username = username else { throw ValidationError.invalidValue }
-        guard username.count > 3 else { throw ValidationError.usernameTooShort }
-        guard username.count < 20 else { throw ValidationError.usernameTooLong }
-        return username
-    }
     
     func validatePassword(_ password: String?) throws -> String {
         guard let password = password else { throw ValidationError.invalidValue }
-        guard password.count >= 8 else { throw ValidationError.passwordTooShort }
-        guard password.count < 20 else { throw ValidationError.passwordTooLong }
         guard isPasswordValid(password) else { throw ValidationError.passwordNotValid }
         return password
+    }
+    
+    func validateEmail(_ email: String?) throws -> String {
+        guard let email = email else { throw ValidationError.invalidValue }
+        guard isEmailValid(email) else { throw ValidationError.emailNotValid }
+        return email
     }
 }
 
@@ -31,28 +29,26 @@ func isPasswordValid(_ password : String) -> Bool {
     return passwordTest.evaluate(with: password)
 }
 
+func isEmailValid(_ email: String) -> Bool {
+    let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+
+    let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+    return emailPred.evaluate(with: email)
+}
+
 enum ValidationError: LocalizedError {
     case invalidValue
-    case passwordTooLong
-    case passwordTooShort
-    case usernameTooLong
-    case usernameTooShort
     case passwordNotValid
+    case emailNotValid
     
     var errorDescription: String? {
         switch self {
         case .invalidValue:
             return NSLocalizedString("invalidValue", comment: "error message")
-        case .passwordTooLong:
-            return NSLocalizedString("passwordTooLong", comment: "error message")
-        case .passwordTooShort:
-            return NSLocalizedString("passwordTooShort", comment: "error message")
-        case .usernameTooLong:
-            return NSLocalizedString("usernameTooLong", comment: "error message")
-        case .usernameTooShort:
-            return NSLocalizedString("usernameTooShort", comment: "error message")
         case .passwordNotValid:
             return NSLocalizedString("notValidPassword", comment: "error message")
+        case .emailNotValid:
+            return NSLocalizedString("notValidEmail", comment: "error message")
         }
     }
 }
