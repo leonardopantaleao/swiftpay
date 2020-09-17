@@ -12,3 +12,6 @@
 "invalidValue" = "You have entered an invalid value.";
 "notValidPassword" = "Password must be greater than 8 or less than 20 characters long and having at least one special character.";
 "notValidEmail" = "You have entered an invalid e-mail.";
+"firebaseNoUserFound" = "User not found.";
+"firebaseWrongPassword" = "Wrong password, check if you typed it correctly";
+"firebaseNoConnection" = "Couldn't connect to database, check your connection and try again later.";

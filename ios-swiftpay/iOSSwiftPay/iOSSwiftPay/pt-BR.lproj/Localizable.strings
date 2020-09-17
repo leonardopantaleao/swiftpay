@@ -12,3 +12,6 @@
 "invalidValue" = "Você inseriu um valor inválido.";
 "notValidPassword" = "A senha deve ser maior que 8 ou menor que 20 caracteres e conter ao menos um caractere especial.";
 "notValidEmail" = "Você inseriu um e-mail inválido";
+"firebaseNoUserFound" = "Usuário não encontrado.";
+"firebaseWrongPassword" = "Senha incorreta, verifique se você digitou corretamente.";
+"firebaseNoConnection" = "Não foi possível acessar o banco de dados, verifique sua conexão e tente novamente mais tarde.";

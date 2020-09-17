@@ -10,5 +10,16 @@
             </PersistentString>
          </PersistentStrings>
       </ContextState>
+      <ContextState
+         contextName = "closure #1 in SignInVC.SignInBtnTapped(_:):SignInVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "(error as NSError)">
+            </PersistentString>
+            <PersistentString
+               value = "(error as NSError).domain">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
    </ContextStates>
 </VariablesViewState>

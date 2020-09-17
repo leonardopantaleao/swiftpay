@@ -40,6 +40,9 @@ enum ValidationError: LocalizedError {
     case invalidValue
     case passwordNotValid
     case emailNotValid
+    case firebaseNoUserFound
+    case firebaseWrongPassword
+    case firebaseNoConnection
     
     var errorDescription: String? {
         switch self {
@@ -49,6 +52,12 @@ enum ValidationError: LocalizedError {
             return NSLocalizedString("notValidPassword", comment: "error message")
         case .emailNotValid:
             return NSLocalizedString("notValidEmail", comment: "error message")
+        case .firebaseNoUserFound:
+            return NSLocalizedString("firebaseNoUserFound", comment: "error message")
+        case .firebaseWrongPassword:
+            return NSLocalizedString("firebaseWrongPassword", comment: "error message")
+        case .firebaseNoConnection:
+            return NSLocalizedString("firebaseNoConnection", comment: "error message")
         }
     }
 }

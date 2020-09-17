@@ -64,6 +64,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-iOSSwiftPay.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-iOSSwiftPayTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>

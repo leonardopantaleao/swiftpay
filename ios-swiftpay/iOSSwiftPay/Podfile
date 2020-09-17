@@ -1,11 +1,14 @@
 # Uncomment the next line to define a global platform for your project
 platform :ios, '13.5'
 
-  target 'iOSSwiftPayTests' do
-    use_frameworks!
-  	pod 'iOSSnapshotTestCase'
+  target 'iOSSwiftPay' do
   	pod 'Firebase/Analytics'
   	pod 'Firebase/Auth'
   	pod 'Firebase/Core'
   	pod 'Firebase/Firestore'
+  end
+
+  target 'iOSSwiftPayTests' do
+    use_frameworks!
+  	pod 'iOSSnapshotTestCase'
   end
