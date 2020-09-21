@@ -30,23 +30,59 @@ class SignInVCTests: XCTestCase {
     {
         let expectation = self.expectation(description: "Login")
         let expectedUserId = "xbgUvnvbb1P4CGdTaRS240S8IjU2"
-        var userId : String = ""
-        try? userLogin.signUp("panta@test.com", "funciona01#", validationService, completionHandler: { result in
-            userId = result
+        var signUpResult : String = ""
+        userLogin.signUp("panta@test.com", "funciona01#", validationService, completionHandler: { result in
+            switch result {
+            case .success(let uid):
+                signUpResult = uid
+            case .failure(let error):
+                signUpResult = error.localizedDescription
+            }
             expectation.fulfill()
         })
         waitForExpectations(timeout: 25, handler: nil)
-        XCTAssertEqual(expectedUserId, userId)
-    }
-    
-    func testLoginCorrectEmailAndPassword()
-    {
-        
+        XCTAssertEqual(expectedUserId, signUpResult)
     }
     
     func testLoginWrongPassword()
     {
-        
+        let expectedError = ValidationError.firebaseWrongPassword
+        let expectation = self.expectation(description: "Login")
+        var signUpResult : String = ""
+        var signUpError : ValidationError?
+        userLogin.signUp("panta@test.com", "funciona01!!", validationService, completionHandler: { result in
+            switch result {
+            case .success(let uid):
+                signUpResult = uid
+            case .failure(let error):
+                signUpError = error
+            }
+            expectation.fulfill()
+        })
+        waitForExpectations(timeout: 25, handler: nil)
+        XCTAssertEqual(expectedError, signUpError)
+        XCTAssertEqual(expectedError.errorDescription, signUpError?.errorDescription)
+        XCTAssertEqual("", signUpResult)
     }
     
+    func testLoginNoUserFound()
+    {
+        let expectedError = ValidationError.firebaseNoUserFound
+        let expectation = self.expectation(description: "Login")
+        var signUpResult : String = ""
+        var signUpError : ValidationError?
+        userLogin.signUp("nouser@test.com", "funciona01!!", validationService, completionHandler: { result in
+            switch result {
+            case .success(let uid):
+                signUpResult = uid
+            case .failure(let error):
+                signUpError = error
+            }
+            expectation.fulfill()
+        })
+        waitForExpectations(timeout: 25, handler: nil)
+        XCTAssertEqual(expectedError, signUpError)
+        XCTAssertEqual(expectedError.errorDescription, signUpError?.errorDescription)
+        XCTAssertEqual("", signUpResult)
+    }
 }
