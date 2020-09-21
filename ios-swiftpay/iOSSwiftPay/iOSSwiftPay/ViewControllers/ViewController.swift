@@ -52,7 +52,7 @@ class ViewController: UITableViewController {
         let client = clients[indexPath.row]
         
         cell.textLabel?.text = "\(client.name)"
-        cell.detailTextLabel?.text = "\(client.cpf)"
+//        cell.detailTextLabel?.text = "\(client.cpf)"
         
         return cell
     }

@@ -28,10 +28,14 @@ class SignInVCTests: XCTestCase {
     
     func testLoginSuccessfully()
     {
+        let email = "panta@test.com"
+        let password = "funciona01#"
+        XCTAssertNoThrow(try? validationService.validateEmail(email))
+        XCTAssertNoThrow(try? validationService.validatePassword(password))
         let expectation = self.expectation(description: "Login")
         let expectedUserId = "xbgUvnvbb1P4CGdTaRS240S8IjU2"
         var signUpResult : String = ""
-        userLogin.signUp("panta@test.com", "funciona01#", validationService, completionHandler: { result in
+        userLogin.signUp(email, password, completionHandler: { result in
             switch result {
             case .success(let uid):
                 signUpResult = uid
@@ -46,11 +50,15 @@ class SignInVCTests: XCTestCase {
     
     func testLoginWrongPassword()
     {
+        let email = "panta@test.com"
+        let password = "funciona01!!"
+        XCTAssertNoThrow(try? validationService.validateEmail(email))
+        XCTAssertNoThrow(try? validationService.validatePassword(password))
         let expectedError = ValidationError.firebaseWrongPassword
         let expectation = self.expectation(description: "Login")
         var signUpResult : String = ""
         var signUpError : ValidationError?
-        userLogin.signUp("panta@test.com", "funciona01!!", validationService, completionHandler: { result in
+        userLogin.signUp(email, password, completionHandler: { result in
             switch result {
             case .success(let uid):
                 signUpResult = uid
@@ -67,11 +75,15 @@ class SignInVCTests: XCTestCase {
     
     func testLoginNoUserFound()
     {
+        let email = "nouser@test.com"
+        let password = "funciona01!!"
+        XCTAssertNoThrow(try? validationService.validateEmail(email))
+        XCTAssertNoThrow(try? validationService.validatePassword(password))
         let expectedError = ValidationError.firebaseNoUserFound
         let expectation = self.expectation(description: "Login")
         var signUpResult : String = ""
         var signUpError : ValidationError?
-        userLogin.signUp("nouser@test.com", "funciona01!!", validationService, completionHandler: { result in
+        userLogin.signUp(email, password, completionHandler: { result in
             switch result {
             case .success(let uid):
                 signUpResult = uid
@@ -85,4 +97,5 @@ class SignInVCTests: XCTestCase {
         XCTAssertEqual(expectedError.errorDescription, signUpError?.errorDescription)
         XCTAssertEqual("", signUpResult)
     }
+    
 }

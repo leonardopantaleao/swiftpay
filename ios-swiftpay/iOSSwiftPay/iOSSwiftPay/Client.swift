@@ -10,7 +10,9 @@ import Foundation
 
 
 struct Client: Codable{
-    var id: Int
     var name: String
-    var cpf: String
+    var lastName: String
+    var dateOfBirth: Date
+    var email: String
+    var uid: String
 }
