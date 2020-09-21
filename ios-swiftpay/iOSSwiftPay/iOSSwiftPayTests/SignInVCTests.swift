@@ -31,7 +31,7 @@ class SignInVCTests: XCTestCase {
         let expectation = self.expectation(description: "Login")
         let expectedUserId = "xbgUvnvbb1P4CGdTaRS240S8IjU2"
         var userId : String = ""
-        userLogin.signUp("panta@test.com", "funciona01#", validationService, completionHandler: { result in
+        try? userLogin.signUp("panta@test.com", "funciona01#", validationService, completionHandler: { result in
             userId = result
             expectation.fulfill()
         })
