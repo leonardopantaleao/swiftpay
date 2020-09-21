@@ -7,32 +7,48 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "70C1C27D-3FB0-4025-90FC-09ABFEE51FC8"
+            uuid = "A702E7B9-D0F3-48F5-93B0-EE4D810201EB"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "iOSSwiftPay/ViewControllers/SignInVC.swift"
+            filePath = "iOSSwiftPay/Helpers/UserLogin.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "SignInBtnTapped(_:)"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "signUpFunc(_:_:_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "807ECF0F-FFD6-4CF5-AC97-AF2CA97620E5"
+            uuid = "87D1433B-3A13-4EC3-9ADA-B2E586C975BB"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "iOSSwiftPay/ViewControllers/SignInVC.swift"
+            filePath = "iOSSwiftPay/Helpers/UserLogin.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "53"
             endingLineNumber = "53"
-            landmarkName = "SignInBtnTapped(_:)"
+            landmarkName = "signUpFunc(_:_:_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A034D811-A828-45D5-AF92-FBED3756D9FD"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iOSSwiftPay/Helpers/UserLogin.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "signUpFunc(_:_:_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

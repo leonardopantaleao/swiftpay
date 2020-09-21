@@ -7,6 +7,7 @@
 //
 
 @testable import iOSSwiftPay
+import Firebase
 import XCTest
 
 

@@ -18,6 +18,8 @@
 		A74B810124EB06C70081EF4B /* iOSSwiftPayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74B810024EB06C70081EF4B /* iOSSwiftPayTests.swift */; };
 		A74B810C24EB06C70081EF4B /* iOSSwiftPayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74B810B24EB06C70081EF4B /* iOSSwiftPayUITests.swift */; };
 		A74B811A24EB0C970081EF4B /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74B811924EB0C970081EF4B /* Client.swift */; };
+		A7509BC4251451F6006C51B6 /* SignInVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7509BC3251451F6006C51B6 /* SignInVCTests.swift */; };
+		A7659106251503BF00C646B4 /* UserLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7659105251503BF00C646B4 /* UserLogin.swift */; };
 		A796D63C25119BA500974974 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A796D63B25119BA400974974 /* GoogleService-Info.plist */; };
 		A7A2D8EB250FA7CF00A10DBB /* ValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A2D8EA250FA7CF00A10DBB /* ValidationService.swift */; };
 		A7A2D8ED25103A8800A10DBB /* ValidationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A2D8EC25103A8800A10DBB /* ValidationServiceTests.swift */; };
@@ -65,6 +67,8 @@
 		A74B810B24EB06C70081EF4B /* iOSSwiftPayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSSwiftPayUITests.swift; sourceTree = "<group>"; };
 		A74B810D24EB06C70081EF4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A74B811924EB0C970081EF4B /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		A7509BC3251451F6006C51B6 /* SignInVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVCTests.swift; sourceTree = "<group>"; };
+		A7659105251503BF00C646B4 /* UserLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLogin.swift; sourceTree = "<group>"; };
 		A796D63B25119BA400974974 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A79A1D8B25126F4A0035C80F /* FirebaseAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A79A1D8F25126F670035C80F /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -181,6 +185,7 @@
 				A74B810024EB06C70081EF4B /* iOSSwiftPayTests.swift */,
 				A74B810224EB06C70081EF4B /* Info.plist */,
 				A7A2D8EC25103A8800A10DBB /* ValidationServiceTests.swift */,
+				A7509BC3251451F6006C51B6 /* SignInVCTests.swift */,
 			);
 			path = iOSSwiftPayTests;
 			sourceTree = "<group>";
@@ -209,6 +214,7 @@
 				A7C0A7E2250AEB070019A841 /* Constants.swift */,
 				A7C0A7E3250AEB090019A841 /* Utilities.swift */,
 				A7A2D8EA250FA7CF00A10DBB /* ValidationService.swift */,
+				A7659105251503BF00C646B4 /* UserLogin.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -434,6 +440,7 @@
 			files = (
 				A74B80EE24EB06C40081EF4B /* ViewController.swift in Sources */,
 				A74B80EA24EB06C40081EF4B /* AppDelegate.swift in Sources */,
+				A7659106251503BF00C646B4 /* UserLogin.swift in Sources */,
 				A7C0A7E5250AEB090019A841 /* Utilities.swift in Sources */,
 				A74B811A24EB0C970081EF4B /* Client.swift in Sources */,
 				A74B80EC24EB06C40081EF4B /* SceneDelegate.swift in Sources */,
@@ -447,6 +454,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7509BC4251451F6006C51B6 /* SignInVCTests.swift in Sources */,
 				A7A2D8ED25103A8800A10DBB /* ValidationServiceTests.swift in Sources */,
 				A74B810124EB06C70081EF4B /* iOSSwiftPayTests.swift in Sources */,
 			);

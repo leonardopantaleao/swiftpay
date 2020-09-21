@@ -77,8 +77,8 @@ class SignInVC: UIViewController {
                             self.errorStatusLabel.alpha = 1
                             self.errorStatusLabel.text = "Logou!"
                         }
-                        self.toggleActivityIndicator(false)
                     }
+            self.toggleActivityIndicator(false)
         } catch
         {
             toggleActivityIndicator(false)
