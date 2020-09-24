@@ -11,5 +11,8 @@ import Vapor
 struct Client: Content, SQLiteModel, Migration {
     var id: Int?
     var name: String
-    var cpf: String
+    var lastName: String
+    var dateOfBirth: Date
+    var email: String
+    var uid: String
 }

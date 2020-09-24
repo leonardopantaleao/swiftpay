@@ -5,13 +5,16 @@
 <ul>
 	#for(client in clients){
 		<li>#(client.name)</li>
+        <li>#(client.lastName)</li>
+        <li>#(client.uid)</li>
+        <li>#(client.email)</li>
 	}
 </ul>
 
 <h2>Adicionar cliente</h2>
 <form method="post" action="/add">
 	<p>Nome: <input type="text" name="name" /></p>
-	<p>Cpf: <input type="text" name="cpf"/></p>
+	<p>Email: <input type="text" name="email"/></p>
 	<button type="submit">Adicionar</button>
 </form>
 
