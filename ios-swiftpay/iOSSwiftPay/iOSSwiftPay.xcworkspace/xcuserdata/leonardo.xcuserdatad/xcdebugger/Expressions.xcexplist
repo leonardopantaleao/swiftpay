@@ -3,6 +3,31 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "closure #1 in SignInVC.SignInBtnTapped(_:):SignInVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "(error as NSError)">
+            </PersistentString>
+            <PersistentString
+               value = "(error as NSError).domain">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SignInVCTests.testCreateUserDB():UserLoginTests.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "">
+            </PersistentString>
+            <PersistentString
+               value = "components">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "UserLogin.createUserOnDB(_:_:_:_:_:completionHandler:):UserLogin.swift">
+      </ContextState>
+      <ContextState
          contextName = "ViewController.viewDidLoad():ViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -11,13 +36,13 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #1 in SignInVC.SignInBtnTapped(_:):SignInVC.swift">
+         contextName = "closure #1 in UserLogin.createUserOnDB(_:_:_:_:_:completionHandler:):UserLogin.swift">
          <PersistentStrings>
             <PersistentString
-               value = "(error as NSError)">
+               value = "request">
             </PersistentString>
             <PersistentString
-               value = "(error as NSError).domain">
+               value = "decoder.decode(Client.self, from: data) ">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

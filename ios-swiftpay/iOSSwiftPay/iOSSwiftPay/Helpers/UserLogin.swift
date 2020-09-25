@@ -38,7 +38,7 @@ struct UserLogin
         }
     }
     
-    func createUserOnDB(_ name: String?, _ lastName: String?, _ dateOfBirth: Date?, _ email: String?, _ uid: String?, completionHandler: @escaping (Result<String, Error>) -> ()){
+    func createUserOnDB(_ name: String?, _ lastName: String?, _ dateOfBirth: TimeInterval?, _ email: String?, _ uid: String?, completionHandler: @escaping (Result<String, Error>) -> ()){
         let client = Client(name: name!, lastName: lastName!, dateOfBirth: dateOfBirth!, email: email!, uid: uid!)
         let url = URL(string: "http://localhost:8080/add")!
         

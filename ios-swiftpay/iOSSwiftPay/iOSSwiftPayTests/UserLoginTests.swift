@@ -98,4 +98,58 @@ class SignInVCTests: XCTestCase {
         XCTAssertEqual("", signUpResult)
     }
     
+    func testCreateUserFirebase()
+    {
+        let email = "usuario_teste@test.com"
+        let password = "funciona01!!"
+        XCTAssertNoThrow(try? validationService.validateEmail(email))
+        XCTAssertNoThrow(try? validationService.validatePassword(password))
+        let expectation = self.expectation(description: "Login")
+        var userData: User?
+        var resultError: Error?
+        userLogin.createUserOnFirebase(email, password, completionHandler: { result in
+            switch result {
+            case .success(let user):
+                userData = user
+            case .failure(let error):
+                resultError = error
+            }
+            expectation.fulfill()
+        })
+        waitForExpectations(timeout: 25, handler: nil)
+        XCTAssertNotNil(userData)
+        XCTAssertEqual(userData?.email, email)
+        XCTAssertNil(resultError)
+    }
+    
+    func testCreateUserDB()
+    {
+        let email = "usuario_teste@test.com"
+        let uid = "Efdcb1nAxgN96BQxwAKIVWQpRMC2"
+        let calendar = Calendar.current
+        var components = DateComponents()
+        components.day = 25
+        components.month = 1
+        components.year = 1996
+        components.hour = 2
+        components.minute = 15
+        components.second = 10
+        let date = Calendar.current.startOfDay(for: calendar.date(from: components)!)
+        XCTAssertNoThrow(try? validationService.validateEmail(email))
+        let expectation = self.expectation(description: "Login")
+        var resultUid : String?
+        var resultError: Error?
+        userLogin.createUserOnDB("Teste", "Silva Sauro", date.timeIntervalSinceReferenceDate, email, uid, completionHandler: { result in
+            switch result {
+            case .success(let uid):
+                resultUid = uid
+            case .failure(let error):
+                resultError = error
+            }
+            expectation.fulfill()
+        })
+        waitForExpectations(timeout: 25, handler: nil)
+        XCTAssertEqual(resultUid, uid)
+        XCTAssertNil(resultError)
+    }
 }

@@ -12,7 +12,7 @@ import Foundation
 struct Client: Codable{
     var name: String
     var lastName: String
-    var dateOfBirth: Date
+    var dateOfBirth: TimeInterval
     var email: String
     var uid: String
 }
