@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-struct UserLogin
+struct UserLoginService
 {
     func signUp(_ email: String?, _ password: String?, completionHandler: @escaping (Result<String, ValidationError>) -> ()) {
         
@@ -52,7 +52,7 @@ struct UserLogin
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let data = data {
                 let decoder = JSONDecoder()
-
+                
                 if let client = try? decoder.decode(Client.self, from: data) {
                     completionHandler(.success(client.uid))
                 } else {
@@ -61,5 +61,25 @@ struct UserLogin
             }
         }.resume()
     }
+    
+    
+//    func createUserOnDB(_ name: String?, _ lastName: String?, _ dateOfBirth: TimeInterval?, _ email: String?, _ uid: String?, completionHandler: @escaping (Result<String, Error>) -> ()){
+//        let url = URL(string: "http://localhost:8080/client/" + uid!)!
+//
+//        var request = URLRequest(url: url)
+//        request.httpMethod = "POST"
+//
+//        URLSession.shared.dataTask(with: request) { data, response, error in
+//            if let data = data {
+//                let decoder = JSONDecoder()
+//
+//                if let client = try? decoder.decode(Client.self, from: data) {
+//                    completionHandler(.success(client.uid))
+//                } else {
+//                    completionHandler(.failure(error!))
+//                }
+//            }
+//        }.resume()
+//    }
 }
 

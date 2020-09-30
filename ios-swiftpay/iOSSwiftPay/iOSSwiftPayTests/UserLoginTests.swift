@@ -11,12 +11,12 @@ import Firebase
 import XCTest
 
 class SignInVCTests: XCTestCase {
-    var userLogin : UserLogin!
+    var userLogin : UserLoginService!
     var validationService: ValidationService!
     
     override func setUp() {
         super.setUp()
-        userLogin = UserLogin()
+        userLogin = UserLoginService()
         validationService = ValidationService()
     }
     
@@ -150,6 +150,43 @@ class SignInVCTests: XCTestCase {
         })
         waitForExpectations(timeout: 25, handler: nil)
         XCTAssertEqual(resultUid, uid)
+        XCTAssertNil(resultError)
+    }
+    
+    func testGetUserDataByUid()
+    {
+        let email = "usuario_teste@test.com"
+        let uid = "Efdcb1nAxgN96BQxwAKIVWQpRMC2"
+        let calendar = Calendar.current
+        var components = DateComponents()
+        components.day = 25
+        components.month = 1
+        components.year = 1996
+        components.hour = 2
+        components.minute = 15
+        components.second = 10
+        let date = Calendar.current.startOfDay(for: calendar.date(from: components)!)
+        let dateTimeInterval = date.timeIntervalSinceReferenceDate
+        XCTAssertNoThrow(try? validationService.validateEmail(email))
+        let expectedClient = Client(name: "Teste", lastName: "Silva Sauro", dateOfBirth: dateTimeInterval, email: email, uid: uid)
+        let expectation = self.expectation(description: "Login")
+        var resultClient : Client?
+        var resultError: Error?
+//        userLogin.getUserDataByUidOnDB(uid, completionHandler: { result in
+//            switch result {
+//            case .success(let client):
+//                resultClient = client
+//            case .failure(let error):
+//                resultError = error
+//            }
+//            expectation.fulfill()
+//        })
+        waitForExpectations(timeout: 25, handler: nil)
+        XCTAssertEqual(expectedClient.uid, resultClient!.uid)
+        XCTAssertEqual(expectedClient.email, resultClient!.email)
+        XCTAssertEqual(expectedClient.dateOfBirth, resultClient!.dateOfBirth)
+        XCTAssertEqual(expectedClient.name, resultClient!.name)
+        XCTAssertEqual(expectedClient.lastName, resultClient!.lastName)
         XCTAssertNil(resultError)
     }
 }

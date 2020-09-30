@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Constants {
     
@@ -16,5 +17,26 @@ struct Constants {
         
     }
     
+    struct ScreenInfo {
+        static let screenWidth = UIScreen.main.bounds.width
+        static let screenHeight = UIScreen.main.bounds.height
+    }
     
+    struct Assets {
+        static let swiftPayLogo = "swiftPayLogo"
+    }
+    
+    struct LocalizedStrings {
+        static let emailPlaceholder = "emailPlaceholder";
+        static let passwordPlaceholder = "passwordPlaceholder";
+        static let signInBtnText = "signInBtnText";
+        static let createAccountBtnText = "createAccountBtnText";
+        static let copyright = "copyright";
+        static let invalidValue = "invalidValue";
+        static let notValidPassword = "notValidPassword";
+        static let notValidEmail = "notValidEmail";
+        static let firebaseNoUserFound = "firebaseNoUserFound";
+        static let firebaseWrongPassword = "firebaseWrongPassword";
+        static let firebaseNoConnection = "firebaseNoConnection";
+    }
 }

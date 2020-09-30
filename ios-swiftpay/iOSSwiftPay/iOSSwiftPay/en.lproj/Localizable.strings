@@ -5,6 +5,7 @@
   Created by Leonardo on 10/09/20.
   Copyright © 2020 Leonardo. All rights reserved.
 */
+"emailPlaceholder" = "Insert your e-mail";
 "passwordPlaceholder" = "Insert password";
 "signInBtnText" = "Sign In";
 "createAccountBtnText" = "Create Account";

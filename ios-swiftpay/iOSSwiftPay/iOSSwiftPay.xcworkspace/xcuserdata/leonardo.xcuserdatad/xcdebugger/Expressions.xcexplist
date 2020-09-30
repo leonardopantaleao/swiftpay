@@ -3,13 +3,24 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "closure #1 in SignInVC.SignInBtnTapped(_:):SignInVC.swift">
+         contextName = "closure #1 in UserLogin.createUserOnDB(_:_:_:_:_:completionHandler:):UserLogin.swift">
          <PersistentStrings>
             <PersistentString
-               value = "(error as NSError)">
+               value = "request">
             </PersistentString>
             <PersistentString
-               value = "(error as NSError).domain">
+               value = "decoder.decode(Client.self, from: data) ">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SignInViewController.setPlaceholders():SignInViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "createAccountBtn">
+            </PersistentString>
+            <PersistentString
+               value = "signInBtn.bounds">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -25,6 +36,31 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "closure #1 in SignInVC.SignInBtnTapped(_:):SignInVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "(error as NSError)">
+            </PersistentString>
+            <PersistentString
+               value = "(error as NSError).domain">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "static Utilities.styleTextField(_:):Utilities.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "textfield.frame.width">
+            </PersistentString>
+            <PersistentString
+               value = "signInBtn">
+            </PersistentString>
+            <PersistentString
+               value = "textfield.frame">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "UserLogin.createUserOnDB(_:_:_:_:_:completionHandler:):UserLogin.swift">
       </ContextState>
       <ContextState
@@ -36,13 +72,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #1 in UserLogin.createUserOnDB(_:_:_:_:_:completionHandler:):UserLogin.swift">
+         contextName = "SignInViewController.setUpLayout():SignInViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "request">
-            </PersistentString>
-            <PersistentString
-               value = "decoder.decode(Client.self, from: data) ">
+               value = "signInBtn">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
