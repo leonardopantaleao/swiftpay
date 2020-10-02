@@ -8,7 +8,23 @@
 
 import UIKit
 
-class SignInViewController: UIViewController {
+class SignInViewController: UIViewController, SignInViewDelagate {
+    private let signInPresenter = SignInPresenter();
+    
+    func toggleLoading(show: (Bool)) {
+        if show{
+            signInActivityIndicator?.startAnimating()
+        }
+        else{
+            signInActivityIndicator?.stopAnimating()
+        }
+    }
+    
+    let signInActivityIndicator: UIActivityIndicatorView? = {
+        let indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        indicator.hidesWhenStopped = true
+        return indicator
+    }()
     
     let swiftPayLogoImage : UIImageView = {
         let image = UIImage(named: Constants.Assets.swiftPayLogo)
@@ -62,6 +78,7 @@ class SignInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        signInPresenter.setViewDelegate(signInViewDelagate: self)
         addSubViews()
         setPlaceholders()
         setUpLayout()
@@ -72,6 +89,7 @@ class SignInViewController: UIViewController {
     private func addSubViews(){
         view.addSubview(swiftPayLogoImage)
         view.addSubview(formStackView)
+        formStackView.addArrangedSubview(signInActivityIndicator!)
         formStackView.addArrangedSubview(emailTxField)
         formStackView.addArrangedSubview(passwordTxField)
         formStackView.addArrangedSubview(signInBtn)
@@ -110,7 +128,7 @@ class SignInViewController: UIViewController {
     }
     
     @objc func signInBtnTapped(sender: UIButton!){
-        
+        signInPresenter.SignIn();
     }
     
     private func styleVisualElements()

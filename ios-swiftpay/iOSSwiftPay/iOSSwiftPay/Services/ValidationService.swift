@@ -47,17 +47,17 @@ enum ValidationError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .invalidValue:
-            return NSLocalizedString("invalidValue", comment: "error message")
+            return NSLocalizedString(Constants.LocalizedStrings.invalidValue, comment: "error message")
         case .passwordNotValid:
-            return NSLocalizedString("notValidPassword", comment: "error message")
+            return NSLocalizedString(Constants.LocalizedStrings.notValidPassword, comment: "error message")
         case .emailNotValid:
-            return NSLocalizedString("notValidEmail", comment: "error message")
+            return NSLocalizedString(Constants.LocalizedStrings.notValidEmail, comment: "error message")
         case .firebaseNoUserFound:
-            return NSLocalizedString("firebaseNoUserFound", comment: "error message")
+            return NSLocalizedString(Constants.LocalizedStrings.firebaseNoUserFound, comment: "error message")
         case .firebaseWrongPassword:
-            return NSLocalizedString("firebaseWrongPassword", comment: "error message")
+            return NSLocalizedString(Constants.LocalizedStrings.firebaseWrongPassword, comment: "error message")
         case .firebaseNoConnection:
-            return NSLocalizedString("firebaseNoConnection", comment: "error message")
+            return NSLocalizedString(Constants.LocalizedStrings.firebaseNoConnection, comment: "error message")
         }
     }
 }
