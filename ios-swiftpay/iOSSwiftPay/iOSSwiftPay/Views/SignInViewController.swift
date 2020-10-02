@@ -9,7 +9,18 @@
 import UIKit
 
 class SignInViewController: UIViewController, SignInViewDelagate {
-    private let signInPresenter = SignInPresenter();
+    
+    private let signInPresenter = SignInPresenter()
+    private let firebaseClient: FirebaseClientProtocol
+    
+    init(firebaseClient: FirebaseClientProtocol) {
+        self.firebaseClient = firebaseClient
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     func toggleLoading(show: (Bool)) {
         if show{
