@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-final class DatabaseClient : DatabaseClientProtocol{
+final class FirebaseFirestoreClient : ClientProtocol{
     init() {}
     func signIn(_ email: String?, _ password: String?, completionHandler: @escaping (Result<String, ValidationError>) -> ()) {
         

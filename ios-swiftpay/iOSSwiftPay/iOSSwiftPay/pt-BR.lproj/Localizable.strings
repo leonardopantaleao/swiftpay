@@ -16,3 +16,6 @@
 "firebaseNoUserFound" = "Usuário não encontrado.";
 "firebaseWrongPassword" = "Senha incorreta, verifique se você digitou corretamente.";
 "firebaseNoConnection" = "Não foi possível acessar o banco de dados, verifique sua conexão e tente novamente mais tarde.";
+"namePlaceholder" = "Insira seu nome";
+"lastNamePlaceholder" = "Insira seu sobrenome";
+"logOff" = "Sair";

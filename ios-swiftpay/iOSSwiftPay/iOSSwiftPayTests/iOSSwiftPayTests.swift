@@ -16,7 +16,8 @@ class iOSSwiftPayTests: FBSnapshotTestCase {
     
     override func setUp(){
         super.setUp()
-        sut = SignInViewController()
+        let firebaseClient = FirebaseFirestoreClient()
+        sut = SignInViewController(firebaseClient: firebaseClient)
         recordMode = false
     }
     

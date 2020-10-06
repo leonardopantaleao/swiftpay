@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol DatabaseClientProtocol {
+protocol ClientProtocol {
     func signIn(_ email: String?, _ password: String?, completionHandler: @escaping (Result<String, ValidationError>) -> ())
 }

@@ -12,6 +12,7 @@ import Firebase
 struct UserLoginService
 {
     func signUp(_ email: String?, _ password: String?, completionHandler: @escaping (Result<String, ValidationError>) -> ()) {
+        let validationService = ValidationService()
         
         Auth.auth().signIn(withEmail: email!, password: password!, completion: { (result, error) in
             if error != nil {

@@ -27,6 +27,8 @@ struct Constants {
     }
     
     struct LocalizedStrings {
+        static let namePlaceholder = "namePlaceholder";
+        static let lastNamePlaceholder = "lastNamePlaceholder";
         static let emailPlaceholder = "emailPlaceholder";
         static let passwordPlaceholder = "passwordPlaceholder";
         static let signInBtnText = "signInBtnText";
@@ -38,5 +40,6 @@ struct Constants {
         static let firebaseNoUserFound = "firebaseNoUserFound";
         static let firebaseWrongPassword = "firebaseWrongPassword";
         static let firebaseNoConnection = "firebaseNoConnection";
+        static let logOff = "logOff";
     }
 }
