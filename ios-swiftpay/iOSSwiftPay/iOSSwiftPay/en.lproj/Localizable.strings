@@ -19,3 +19,6 @@
 "namePlaceholder" = "Insert your name";
 "lastNamePlaceholder" = "Insert your last name";
 "logOff" = "Log off";
+"moneyTransfer" = "Send money";
+"moneyDeposit" = "Deposit money";
+"insertAmount" = "Insert amount";

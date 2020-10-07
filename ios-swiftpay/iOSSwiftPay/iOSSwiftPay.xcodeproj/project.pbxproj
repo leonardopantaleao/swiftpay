@@ -11,6 +11,7 @@
 		51DEF4FF5B2E770632C91729 /* libPods-iOSSwiftPay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C1763E539EE432954D678A4F /* libPods-iOSSwiftPay.a */; };
 		A73F61BD252CCFFC00F6C75B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73F61BC252CCFFC00F6C75B /* SignUpViewController.swift */; };
 		A73F61BF252CDAF500F6C75B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73F61BE252CDAF500F6C75B /* SettingsViewController.swift */; };
+		A73F61C1252CE87900F6C75B /* TransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73F61C0252CE87900F6C75B /* TransferViewController.swift */; };
 		A74B80EA24EB06C40081EF4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74B80E924EB06C40081EF4B /* AppDelegate.swift */; };
 		A74B80EC24EB06C40081EF4B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74B80EB24EB06C40081EF4B /* SceneDelegate.swift */; };
 		A74B80EE24EB06C40081EF4B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74B80ED24EB06C40081EF4B /* ViewController.swift */; };
@@ -61,6 +62,7 @@
 		A736C20624EF4BAB00B07FDA /* FBSnapshotTestCase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSnapshotTestCase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A73F61BC252CCFFC00F6C75B /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		A73F61BE252CDAF500F6C75B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		A73F61C0252CE87900F6C75B /* TransferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferViewController.swift; sourceTree = "<group>"; };
 		A74B80E624EB06C40081EF4B /* iOSSwiftPay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSSwiftPay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A74B80E924EB06C40081EF4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A74B80EB24EB06C40081EF4B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 				A7B99E4E25236C900049B625 /* SignInViewController.swift */,
 				A73F61BC252CCFFC00F6C75B /* SignUpViewController.swift */,
 				A73F61BE252CDAF500F6C75B /* SettingsViewController.swift */,
+				A73F61C0252CE87900F6C75B /* TransferViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -513,6 +516,7 @@
 				A7C0A7E0250AE7D60019A841 /* SignInVC.swift in Sources */,
 				A7A2D8EB250FA7CF00A10DBB /* ValidationService.swift in Sources */,
 				A793C2A42526BA1000AE0DB2 /* FirebaseFirestoreClient.swift in Sources */,
+				A73F61C1252CE87900F6C75B /* TransferViewController.swift in Sources */,
 				A7B99E4F25236C900049B625 /* SignInViewController.swift in Sources */,
 				A7C0A7E4250AEB090019A841 /* Constants.swift in Sources */,
 			);

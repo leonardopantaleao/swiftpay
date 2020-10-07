@@ -24,22 +24,27 @@ struct Constants {
     
     struct Assets {
         static let swiftPayLogo = "swiftPayLogo"
+        static let moneyTransfer = "moneyTransfer"
+        static let moneyDeposit = "moneyDeposit"
     }
     
     struct LocalizedStrings {
-        static let namePlaceholder = "namePlaceholder";
-        static let lastNamePlaceholder = "lastNamePlaceholder";
-        static let emailPlaceholder = "emailPlaceholder";
-        static let passwordPlaceholder = "passwordPlaceholder";
-        static let signInBtnText = "signInBtnText";
-        static let createAccountBtnText = "createAccountBtnText";
-        static let copyright = "copyright";
-        static let invalidValue = "invalidValue";
-        static let notValidPassword = "notValidPassword";
-        static let notValidEmail = "notValidEmail";
-        static let firebaseNoUserFound = "firebaseNoUserFound";
-        static let firebaseWrongPassword = "firebaseWrongPassword";
-        static let firebaseNoConnection = "firebaseNoConnection";
-        static let logOff = "logOff";
+        static let namePlaceholder = "namePlaceholder"
+        static let lastNamePlaceholder = "lastNamePlaceholder"
+        static let emailPlaceholder = "emailPlaceholder"
+        static let passwordPlaceholder = "passwordPlaceholder"
+        static let signInBtnText = "signInBtnText"
+        static let createAccountBtnText = "createAccountBtnText"
+        static let copyright = "copyright"
+        static let invalidValue = "invalidValue"
+        static let notValidPassword = "notValidPassword"
+        static let notValidEmail = "notValidEmail"
+        static let firebaseNoUserFound = "firebaseNoUserFound"
+        static let firebaseWrongPassword = "firebaseWrongPassword"
+        static let firebaseNoConnection = "firebaseNoConnection"
+        static let logOff = "logOff"
+        static let moneyTransfer = "moneyTransfer"
+        static let moneyDeposit = "moneyDeposit"
+        static let insertAmount = "insertAmount"
     }
 }
