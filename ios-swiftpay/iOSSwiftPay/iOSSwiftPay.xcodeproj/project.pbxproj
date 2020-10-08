@@ -26,6 +26,7 @@
 		A75AEBA8252DEA31001532B6 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75AEBA7252DEA31001532B6 /* UserInfoViewController.swift */; };
 		A75AEBAA252E5514001532B6 /* MoneyTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75AEBA9252E5514001532B6 /* MoneyTransaction.swift */; };
 		A75AEBAE252E6A7C001532B6 /* MoneyTransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75AEBAD252E6A7C001532B6 /* MoneyTransactionTableViewCell.swift */; };
+		A76070FC252F5E1B0095611F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76070FB252F5E1B0095611F /* HomeViewController.swift */; };
 		A7659106251503BF00C646B4 /* UserLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7659105251503BF00C646B4 /* UserLoginService.swift */; };
 		A7802A3925275C2200CED9F2 /* ClientMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7802A3825275C2200CED9F2 /* ClientMock.swift */; };
 		A793C29F25265F4E00AE0DB2 /* SignInPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A793C29E25265F4E00AE0DB2 /* SignInPresenter.swift */; };
@@ -87,6 +88,7 @@
 		A75AEBA7252DEA31001532B6 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		A75AEBA9252E5514001532B6 /* MoneyTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTransaction.swift; sourceTree = "<group>"; };
 		A75AEBAD252E6A7C001532B6 /* MoneyTransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTransactionTableViewCell.swift; sourceTree = "<group>"; };
+		A76070FB252F5E1B0095611F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A7659105251503BF00C646B4 /* UserLoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginService.swift; sourceTree = "<group>"; };
 		A7802A3825275C2200CED9F2 /* ClientMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientMock.swift; sourceTree = "<group>"; };
 		A793C29E25265F4E00AE0DB2 /* SignInPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPresenter.swift; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 				A75AEBA5252DE6EC001532B6 /* DepositViewController.swift */,
 				A75AEBA7252DEA31001532B6 /* UserInfoViewController.swift */,
 				A75AEBAD252E6A7C001532B6 /* MoneyTransactionTableViewCell.swift */,
+				A76070FB252F5E1B0095611F /* HomeViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -521,6 +524,7 @@
 				A793C29F25265F4E00AE0DB2 /* SignInPresenter.swift in Sources */,
 				A7C0A7E5250AEB090019A841 /* Utilities.swift in Sources */,
 				A793C2A22526B4AE00AE0DB2 /* ClientProtocol.swift in Sources */,
+				A76070FC252F5E1B0095611F /* HomeViewController.swift in Sources */,
 				A74B811A24EB0C970081EF4B /* Client.swift in Sources */,
 				A75AEBA6252DE6EC001532B6 /* DepositViewController.swift in Sources */,
 				A73F61BF252CDAF500F6C75B /* SettingsViewController.swift in Sources */,

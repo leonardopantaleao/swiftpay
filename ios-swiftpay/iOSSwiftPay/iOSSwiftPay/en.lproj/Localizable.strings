@@ -28,3 +28,7 @@
 "transfer" = "Transfer";
 "deposit" = "Deposit";
 "to" = "to";
+"home" = "Home";
+"settings" = "Settings";
+"toTransfer" = "Transfer";
+"toDeposit" = "Deposit";

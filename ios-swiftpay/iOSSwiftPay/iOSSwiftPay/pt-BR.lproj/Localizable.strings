@@ -28,3 +28,7 @@
 "transfer" = "Transferência";
 "deposit" = "Depósito";
 "to" = "para";
+"home" = "Home";
+"settings" = "Ajustes";
+"toTransfer" = "Transferir";
+"toDeposit" = "Depositar";

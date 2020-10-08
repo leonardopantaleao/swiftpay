@@ -29,6 +29,8 @@ struct Constants {
         static let user = "user"
         static let rowIconMoneyTransfer = "rowIconMoneyTransfer"
         static let rowIconMoneyDeposit = "rowIconMoneyDeposit"
+        static let home = "home"
+        static let settings = "settings"
     }
     
     struct LocalizedStrings {
@@ -54,5 +56,10 @@ struct Constants {
         static let show = "show"
         static let transfer = "transfer"
         static let deposit = "deposit"
+        static let to = "to"
+        static let home = "home"
+        static let settings = "settings"
+        static let toTransfer = "toTransfer"
+        static let toDeposit = "toDeposit"
     }
 }
