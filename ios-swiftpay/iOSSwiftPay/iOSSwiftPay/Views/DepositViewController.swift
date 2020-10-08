@@ -1,17 +1,17 @@
 //
-//  TransferViewController.swift
+//  DepositViewController.swift
 //  iOSSwiftPay
 //
-//  Created by Leonardo on 06/10/20.
+//  Created by Leonardo on 07/10/20.
 //  Copyright © 2020 Leonardo. All rights reserved.
 //
 
 import UIKit
 
-class TransferViewController: UIViewController {
-    
-    let moneyTransferImage : UIImageView = {
-        let image = UIImage(named: Constants.Assets.moneyTransfer)
+class DepositViewController: UIViewController {
+
+    let moneyDepositImage : UIImageView = {
+        let image = UIImage(named: Constants.Assets.moneyDeposit)
         let imageView = UIImageView(image: image)
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -24,7 +24,7 @@ class TransferViewController: UIViewController {
         return indicator
     }()
     
-    let moneyTransferBtn : UIButton = {
+    let moneyDepositBtn : UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -34,12 +34,6 @@ class TransferViewController: UIViewController {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
-    }()
-    
-    let emailTxField : UITextField = {
-        let textField = UITextField(frame: CGRect(x: 0, y: 0, width: (Constants.ScreenInfo.screenWidth - 40), height: 50))
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        return textField
     }()
     
     let amountTxField : UITextField = {
@@ -84,26 +78,25 @@ class TransferViewController: UIViewController {
     }
     
     private func setTexts(){
-        moneyTransferBtn.setTitle(NSLocalizedString(Constants.LocalizedStrings.moneyTransfer, comment: "money tranfer btn text"), for: .normal)
+        moneyDepositBtn.setTitle(NSLocalizedString(Constants.LocalizedStrings.moneyDeposit, comment: "money deposit btn text"), for: .normal)
         currencyLabel.text = "R$"
     }
     
     private func addSubViews(){
         view.addSubview(formStackView)
-        formStackView.addArrangedSubview(moneyTransferImage)
-        formStackView.addArrangedSubview(emailTxField)
+        formStackView.addArrangedSubview(moneyDepositImage)
         currencyView.addSubview(currencyLabel)
         currencyView.addSubview(amountTxField)
         formStackView.addArrangedSubview(currencyView)
         formStackView.addArrangedSubview(emptyView)
-        formStackView.addArrangedSubview(moneyTransferBtn)
+        formStackView.addArrangedSubview(moneyDepositBtn)
         formStackView.addArrangedSubview(transactionActivityIndicator!)
     }
     
     private func setUpLayout(){
         //Logo image on top
-        moneyTransferImage.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        moneyTransferImage.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        moneyDepositImage.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        moneyDepositImage.heightAnchor.constraint(equalToConstant: 200).isActive = true
         //Stack anchors
         formStackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
         formStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
@@ -115,17 +108,14 @@ class TransferViewController: UIViewController {
         currencyView.centerXAnchor.constraint(equalTo: formStackView.centerXAnchor).isActive = true
         currencyView.heightAnchor.constraint(equalToConstant: 50).isActive = true
         //Other elements anchors
-        moneyTransferBtn.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        moneyTransferBtn.leftAnchor.constraint(equalTo: formStackView.leftAnchor).isActive = true
-        moneyTransferBtn.rightAnchor.constraint(equalTo: formStackView.rightAnchor).isActive = true
+        moneyDepositBtn.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        moneyDepositBtn.leftAnchor.constraint(equalTo: formStackView.leftAnchor).isActive = true
+        moneyDepositBtn.rightAnchor.constraint(equalTo: formStackView.rightAnchor).isActive = true
         emptyView.heightAnchor.constraint(equalToConstant: 20).isActive = true
         currencyLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
         currencyLabel.widthAnchor.constraint(equalToConstant: 40).isActive = true
         currencyLabel.leftAnchor.constraint(equalTo: currencyView.leftAnchor).isActive = true
         currencyLabel.topAnchor.constraint(equalTo: currencyView.topAnchor).isActive = true
-        emailTxField.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        emailTxField.leftAnchor.constraint(equalTo: formStackView.leftAnchor).isActive = true
-        emailTxField.rightAnchor.constraint(equalTo: formStackView.rightAnchor).isActive = true
         amountTxField.heightAnchor.constraint(equalToConstant: 50).isActive = true
         amountTxField.rightAnchor.constraint(equalTo: currencyView.rightAnchor).isActive = true
         amountTxField.leftAnchor.constraint(equalTo: currencyLabel.rightAnchor).isActive = true
@@ -133,10 +123,10 @@ class TransferViewController: UIViewController {
     }
     
     private func setButtonsResponders(){
-        moneyTransferBtn.addTarget(self, action: #selector(moneyTransferBtnTapped), for: .touchUpInside)
+        moneyDepositBtn.addTarget(self, action: #selector(moneyDepositBtnTapped), for: .touchUpInside)
     }
     
-    @objc func moneyTransferBtnTapped(sender: UIButton!){
+    @objc func moneyDepositBtnTapped(sender: UIButton!){
         //        signInPresenter.SignIn();
     }
     
@@ -144,14 +134,13 @@ class TransferViewController: UIViewController {
     {
         view.backgroundColor = .white
         currencyLabel.font = .boldSystemFont(ofSize: 20)
-        Utilities.styleFilledButton(moneyTransferBtn)
-        Utilities.styleTextField(emailTxField)
+        Utilities.styleFilledButton(moneyDepositBtn)
         Utilities.styleTextField(amountTxField)
     }
     
     private func setPlaceholders()
     {
-        emailTxField.placeholder = NSLocalizedString(Constants.LocalizedStrings.emailPlaceholder, comment: "insert email placeholder")
         amountTxField.placeholder = NSLocalizedString(Constants.LocalizedStrings.insertAmount, comment: "amount placeholder")
     }
+
 }

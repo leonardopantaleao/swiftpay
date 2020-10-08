@@ -22,3 +22,9 @@
 "moneyTransfer" = "Send money";
 "moneyDeposit" = "Deposit money";
 "insertAmount" = "Insert amount";
+"balance" = "Balance";
+"transactions" = "Transactions";
+"show" = "Show";
+"transfer" = "Transfer";
+"deposit" = "Deposit";
+"to" = "to";

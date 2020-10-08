@@ -22,3 +22,9 @@
 "moneyTransfer" = "Transferir dinheiro";
 "moneyDeposit" = "Depositar dinheiro";
 "insertAmount" = "Insira o valor";
+"balance" = "Saldo";
+"transactions" = "Transações";
+"show" = "Exibir";
+"transfer" = "Transferência";
+"deposit" = "Depósito";
+"to" = "para";

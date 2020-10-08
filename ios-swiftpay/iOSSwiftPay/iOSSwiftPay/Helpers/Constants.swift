@@ -26,6 +26,9 @@ struct Constants {
         static let swiftPayLogo = "swiftPayLogo"
         static let moneyTransfer = "moneyTransfer"
         static let moneyDeposit = "moneyDeposit"
+        static let user = "user"
+        static let rowIconMoneyTransfer = "rowIconMoneyTransfer"
+        static let rowIconMoneyDeposit = "rowIconMoneyDeposit"
     }
     
     struct LocalizedStrings {
@@ -46,5 +49,10 @@ struct Constants {
         static let moneyTransfer = "moneyTransfer"
         static let moneyDeposit = "moneyDeposit"
         static let insertAmount = "insertAmount"
+        static let balance = "balance"
+        static let transactions = "transactions"
+        static let show = "show"
+        static let transfer = "transfer"
+        static let deposit = "deposit"
     }
 }
