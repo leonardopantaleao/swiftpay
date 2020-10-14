@@ -44,9 +44,9 @@ struct Constants {
         static let invalidValue = "invalidValue"
         static let notValidPassword = "notValidPassword"
         static let notValidEmail = "notValidEmail"
-        static let firebaseNoUserFound = "firebaseNoUserFound"
-        static let firebaseWrongPassword = "firebaseWrongPassword"
-        static let firebaseNoConnection = "firebaseNoConnection"
+        static let noUserFound = "firebaseNoUserFound"
+        static let wrongPassword = "firebaseWrongPassword"
+        static let noConnection = "firebaseNoConnection"
         static let logOff = "logOff"
         static let moneyTransfer = "moneyTransfer"
         static let moneyDeposit = "moneyDeposit"
@@ -61,5 +61,6 @@ struct Constants {
         static let settings = "settings"
         static let toTransfer = "toTransfer"
         static let toDeposit = "toDeposit"
+        static let unknownError = "unknownError"
     }
 }

@@ -55,9 +55,9 @@ class SignInVC: UIViewController {
                             self.errorStatusLabel.alpha = 1
                             do
                             {
-                                if((error! as NSError).code == 17011) { throw ValidationError.firebaseNoUserFound }
-                                if((error! as NSError).code == 17009) { throw ValidationError.firebaseWrongPassword }
-                                if((error! as NSError).code == 17020) { throw ValidationError.firebaseNoConnection }
+                                if((error! as NSError).code == 17011) { throw ValidationError.noUserFound }
+                                if((error! as NSError).code == 17009) { throw ValidationError.wrongPassword }
+                                if((error! as NSError).code == 17020) { throw ValidationError.noConnection }
                             } catch
                             {
                                 self.toggleActivityIndicator(false)

@@ -32,3 +32,4 @@
 "settings" = "Settings";
 "toTransfer" = "Transfer";
 "toDeposit" = "Deposit";
+"unknownError" = "Unknown error";

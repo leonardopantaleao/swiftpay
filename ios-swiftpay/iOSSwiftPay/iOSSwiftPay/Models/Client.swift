@@ -14,5 +14,4 @@ struct Client: Codable{
     var lastName: String
     var dateOfBirth: TimeInterval
     var email: String
-    var uid: String
 }

@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8318BAA2-7F96-4AB0-81F8-4D3BCCA07D60"
+            uuid = "A2D270A1-39D2-4A94-B7B5-9C054DF25CA1"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "iOSSwiftPayTests/UserLoginTests.swift"
+            filePath = "iOSSwiftPay/Services/UserLoginService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "175"
-            endingLineNumber = "175"
-            landmarkName = "testGetUserDataByUid()"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "signUp(_:_:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -27,6 +27,7 @@
 		A75AEBAA252E5514001532B6 /* MoneyTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75AEBA9252E5514001532B6 /* MoneyTransaction.swift */; };
 		A75AEBAE252E6A7C001532B6 /* MoneyTransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75AEBAD252E6A7C001532B6 /* MoneyTransactionTableViewCell.swift */; };
 		A76070FC252F5E1B0095611F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76070FB252F5E1B0095611F /* HomeViewController.swift */; };
+		A763DCF025309DCE00C91D43 /* user.json in Sources */ = {isa = PBXBuildFile; fileRef = A763DCEF25309DCE00C91D43 /* user.json */; };
 		A7659106251503BF00C646B4 /* UserLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7659105251503BF00C646B4 /* UserLoginService.swift */; };
 		A7802A3925275C2200CED9F2 /* ClientMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7802A3825275C2200CED9F2 /* ClientMock.swift */; };
 		A793C29F25265F4E00AE0DB2 /* SignInPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A793C29E25265F4E00AE0DB2 /* SignInPresenter.swift */; };
@@ -40,6 +41,7 @@
 		A7C0A7E4250AEB090019A841 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C0A7E2250AEB070019A841 /* Constants.swift */; };
 		A7C0A7E5250AEB090019A841 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C0A7E3250AEB090019A841 /* Utilities.swift */; };
 		A7C0A7E8250AEF820019A841 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A7C0A7EA250AEF820019A841 /* Localizable.strings */; };
+		A7CE739E2530991C008C5999 /* MockClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CE739D2530991C008C5999 /* MockClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +91,7 @@
 		A75AEBA9252E5514001532B6 /* MoneyTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTransaction.swift; sourceTree = "<group>"; };
 		A75AEBAD252E6A7C001532B6 /* MoneyTransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTransactionTableViewCell.swift; sourceTree = "<group>"; };
 		A76070FB252F5E1B0095611F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		A763DCEF25309DCE00C91D43 /* user.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = user.json; sourceTree = "<group>"; };
 		A7659105251503BF00C646B4 /* UserLoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginService.swift; sourceTree = "<group>"; };
 		A7802A3825275C2200CED9F2 /* ClientMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientMock.swift; sourceTree = "<group>"; };
 		A793C29E25265F4E00AE0DB2 /* SignInPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPresenter.swift; sourceTree = "<group>"; };
@@ -108,6 +111,7 @@
 		A7C0A7E3250AEB090019A841 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		A7C0A7E9250AEF820019A841 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A7C0A7F3250AF4DA0019A841 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		A7CE739D2530991C008C5999 /* MockClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockClient.swift; sourceTree = "<group>"; };
 		C1763E539EE432954D678A4F /* libPods-iOSSwiftPay.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iOSSwiftPay.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F724F00E9B58D8CEBA358F40 /* Pods_iOSSwiftPayTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSSwiftPayTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -253,8 +257,17 @@
 				A7A2D8EA250FA7CF00A10DBB /* ValidationService.swift */,
 				A793C2A12526B4AE00AE0DB2 /* ClientProtocol.swift */,
 				A793C2A32526BA1000AE0DB2 /* FirebaseFirestoreClient.swift */,
+				A7CE739D2530991C008C5999 /* MockClient.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		A763DCEE25309B9C00C91D43 /* JsonMocks */ = {
+			isa = PBXGroup;
+			children = (
+				A763DCEF25309DCE00C91D43 /* user.json */,
+			);
+			path = JsonMocks;
 			sourceTree = "<group>";
 		};
 		A7802A3725275BF500CED9F2 /* Mocks */ = {
@@ -268,6 +281,7 @@
 		A793C2A02526628000AE0DB2 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
+				A763DCEE25309B9C00C91D43 /* JsonMocks */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -521,6 +535,7 @@
 				A74B80EA24EB06C40081EF4B /* AppDelegate.swift in Sources */,
 				A7659106251503BF00C646B4 /* UserLoginService.swift in Sources */,
 				A75AEBAA252E5514001532B6 /* MoneyTransaction.swift in Sources */,
+				A7CE739E2530991C008C5999 /* MockClient.swift in Sources */,
 				A793C29F25265F4E00AE0DB2 /* SignInPresenter.swift in Sources */,
 				A7C0A7E5250AEB090019A841 /* Utilities.swift in Sources */,
 				A793C2A22526B4AE00AE0DB2 /* ClientProtocol.swift in Sources */,
@@ -536,6 +551,7 @@
 				A793C2A42526BA1000AE0DB2 /* FirebaseFirestoreClient.swift in Sources */,
 				A73F61C1252CE87900F6C75B /* TransferViewController.swift in Sources */,
 				A7B99E4F25236C900049B625 /* SignInViewController.swift in Sources */,
+				A763DCF025309DCE00C91D43 /* user.json in Sources */,
 				A7C0A7E4250AEB090019A841 /* Constants.swift in Sources */,
 				A75AEBAE252E6A7C001532B6 /* MoneyTransactionTableViewCell.swift in Sources */,
 				A75AEBA8252DEA31001532B6 /* UserInfoViewController.swift in Sources */,

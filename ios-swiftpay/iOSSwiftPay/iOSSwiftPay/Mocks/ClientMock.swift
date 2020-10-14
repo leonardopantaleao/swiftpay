@@ -15,8 +15,8 @@ final class ClientMock : ClientProtocol{
         let correctPassword = "funciona01#"
         let expectedUid = "xbgUvnvbb1P4CGdTaRS240S8IjU2"
         
-        if email != existingEmail { completionHandler(.failure(ValidationError.firebaseNoUserFound)) }
-        if password != correctPassword { completionHandler(.failure(ValidationError.firebaseWrongPassword)) }
+        if email != existingEmail { completionHandler(.failure(ValidationError.noUserFound)) }
+        if password != correctPassword { completionHandler(.failure(ValidationError.wrongPassword)) }
         
         completionHandler(.success(expectedUid))
     }

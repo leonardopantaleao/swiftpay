@@ -17,9 +17,9 @@ struct UserLoginService
         Auth.auth().signIn(withEmail: email!, password: password!, completion: { (result, error) in
             if error != nil {
                 let code = (error! as NSError).code
-                if code == 17011 { completionHandler(.failure(ValidationError.firebaseNoUserFound))  }
-                if code == 17009 { completionHandler(.failure(ValidationError.firebaseWrongPassword)) }
-                if code == 17020 { completionHandler(.failure(ValidationError.firebaseNoConnection)) }
+                if code == 17011 { completionHandler(.failure(ValidationError.noUserFound))  }
+                if code == 17009 { completionHandler(.failure(ValidationError.wrongPassword)) }
+                if code == 17020 { completionHandler(.failure(ValidationError.noConnection)) }
             }
             if result != nil {
                 let uid = (result)!.user.uid
@@ -40,7 +40,7 @@ struct UserLoginService
     }
     
     func createUserOnDB(_ name: String?, _ lastName: String?, _ dateOfBirth: TimeInterval?, _ email: String?, _ uid: String?, completionHandler: @escaping (Result<String, Error>) -> ()){
-        let client = Client(name: name!, lastName: lastName!, dateOfBirth: dateOfBirth!, email: email!, uid: uid!)
+        let client = Client(name: name!, lastName: lastName!, dateOfBirth: dateOfBirth!, email: email!)
         let url = URL(string: "http://localhost:8080/add")!
         
         let encoder = JSONEncoder()
@@ -55,7 +55,7 @@ struct UserLoginService
                 let decoder = JSONDecoder()
                 
                 if let client = try? decoder.decode(Client.self, from: data) {
-                    completionHandler(.success(client.uid))
+                    completionHandler(.success(client.email))
                 } else {
                     completionHandler(.failure(error!))
                 }

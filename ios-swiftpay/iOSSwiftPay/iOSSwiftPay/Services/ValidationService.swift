@@ -40,9 +40,10 @@ enum ValidationError: LocalizedError {
     case invalidValue
     case passwordNotValid
     case emailNotValid
-    case firebaseNoUserFound
-    case firebaseWrongPassword
-    case firebaseNoConnection
+    case noUserFound
+    case wrongPassword
+    case noConnection
+    case unknownError
     
     var errorDescription: String? {
         switch self {
@@ -52,12 +53,14 @@ enum ValidationError: LocalizedError {
             return NSLocalizedString(Constants.LocalizedStrings.notValidPassword, comment: "error message")
         case .emailNotValid:
             return NSLocalizedString(Constants.LocalizedStrings.notValidEmail, comment: "error message")
-        case .firebaseNoUserFound:
-            return NSLocalizedString(Constants.LocalizedStrings.firebaseNoUserFound, comment: "error message")
-        case .firebaseWrongPassword:
-            return NSLocalizedString(Constants.LocalizedStrings.firebaseWrongPassword, comment: "error message")
-        case .firebaseNoConnection:
-            return NSLocalizedString(Constants.LocalizedStrings.firebaseNoConnection, comment: "error message")
+        case .noUserFound:
+            return NSLocalizedString(Constants.LocalizedStrings.noUserFound, comment: "error message")
+        case .wrongPassword:
+            return NSLocalizedString(Constants.LocalizedStrings.wrongPassword, comment: "error message")
+        case .noConnection:
+            return NSLocalizedString(Constants.LocalizedStrings.noConnection, comment: "error message")
+        case .unknownError:
+            return NSLocalizedString(Constants.LocalizedStrings.unknownError, comment: "error message")
         }
     }
 }

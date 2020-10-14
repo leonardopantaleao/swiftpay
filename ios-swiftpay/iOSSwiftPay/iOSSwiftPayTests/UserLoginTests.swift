@@ -13,16 +13,83 @@ import XCTest
 class SignInVCTests: XCTestCase {
     var userLogin : UserLoginService!
     var validationService: ValidationService!
+    var mockClient: MockClient!
     
     override func setUp() {
         super.setUp()
         userLogin = UserLoginService()
         validationService = ValidationService()
+        mockClient = MockClient()
+    }
+    
+    func test_login_successful() {
+        let expectedUserEmail = "leo@email.com"
+        let expectedPassword = "password01#"
+        var signUpResult : String = ""
+        var signUpError : ValidationError?
+        let expectation = self.expectation(description: "test_login_successful")
+        mockClient.signIn(expectedUserEmail, expectedPassword, completionHandler: { result in
+            switch result {
+            case .success(let email):
+                signUpResult = email
+            case .failure(let error):
+                signUpError = error
+            }
+            expectation.fulfill()
+        })
+        waitForExpectations(timeout: 5, handler: nil)
+        XCTAssertEqual(expectedUserEmail, signUpResult)
+        XCTAssertNil(signUpError)
+    }
+    
+    func test_login_no_user_found() {
+        let noUserEmail = "leo@email.com.br"
+        let expectedPassword = "password01#"
+        let expectedError = ValidationError.noUserFound
+        var signUpResult : String = ""
+        var signUpError : ValidationError?
+        weak var expectation = self.expectation(description: "test_login_no_user_found")
+        mockClient.signIn(noUserEmail, expectedPassword, completionHandler: { result in
+            switch result {
+            case .success(let email):
+                signUpResult = email
+            case .failure(let error):
+                signUpError = error
+            }
+            expectation?.fulfill()
+        })
+        waitForExpectations(timeout: 5, handler: nil)
+        XCTAssertEqual(expectedError, signUpError)
+        XCTAssertEqual(expectedError.errorDescription, signUpError?.errorDescription)
+        XCTAssertEqual("", signUpResult)
+    }
+    
+    func test_login_wrong_password() {
+        let noUserEmail = "leo@email.com"
+        let expectedPassword = "password01!!"
+        let expectedError = ValidationError.wrongPassword
+        var signUpResult : String = ""
+        var signUpError : ValidationError?
+        let expectation = self.expectation(description: "test_login_wrong_password")
+        mockClient.signIn(noUserEmail, expectedPassword, completionHandler: { result in
+            switch result {
+            case .success(let email):
+                signUpResult = email
+            case .failure(let error):
+                signUpError = error
+            }
+            expectation.fulfill()
+        })
+        waitForExpectations(timeout: 5, handler: nil)
+        XCTAssertEqual(expectedError, signUpError)
+        XCTAssertEqual(expectedError.errorDescription, signUpError?.errorDescription)
+        XCTAssertEqual("", signUpResult)
     }
     
     override func tearDown() {
         userLogin = nil
         validationService = nil
+        mockClient = nil
         super.tearDown()
     }
     
@@ -54,7 +121,7 @@ class SignInVCTests: XCTestCase {
         let password = "funciona01!!"
         XCTAssertNoThrow(try? validationService.validateEmail(email))
         XCTAssertNoThrow(try? validationService.validatePassword(password))
-        let expectedError = ValidationError.firebaseWrongPassword
+        let expectedError = ValidationError.erongPassword
         let expectation = self.expectation(description: "Login")
         var signUpResult : String = ""
         var signUpError : ValidationError?
@@ -79,7 +146,7 @@ class SignInVCTests: XCTestCase {
         let password = "funciona01!!"
         XCTAssertNoThrow(try? validationService.validateEmail(email))
         XCTAssertNoThrow(try? validationService.validatePassword(password))
-        let expectedError = ValidationError.firebaseNoUserFound
+        let expectedError = ValidationError.noUserFound
         let expectation = self.expectation(description: "Login")
         var signUpResult : String = ""
         var signUpError : ValidationError?
@@ -150,43 +217,6 @@ class SignInVCTests: XCTestCase {
         })
         waitForExpectations(timeout: 25, handler: nil)
         XCTAssertEqual(resultUid, uid)
-        XCTAssertNil(resultError)
-    }
-    
-    func testGetUserDataByUid()
-    {
-        let email = "usuario_teste@test.com"
-        let uid = "Efdcb1nAxgN96BQxwAKIVWQpRMC2"
-        let calendar = Calendar.current
-        var components = DateComponents()
-        components.day = 25
-        components.month = 1
-        components.year = 1996
-        components.hour = 2
-        components.minute = 15
-        components.second = 10
-        let date = Calendar.current.startOfDay(for: calendar.date(from: components)!)
-        let dateTimeInterval = date.timeIntervalSinceReferenceDate
-        XCTAssertNoThrow(try? validationService.validateEmail(email))
-        let expectedClient = Client(name: "Teste", lastName: "Silva Sauro", dateOfBirth: dateTimeInterval, email: email, uid: uid)
-        let expectation = self.expectation(description: "Login")
-        var resultClient : Client?
-        var resultError: Error?
-//        userLogin.getUserDataByUidOnDB(uid, completionHandler: { result in
-//            switch result {
-//            case .success(let client):
-//                resultClient = client
-//            case .failure(let error):
-//                resultError = error
-//            }
-//            expectation.fulfill()
-//        })
-        waitForExpectations(timeout: 25, handler: nil)
-        XCTAssertEqual(expectedClient.uid, resultClient!.uid)
-        XCTAssertEqual(expectedClient.email, resultClient!.email)
-        XCTAssertEqual(expectedClient.dateOfBirth, resultClient!.dateOfBirth)
-        XCTAssertEqual(expectedClient.name, resultClient!.name)
-        XCTAssertEqual(expectedClient.lastName, resultClient!.lastName)
         XCTAssertNil(resultError)
     }
 }
