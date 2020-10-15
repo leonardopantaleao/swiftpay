@@ -29,8 +29,8 @@ class SignInViewController: UIViewController, SignInViewDelagate {
     private let signInPresenter = SignInPresenter()
     private let client: ClientProtocol
     
-    init(firebaseClient: ClientProtocol) {
-        self.client = firebaseClient
+    init(client: ClientProtocol) {
+        self.client = client
         super.init(nibName: nil, bundle: nil)
     }
     
