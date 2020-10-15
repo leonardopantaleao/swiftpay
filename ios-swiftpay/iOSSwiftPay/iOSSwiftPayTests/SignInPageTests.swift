@@ -15,12 +15,14 @@ class SignInPageTests: XCTestCase {
     var validationService: ValidationService!
     var client: ClientProtocol!
     var presenter: SignInPresenter!
+    var viewDelegate: SignInViewDelagate!
     
     override func setUp() {
         super.setUp()
         validationService = ValidationService()
         client = mock(ClientProtocol.self)
-        presenter = SignInPresenter(validationService: validationService, client: client)
+        viewDelegate = mock(SignInViewDelagate.self)
+        presenter = SignInPresenter(signInViewDelagate: viewDelegate,validationService: validationService, client: client)
     }
     
     override func tearDown() {
