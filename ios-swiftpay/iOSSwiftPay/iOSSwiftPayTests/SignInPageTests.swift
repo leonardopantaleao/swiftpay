@@ -14,15 +14,15 @@ import Firebase
 class SignInPageTests: XCTestCase {
     var validationService: ValidationService!
     var client: ClientProtocol!
-    var presenter: SignInPresenter!
-    var viewDelegate: SignInViewDelagate!
+    var presenter: SignInPresenterMock!
+    var viewDelegate: SignInViewDelagateMock!
     
     override func setUp() {
         super.setUp()
         validationService = ValidationService()
         client = mock(ClientProtocol.self)
         viewDelegate = mock(SignInViewDelagate.self)
-        presenter = SignInPresenter(signInViewDelagate: viewDelegate,validationService: validationService, client: client)
+        presenter = SignInPresenter(signInViewDelagate: viewDelegate,validationService: validationService, client: client) as? SignInPresenterMock
     }
     
     override func tearDown() {
@@ -32,7 +32,7 @@ class SignInPageTests: XCTestCase {
     }
     
     func testLoginWithEmptyEmail(){
-        presenter.SignIn("", "")
+        given(presenter.SignIn("", "")).willReturn()
         verify(viewDelegate.loginDidFailed(message: Constants.LocalizedStrings.invalidValue)).wasCalled()
     }
     
