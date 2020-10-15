@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		10A5154EC4034768DD5250B8 /* Pods_iOSSwiftPayTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F724F00E9B58D8CEBA358F40 /* Pods_iOSSwiftPayTests.framework */; };
 		51DEF4FF5B2E770632C91729 /* libPods-iOSSwiftPay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C1763E539EE432954D678A4F /* libPods-iOSSwiftPay.a */; };
+		6C369E724594E4865469BC77 /* iOSSwiftPayTests-iOSSwiftPayMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F656016730B740EC2A2CEA3C /* iOSSwiftPayTests-iOSSwiftPayMocks.generated.swift */; };
+		7630CF34E0687B68AA10E5FB /* Pods_iOSSwiftPayUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1ED88B9289F057C159A0A4C /* Pods_iOSSwiftPayUITests.framework */; };
 		A73F61BD252CCFFC00F6C75B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73F61BC252CCFFC00F6C75B /* SignUpViewController.swift */; };
 		A73F61BF252CDAF500F6C75B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73F61BE252CDAF500F6C75B /* SettingsViewController.swift */; };
 		A73F61C1252CE87900F6C75B /* TransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73F61C0252CE87900F6C75B /* TransferViewController.swift */; };
@@ -32,6 +34,7 @@
 		A7657C65253871D0009CC28E /* ResponseHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7657C64253871D0009CC28E /* ResponseHandlerTests.swift */; };
 		A7657C6725387D63009CC28E /* MockLoginSuccessfullyClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7657C6625387D63009CC28E /* MockLoginSuccessfullyClient.swift */; };
 		A7659106251503BF00C646B4 /* UserLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7659105251503BF00C646B4 /* UserLoginService.swift */; };
+		A76784472538CA8E0081EE79 /* SignInPageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76784462538CA8E0081EE79 /* SignInPageTests.swift */; };
 		A793C29F25265F4E00AE0DB2 /* SignInPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A793C29E25265F4E00AE0DB2 /* SignInPresenter.swift */; };
 		A793C2A22526B4AE00AE0DB2 /* ClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A793C2A12526B4AE00AE0DB2 /* ClientProtocol.swift */; };
 		A793C2A42526BA1000AE0DB2 /* FirebaseFirestoreClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A793C2A32526BA1000AE0DB2 /* FirebaseFirestoreClient.swift */; };
@@ -65,8 +68,10 @@
 
 /* Begin PBXFileReference section */
 		01012CB340A34D913E0AEB39 /* Pods-iOSSwiftPay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSSwiftPay.debug.xcconfig"; path = "Target Support Files/Pods-iOSSwiftPay/Pods-iOSSwiftPay.debug.xcconfig"; sourceTree = "<group>"; };
+		2E5E0C17D1E1FF2D6CFF6678 /* Pods-iOSSwiftPayUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSSwiftPayUITests.release.xcconfig"; path = "Target Support Files/Pods-iOSSwiftPayUITests/Pods-iOSSwiftPayUITests.release.xcconfig"; sourceTree = "<group>"; };
 		38FC65D6AC918C279FF82C10 /* Pods-iOSSwiftPayTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSSwiftPayTests.release.xcconfig"; path = "Target Support Files/Pods-iOSSwiftPayTests/Pods-iOSSwiftPayTests.release.xcconfig"; sourceTree = "<group>"; };
 		3DF314083B31C10683D2F05F /* Pods-iOSSwiftPay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSSwiftPay.release.xcconfig"; path = "Target Support Files/Pods-iOSSwiftPay/Pods-iOSSwiftPay.release.xcconfig"; sourceTree = "<group>"; };
+		53ECE2CDC2C38BF703834023 /* Pods-iOSSwiftPayUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSSwiftPayUITests.debug.xcconfig"; path = "Target Support Files/Pods-iOSSwiftPayUITests/Pods-iOSSwiftPayUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		54E1FE7B967DA303A7FE1FF8 /* Pods-iOSSwiftPayTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSSwiftPayTests.debug.xcconfig"; path = "Target Support Files/Pods-iOSSwiftPayTests/Pods-iOSSwiftPayTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A736C20624EF4BAB00B07FDA /* FBSnapshotTestCase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSnapshotTestCase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A73F61BC252CCFFC00F6C75B /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +103,7 @@
 		A7657C64253871D0009CC28E /* ResponseHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseHandlerTests.swift; sourceTree = "<group>"; };
 		A7657C6625387D63009CC28E /* MockLoginSuccessfullyClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLoginSuccessfullyClient.swift; sourceTree = "<group>"; };
 		A7659105251503BF00C646B4 /* UserLoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginService.swift; sourceTree = "<group>"; };
+		A76784462538CA8E0081EE79 /* SignInPageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPageTests.swift; sourceTree = "<group>"; };
 		A793C29E25265F4E00AE0DB2 /* SignInPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPresenter.swift; sourceTree = "<group>"; };
 		A793C2A12526B4AE00AE0DB2 /* ClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientProtocol.swift; sourceTree = "<group>"; };
 		A793C2A32526BA1000AE0DB2 /* FirebaseFirestoreClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseFirestoreClient.swift; sourceTree = "<group>"; };
@@ -117,6 +123,8 @@
 		A7C0A7F3250AF4DA0019A841 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		A7CE739D2530991C008C5999 /* MockNoUserFoundClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNoUserFoundClient.swift; sourceTree = "<group>"; };
 		C1763E539EE432954D678A4F /* libPods-iOSSwiftPay.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iOSSwiftPay.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1ED88B9289F057C159A0A4C /* Pods_iOSSwiftPayUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSSwiftPayUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F656016730B740EC2A2CEA3C /* iOSSwiftPayTests-iOSSwiftPayMocks.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "iOSSwiftPayTests-iOSSwiftPayMocks.generated.swift"; path = "MockingbirdMocks/iOSSwiftPayTests-iOSSwiftPayMocks.generated.swift"; sourceTree = "<group>"; };
 		F724F00E9B58D8CEBA358F40 /* Pods_iOSSwiftPayTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSSwiftPayTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -141,12 +149,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7630CF34E0687B68AA10E5FB /* Pods_iOSSwiftPayUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		63B2563B304C05B62D629105 /* Generated Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				F656016730B740EC2A2CEA3C /* iOSSwiftPayTests-iOSSwiftPayMocks.generated.swift */,
+			);
+			name = "Generated Mocks";
+			sourceTree = "<group>";
+		};
 		6FEBD67CF95267FCF651D632 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +175,7 @@
 				A736C20624EF4BAB00B07FDA /* FBSnapshotTestCase.framework */,
 				F724F00E9B58D8CEBA358F40 /* Pods_iOSSwiftPayTests.framework */,
 				C1763E539EE432954D678A4F /* libPods-iOSSwiftPay.a */,
+				C1ED88B9289F057C159A0A4C /* Pods_iOSSwiftPayUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -169,6 +187,8 @@
 				38FC65D6AC918C279FF82C10 /* Pods-iOSSwiftPayTests.release.xcconfig */,
 				01012CB340A34D913E0AEB39 /* Pods-iOSSwiftPay.debug.xcconfig */,
 				3DF314083B31C10683D2F05F /* Pods-iOSSwiftPay.release.xcconfig */,
+				53ECE2CDC2C38BF703834023 /* Pods-iOSSwiftPayUITests.debug.xcconfig */,
+				2E5E0C17D1E1FF2D6CFF6678 /* Pods-iOSSwiftPayUITests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -182,6 +202,7 @@
 				A74B80E724EB06C40081EF4B /* Products */,
 				7A3519344D46BA0B6018A372 /* Pods */,
 				6FEBD67CF95267FCF651D632 /* Frameworks */,
+				63B2563B304C05B62D629105 /* Generated Mocks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -224,6 +245,7 @@
 				A7A2D8EC25103A8800A10DBB /* ValidationServiceTests.swift */,
 				A7509BC3251451F6006C51B6 /* UserLoginTests.swift */,
 				A7657C64253871D0009CC28E /* ResponseHandlerTests.swift */,
+				A76784462538CA8E0081EE79 /* SignInPageTests.swift */,
 			);
 			path = iOSSwiftPayTests;
 			sourceTree = "<group>";
@@ -345,6 +367,8 @@
 			buildConfigurationList = A74B811324EB06C70081EF4B /* Build configuration list for PBXNativeTarget "iOSSwiftPayTests" */;
 			buildPhases = (
 				3EFB94E015745E2C0C8CF79F /* [CP] Check Pods Manifest.lock */,
+				2EAAE211613E6534E66E430F /* Clean Mockingbird Mocks */,
+				2F8F503F436881BEE8497314 /* Generate Mockingbird Mocks */,
 				A74B80F824EB06C70081EF4B /* Sources */,
 				A74B80F924EB06C70081EF4B /* Frameworks */,
 				A74B80FA24EB06C70081EF4B /* Resources */,
@@ -364,9 +388,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A74B811624EB06C70081EF4B /* Build configuration list for PBXNativeTarget "iOSSwiftPayUITests" */;
 			buildPhases = (
+				5834A9497D9AAF4EFB196CB0 /* [CP] Check Pods Manifest.lock */,
 				A74B810324EB06C70081EF4B /* Sources */,
 				A74B810424EB06C70081EF4B /* Frameworks */,
 				A74B810524EB06C70081EF4B /* Resources */,
+				EA5619ACE584F8C94230CEAA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -474,6 +500,37 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		2EAAE211613E6534E66E430F /* Clean Mockingbird Mocks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Clean Mockingbird Mocks";
+			outputPaths = (
+				"/tmp/Mockingbird-D4431652-0F44-472F-BC3A-30FD6F00B9C0",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo $RANDOM > '/tmp/Mockingbird-D4431652-0F44-472F-BC3A-30FD6F00B9C0'\n";
+		};
+		2F8F503F436881BEE8497314 /* Generate Mockingbird Mocks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"/tmp/Mockingbird-D4431652-0F44-472F-BC3A-30FD6F00B9C0",
+			);
+			name = "Generate Mockingbird Mocks";
+			outputPaths = (
+				"$(SRCROOT)/MockingbirdMocks/iOSSwiftPayTests-iOSSwiftPayMocks.generated.swift",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nmockingbird generate \\\n  --targets 'iOSSwiftPay' \\\n  --outputs \"${SRCROOT}/MockingbirdMocks/iOSSwiftPayTests-iOSSwiftPayMocks.generated.swift\" \\\n  --support \"${SRCROOT}/MockingbirdSupport\"\n\n# Ensure mocks are generated prior to running Compile Sources\nrm -f '/tmp/Mockingbird-D4431652-0F44-472F-BC3A-30FD6F00B9C0'\n";
+		};
 		3EFB94E015745E2C0C8CF79F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -490,6 +547,28 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-iOSSwiftPayTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5834A9497D9AAF4EFB196CB0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iOSSwiftPayUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -528,6 +607,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iOSSwiftPay/Pods-iOSSwiftPay-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EA5619ACE584F8C94230CEAA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iOSSwiftPayUITests/Pods-iOSSwiftPayUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iOSSwiftPayUITests/Pods-iOSSwiftPayUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iOSSwiftPayUITests/Pods-iOSSwiftPayUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -569,10 +665,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A76784472538CA8E0081EE79 /* SignInPageTests.swift in Sources */,
 				A7509BC4251451F6006C51B6 /* UserLoginTests.swift in Sources */,
 				A7657C65253871D0009CC28E /* ResponseHandlerTests.swift in Sources */,
 				A7A2D8ED25103A8800A10DBB /* ValidationServiceTests.swift in Sources */,
 				A74B810124EB06C70081EF4B /* iOSSwiftPayTests.swift in Sources */,
+				6C369E724594E4865469BC77 /* iOSSwiftPayTests-iOSSwiftPayMocks.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -834,6 +932,7 @@
 		};
 		A74B811724EB06C70081EF4B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 53ECE2CDC2C38BF703834023 /* Pods-iOSSwiftPayUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -853,6 +952,7 @@
 		};
 		A74B811824EB06C70081EF4B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E5E0C17D1E1FF2D6CFF6678 /* Pods-iOSSwiftPayUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

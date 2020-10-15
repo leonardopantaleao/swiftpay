@@ -1,0 +1,6 @@
+framework module Pods_iOSSwiftPayUITests {
+  umbrella header "Pods-iOSSwiftPayUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -124,12 +124,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>MockingbirdFramework.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-iOSSwiftPay.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>Pods-iOSSwiftPayTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-iOSSwiftPayUITests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

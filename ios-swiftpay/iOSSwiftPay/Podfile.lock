@@ -329,6 +329,7 @@ PODS:
   - iOSSnapshotTestCase/SwiftSupport (6.2.0):
     - iOSSnapshotTestCase/Core
   - leveldb-library (1.22)
+  - MockingbirdFramework (0.16.0)
   - nanopb (1.30906.0):
     - nanopb/decode (= 1.30906.0)
     - nanopb/encode (= 1.30906.0)
@@ -342,6 +343,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Firestore
   - iOSSnapshotTestCase
+  - MockingbirdFramework (~> 0.16)
 
 SPEC REPOS:
   trunk:
@@ -362,6 +364,7 @@ SPEC REPOS:
     - GTMSessionFetcher
     - iOSSnapshotTestCase
     - leveldb-library
+    - MockingbirdFramework
     - nanopb
     - PromisesObjC
 
@@ -383,9 +386,10 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 6f5c8abbab8a9bce4bb3f057e317728ec6182b10
   iOSSnapshotTestCase: 9ab44cb5aa62b84d31847f40680112e15ec579a6
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
+  MockingbirdFramework: d1c649854c0a4ae5b115f860d75513b6438489a2
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   PromisesObjC: b14b1c6b68e306650688599de8a45e49fae81151
 
-PODFILE CHECKSUM: 9d2d24fcc07c8933e50c1cd3d81145ccae0282c1
+PODFILE CHECKSUM: a6f67b679271492654983ed3402eee551e0cea47
 
 COCOAPODS: 1.10.0.beta.2

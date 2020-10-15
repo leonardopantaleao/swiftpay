@@ -9,7 +9,10 @@
 import Foundation
 
 protocol SignInViewDelagate: NSObjectProtocol {
-    func toggleLoading(show: (Bool))
+    func showProgress()
+    func hideProgress()
+    func loginDidSucceed()
+    func loginDidFailed(message: String)
 }
 
 class SignInPresenter{
@@ -19,8 +22,16 @@ class SignInPresenter{
         self.signInViewDelagate = signInViewDelagate
     }
     
-    func SignIn()
-    {
-        signInViewDelagate?.toggleLoading(show: true)
+    func SignIn(_ email: String?, _ password: String?){
+        let validation = ValidationService()
+        do
+        {
+            let validEmail = try validation.validateEmail(email)
+            let validPassword = try validation.validatePassword(password)
+        }
+        catch {
+            self.signInViewDelagate?.loginDidFailed(message: error.localizedDescription)
+        }
+        self.signInViewDelagate?.clie
     }
 }

@@ -8,13 +8,17 @@
 
 @testable import iOSSwiftPay
 import XCTest
+import Mockingbird
+import Firebase
 
 class ResponseHandlerTests: XCTestCase {
     var responseHandler: ResponseHandler!
+    var client: ClientProtocol!
     
     override func setUp() {
         super.setUp()
         responseHandler = ResponseHandler()
+        client = mock(ClientProtocol.self)
     }
 
     override func tearDown() {

@@ -9,26 +9,33 @@
 import UIKit
 
 class SignInViewController: UIViewController, SignInViewDelagate {
+    func showProgress() {
+        signInActivityIndicator?.startAnimating()
+    }
+    
+    func hideProgress() {
+        signInActivityIndicator?.stopAnimating()
+    }
+    
+    func loginDidSucceed() {
+        self.navigationController?.pushViewController(HomeViewController(), animated: true)
+    }
+    
+    func loginDidFailed(message: String) {
+        errorLabel.text = message
+    }
+    
     
     private let signInPresenter = SignInPresenter()
-    private let firebaseClient: ClientProtocol
+    private let client: ClientProtocol
     
     init(firebaseClient: ClientProtocol) {
-        self.firebaseClient = firebaseClient
+        self.client = firebaseClient
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    func toggleLoading(show: (Bool)) {
-        if show{
-            signInActivityIndicator?.startAnimating()
-        }
-        else{
-            signInActivityIndicator?.stopAnimating()
-        }
     }
     
     let signInActivityIndicator: UIActivityIndicatorView? = {
@@ -77,6 +84,14 @@ class SignInViewController: UIViewController, SignInViewDelagate {
         return label
     }()
     
+    let errorLabel : UILabel = {
+        let label = UILabel()
+        label.adjustsFontSizeToFitWidth = true
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .red
+        return label
+    }()
+    
     let formStackView : UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
@@ -107,6 +122,7 @@ class SignInViewController: UIViewController, SignInViewDelagate {
         formStackView.addArrangedSubview(signInBtn)
         formStackView.addArrangedSubview(createAccountBtn)
         formStackView.addArrangedSubview(copyrightLabel)
+        formStackView.addArrangedSubview(errorLabel)
     }
     
     private func setUpLayout(){
@@ -140,7 +156,7 @@ class SignInViewController: UIViewController, SignInViewDelagate {
     }
     
     @objc func signInBtnTapped(sender: UIButton!){
-        signInPresenter.SignIn();
+        signInPresenter.SignIn(emailTxField.text, passwordTxField.text);
     }
     
     private func styleVisualElements()

@@ -10,9 +10,19 @@ platform :ios, '13.5'
 
   target 'iOSSwiftPayTests' do
     use_frameworks!
+    pod 'Firebase/Analytics'
+    pod 'Firebase/Auth'
+    pod 'Firebase/Core'
+    pod 'Firebase/Firestore'
   	pod 'iOSSnapshotTestCase'
-  	pod 'Firebase/Analytics'
-  	pod 'Firebase/Auth'
-  	pod 'Firebase/Core'
-  	pod 'Firebase/Firestore'
+  	pod 'MockingbirdFramework', '~> 0.16'
   end
+
+  target 'iOSSwiftPayUITests' do
+    use_frameworks!
+    pod 'Firebase/Analytics'
+    pod 'Firebase/Auth'
+    pod 'Firebase/Core'
+    pod 'Firebase/Firestore'
+  	pod 'MockingbirdFramework', '~> 0.16'
+end
