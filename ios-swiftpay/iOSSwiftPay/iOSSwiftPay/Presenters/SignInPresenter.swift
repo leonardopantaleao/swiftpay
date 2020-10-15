@@ -17,13 +17,13 @@ protocol SignInViewDelagate: NSObjectProtocol {
 
 class SignInPresenter{
     weak private var signInViewDelagate: SignInViewDelagate?
+    let validation = ValidationService()
     
     func setViewDelegate(signInViewDelagate: SignInViewDelagate?){
         self.signInViewDelagate = signInViewDelagate
     }
     
     func SignIn(_ email: String?, _ password: String?){
-        let validation = ValidationService()
         do
         {
             let validEmail = try validation.validateEmail(email)
@@ -32,6 +32,6 @@ class SignInPresenter{
         catch {
             self.signInViewDelagate?.loginDidFailed(message: error.localizedDescription)
         }
-        self.signInViewDelagate?.clie
+        
     }
 }
