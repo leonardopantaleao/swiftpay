@@ -12,11 +12,18 @@ import Mockingbird
 import Firebase
 
 class SignInPageTests: XCTestCase {
+    var validationService: ValidationService!
+    var client: ClientProtocol!
+    
     override func setUp() {
         super.setUp()
+        validationService = ValidationService()
+        client = mock(ClientProtocol.self)
     }
     
     override func tearDown() {
+        validationService = nil
+        client = nil
         super.tearDown()
     }
     
@@ -25,6 +32,7 @@ class SignInPageTests: XCTestCase {
     }
     
     func testLoginWithInvalidEmail(){
+        
         XCTFail()
     }
     
@@ -33,6 +41,14 @@ class SignInPageTests: XCTestCase {
     }
     
     func testLoginWithInvalidPassword(){
+        XCTFail()
+    }
+    
+    func testLoginWithWrongPassword(){
+        XCTFail()
+    }
+    
+    func testLoginWithNonExistingEmail(){
         XCTFail()
     }
     
