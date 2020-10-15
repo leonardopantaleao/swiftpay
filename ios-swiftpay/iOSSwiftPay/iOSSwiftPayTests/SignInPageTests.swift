@@ -14,11 +14,13 @@ import Firebase
 class SignInPageTests: XCTestCase {
     var validationService: ValidationService!
     var client: ClientProtocol!
+    var presenter: SignInPresenter!
     
     override func setUp() {
         super.setUp()
         validationService = ValidationService()
         client = mock(ClientProtocol.self)
+        presenter = SignInPresenter(validationService: validationService, client: client)
     }
     
     override func tearDown() {
@@ -28,6 +30,9 @@ class SignInPageTests: XCTestCase {
     }
     
     func testLoginWithEmptyEmail(){
+        let email = ""
+        let password = ""
+        
         XCTFail()
     }
     
