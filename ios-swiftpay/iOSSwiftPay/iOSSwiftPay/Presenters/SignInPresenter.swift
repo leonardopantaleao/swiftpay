@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol SignInViewDelagate: NSObjectProtocol {
+protocol SignInViewDelagate {
     func showProgress()
     func hideProgress()
     func loginDidSucceed()
@@ -23,7 +23,7 @@ class SignInPresenter{
         self.client = client
     }
     
-    weak private var signInViewDelagate: SignInViewDelagate?
+    private var signInViewDelagate: SignInViewDelagate?
     var validationService: ValidationService
     var client: ClientProtocol
     

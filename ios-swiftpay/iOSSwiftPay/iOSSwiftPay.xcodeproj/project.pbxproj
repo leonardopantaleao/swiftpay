@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F3E85C375FE548CC7C98BF4 /* iOSSwiftPayTests-iOSSwiftPayMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F656016730B740EC2A2CEA3C /* iOSSwiftPayTests-iOSSwiftPayMocks.generated.swift */; };
 		10A5154EC4034768DD5250B8 /* Pods_iOSSwiftPayTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F724F00E9B58D8CEBA358F40 /* Pods_iOSSwiftPayTests.framework */; };
 		51DEF4FF5B2E770632C91729 /* libPods-iOSSwiftPay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C1763E539EE432954D678A4F /* libPods-iOSSwiftPay.a */; };
-		6C369E724594E4865469BC77 /* iOSSwiftPayTests-iOSSwiftPayMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F656016730B740EC2A2CEA3C /* iOSSwiftPayTests-iOSSwiftPayMocks.generated.swift */; };
 		7630CF34E0687B68AA10E5FB /* Pods_iOSSwiftPayUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1ED88B9289F057C159A0A4C /* Pods_iOSSwiftPayUITests.framework */; };
 		A73F61BD252CCFFC00F6C75B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73F61BC252CCFFC00F6C75B /* SignUpViewController.swift */; };
 		A73F61BF252CDAF500F6C75B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73F61BE252CDAF500F6C75B /* SettingsViewController.swift */; };
@@ -495,11 +495,11 @@
 			);
 			name = "Clean Mockingbird Mocks";
 			outputPaths = (
-				"/tmp/Mockingbird-D4431652-0F44-472F-BC3A-30FD6F00B9C0",
+				"/tmp/Mockingbird-99962C85-1E3D-4BA3-BE9B-EB42C81087F9",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "echo $RANDOM > '/tmp/Mockingbird-D4431652-0F44-472F-BC3A-30FD6F00B9C0'\n";
+			shellScript = "echo $RANDOM > '/tmp/Mockingbird-99962C85-1E3D-4BA3-BE9B-EB42C81087F9'\n";
 		};
 		2F8F503F436881BEE8497314 /* Generate Mockingbird Mocks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -507,7 +507,7 @@
 			files = (
 			);
 			inputPaths = (
-				"/tmp/Mockingbird-D4431652-0F44-472F-BC3A-30FD6F00B9C0",
+				"/tmp/Mockingbird-99962C85-1E3D-4BA3-BE9B-EB42C81087F9",
 			);
 			name = "Generate Mockingbird Mocks";
 			outputPaths = (
@@ -515,7 +515,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -e\n\nmockingbird generate \\\n  --targets 'iOSSwiftPay' \\\n  --outputs \"${SRCROOT}/MockingbirdMocks/iOSSwiftPayTests-iOSSwiftPayMocks.generated.swift\" \\\n  --support \"${SRCROOT}/MockingbirdSupport\"\n\n# Ensure mocks are generated prior to running Compile Sources\nrm -f '/tmp/Mockingbird-D4431652-0F44-472F-BC3A-30FD6F00B9C0'\n";
+			shellScript = "set -e\n\nmockingbird generate \\\n  --targets 'iOSSwiftPay' \\\n  --outputs \"${SRCROOT}/MockingbirdMocks/iOSSwiftPayTests-iOSSwiftPayMocks.generated.swift\" \\\n  --support \"${SRCROOT}/MockingbirdSupport\"\n\n# Ensure mocks are generated prior to running Compile Sources\nrm -f '/tmp/Mockingbird-99962C85-1E3D-4BA3-BE9B-EB42C81087F9'\n";
 		};
 		3EFB94E015745E2C0C8CF79F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -569,9 +569,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-iOSSwiftPayTests/Pods-iOSSwiftPayTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-iOSSwiftPayTests/Pods-iOSSwiftPayTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -586,9 +590,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-iOSSwiftPay/Pods-iOSSwiftPay-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-iOSSwiftPay/Pods-iOSSwiftPay-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -603,9 +611,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-iOSSwiftPayUITests/Pods-iOSSwiftPayUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-iOSSwiftPayUITests/Pods-iOSSwiftPayUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -654,7 +666,7 @@
 				A7657C65253871D0009CC28E /* ResponseHandlerTests.swift in Sources */,
 				A7A2D8ED25103A8800A10DBB /* ValidationServiceTests.swift in Sources */,
 				A74B810124EB06C70081EF4B /* iOSSwiftPayTests.swift in Sources */,
-				6C369E724594E4865469BC77 /* iOSSwiftPayTests-iOSSwiftPayMocks.generated.swift in Sources */,
+				0F3E85C375FE548CC7C98BF4 /* iOSSwiftPayTests-iOSSwiftPayMocks.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

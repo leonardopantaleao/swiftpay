@@ -32,10 +32,8 @@ class SignInPageTests: XCTestCase {
     }
     
     func testLoginWithEmptyEmail(){
-        let email = ""
-        let password = ""
-        
-        XCTFail()
+        presenter.SignIn("", "")
+        verify(viewDelegate.loginDidFailed(message: Constants.LocalizedStrings.invalidValue)).wasCalled()
     }
     
     func testLoginWithInvalidEmail(){
