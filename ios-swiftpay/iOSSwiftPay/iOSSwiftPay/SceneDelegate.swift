@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         let firebaseClient = FirebaseFirestoreClient()
-        window?.rootViewController = SignUpViewController(firebaseClient: firebaseClient)
+        window?.rootViewController = SignInViewController(firebaseClient: firebaseClient)
         window?.makeKeyAndVisible()
     }
 
