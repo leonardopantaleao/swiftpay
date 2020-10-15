@@ -16,8 +16,16 @@ protocol SignInViewDelagate: NSObjectProtocol {
 }
 
 class SignInPresenter{
+    
+    internal init(signInViewDelagate: SignInViewDelagate? = nil, validationService: ValidationService, client: ClientProtocol) {
+        self.signInViewDelagate = signInViewDelagate
+        self.validationService = validationService
+        self.client = client
+    }
+    
     weak private var signInViewDelagate: SignInViewDelagate?
-    let validation = ValidationService()
+    var validationService: ValidationService
+    var client: ClientProtocol
     
     func setViewDelegate(signInViewDelagate: SignInViewDelagate?){
         self.signInViewDelagate = signInViewDelagate
@@ -26,8 +34,8 @@ class SignInPresenter{
     func SignIn(_ email: String?, _ password: String?){
         do
         {
-            let validEmail = try validation.validateEmail(email)
-            let validPassword = try validation.validatePassword(password)
+            let validEmail = try validationService.validateEmail(email)
+            let validPassword = try validationService.validatePassword(password)
         }
         catch {
             self.signInViewDelagate?.loginDidFailed(message: error.localizedDescription)

@@ -26,11 +26,10 @@ class SignInViewController: UIViewController, SignInViewDelagate {
     }
     
     
-    private let signInPresenter = SignInPresenter()
-    private let client: ClientProtocol
+    private let signInPresenter: SignInPresenter
     
-    init(client: ClientProtocol) {
-        self.client = client
+    init(signInPresenter: SignInPresenter) {
+        self.signInPresenter = signInPresenter
         super.init(nibName: nil, bundle: nil)
     }
     
