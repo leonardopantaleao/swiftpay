@@ -34,8 +34,8 @@ class SignInPresenter{
     func SignIn(_ email: String?, _ password: String?){
         do
         {
-            let validEmail = try validationService.validateEmail(email)
-            let validPassword = try validationService.validatePassword(password)
+            let validEmail = try validationService.validateEmail(email!)
+            let validPassword = try validationService.validatePassword(password!)
         }
         catch {
             self.signInViewDelagate?.loginDidFailed(message: error.localizedDescription)

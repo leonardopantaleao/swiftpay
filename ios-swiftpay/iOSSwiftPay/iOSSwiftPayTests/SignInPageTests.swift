@@ -13,8 +13,8 @@ import Firebase
 
 class SignInPageTests: XCTestCase {
     var validationService: ValidationService!
-    var client: ClientProtocol!
-    var presenter: SignInPresenterMock!
+    var client: ClientProtocolMock!
+    var presenter: SignInPresenter!
     var viewDelegate: SignInViewDelagateMock!
     
     override func setUp() {
@@ -32,7 +32,8 @@ class SignInPageTests: XCTestCase {
     }
     
     func testLoginWithEmptyEmail(){
-        given(presenter.SignIn("", "")).willReturn()
+        given(viewDelegate.loginDidFailed(message: Constants.LocalizedStrings.invalidValue)).willReturn()
+        presenter.SignIn("", "")
         verify(viewDelegate.loginDidFailed(message: Constants.LocalizedStrings.invalidValue)).wasCalled()
     }
     
