@@ -10,4 +10,5 @@ import Foundation
 
 protocol ClientProtocol {
     func signIn(_ email: String?, _ password: String?, completionHandler: @escaping (Result<String, ValidationError>) -> ())
+    var responseHandler: ResponseHandler { get set }
 }
