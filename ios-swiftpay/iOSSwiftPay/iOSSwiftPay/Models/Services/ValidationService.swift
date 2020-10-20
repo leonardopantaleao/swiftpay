@@ -22,6 +22,12 @@ struct ValidationService {
         return email
     }
     
+    func validateName(_ name: String?) throws -> String {
+        guard let name = name else { throw ValidationError.invalidValue }
+        guard isNameValid(name) else { throw ValidationError.nameNotValid}
+        return name
+    }
+    
     func isPasswordValid(_ password : String) -> Bool {
         
         let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[$@$#!%*?&])[A-Za-z\\d$@$#!%*?&]{8,20}")
@@ -34,6 +40,17 @@ struct ValidationService {
         let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailPred.evaluate(with: email)
     }
+    
+    func passwordsMatching(_ passwordA: String, _ passwordB: String) throws -> Bool {
+        guard passwordA == passwordB else { throw ValidationError.passwordsDontMatch}
+        return true
+    }
+    
+    func isNameValid(_ name: String) -> Bool {
+        let nameRedEx = "([A-Z]{1}[a-záàâãéèêíïóôõöúçñ]{2,}[ ]?)+"
+        let namePred = NSPredicate(format: "SELF MATCHES %@", nameRedEx)
+        return namePred.evaluate(with: name)
+    }
 }
 
 enum ValidationError: LocalizedError {
@@ -44,6 +61,9 @@ enum ValidationError: LocalizedError {
     case wrongPassword
     case noConnection
     case unknownError
+    case passwordsDontMatch
+    case nameNotValid
+    case userAlreadyExists
     
     var errorDescription: String? {
         switch self {
@@ -61,6 +81,12 @@ enum ValidationError: LocalizedError {
             return NSLocalizedString(Constants.LocalizedStrings.noConnection, comment: "error message")
         case .unknownError:
             return NSLocalizedString(Constants.LocalizedStrings.unknownError, comment: "error message")
+        case .passwordsDontMatch:
+            return NSLocalizedString(Constants.LocalizedStrings.passwordsNotMatching, comment: "error message")
+        case .nameNotValid:
+            return NSLocalizedString(Constants.LocalizedStrings.notValidName, comment: "error message")
+        case .userAlreadyExists:
+            return NSLocalizedString(Constants.LocalizedStrings.userAlreadyExists, comment: "error message")
         }
     }
 }

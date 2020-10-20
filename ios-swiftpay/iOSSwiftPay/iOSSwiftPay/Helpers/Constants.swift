@@ -62,5 +62,8 @@ struct Constants {
         static let toTransfer = "toTransfer"
         static let toDeposit = "toDeposit"
         static let unknownError = "unknownError"
+        static let passwordsNotMatching = "passwordsNotMatching"
+        static let notValidName = "notValidName"
+        static let userAlreadyExists = "userAlreadyExists"
     }
 }

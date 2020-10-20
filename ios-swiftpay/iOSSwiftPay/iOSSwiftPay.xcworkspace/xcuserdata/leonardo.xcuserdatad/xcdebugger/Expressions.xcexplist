@@ -14,27 +14,32 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "static Utilities.styleTextField(_:):Utilities.swift">
+         contextName = "SignInViewController.setPlaceholders():SignInViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "textfield.frame.width">
+               value = "createAccountBtn">
             </PersistentString>
             <PersistentString
-               value = "signInBtn">
-            </PersistentString>
-            <PersistentString
-               value = "textfield.frame">
+               value = "signInBtn.bounds">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "SignInVCTests.testCreateUserDB():UserLoginTests.swift">
+         contextName = "SignInViewController.setUpLayout():SignInViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "">
+               value = "signInBtn">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SignInPageTests.testLoginWithEmptyEmail():SignInPageTests.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "Constants.LocalizedStrings.invalidValue">
             </PersistentString>
             <PersistentString
-               value = "components">
+               value = "presenter">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -50,18 +55,37 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "SignInViewController.setPlaceholders():SignInViewController.swift">
+         contextName = "SignInPresenter.SignIn(_:_:):SignInPresenter.swift">
          <PersistentStrings>
             <PersistentString
-               value = "createAccountBtn">
+               value = "error.localizedDescription">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "static Utilities.styleTextField(_:):Utilities.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "textfield.frame.width">
             </PersistentString>
             <PersistentString
-               value = "signInBtn.bounds">
+               value = "signInBtn">
+            </PersistentString>
+            <PersistentString
+               value = "textfield.frame">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "UserLogin.createUserOnDB(_:_:_:_:_:completionHandler:):UserLogin.swift">
+      </ContextState>
+      <ContextState
+         contextName = "SignInViewController.loginDidSucceed():SignInViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.navigationController">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "MockClient.signIn(_:_:completionHandler:):MockClient.swift">
@@ -72,18 +96,32 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "ViewController.viewDidLoad():ViewController.swift">
+         contextName = "SignInVCTests.testCreateUserDB():UserLoginTests.swift">
          <PersistentStrings>
             <PersistentString
-               value = "clientsTableView">
+               value = "">
+            </PersistentString>
+            <PersistentString
+               value = "components">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "SignInViewController.setUpLayout():SignInViewController.swift">
+         contextName = "closure #1 in FirebaseFirestoreClient.signIn(_:_:completionHandler:):FirebaseFirestoreClient.swift">
          <PersistentStrings>
             <PersistentString
-               value = "signInBtn">
+               value = "error.userInfoNameKey">
+            </PersistentString>
+            <PersistentString
+               value = "(error! as NSError)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ViewController.viewDidLoad():ViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "clientsTableView">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

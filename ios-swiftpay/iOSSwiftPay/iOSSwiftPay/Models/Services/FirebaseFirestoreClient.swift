@@ -10,6 +10,20 @@ import Foundation
 import Firebase
 
 final class FirebaseFirestoreClient : ClientProtocol{
+    func signUp(_ name: String?, _ lastName: String?, _ email: String?, _ password: String?, completionHandler: @escaping (Result<String, ValidationError>) -> ()) {
+        Auth.auth().createUser(withEmail: email!, password: password!, completion: { (result, error) in
+            if error != nil {
+                let code = (error! as NSError).code
+                completionHandler(.failure(self.responseHandler.handleError(code)))
+            }
+            if result != nil {
+                let email = (result)!.user.email
+                completionHandler(.success(email!))
+            }
+        })
+    }
+    
+    
     var responseHandler: ResponseHandler = ResponseHandler()
     
     init() {}

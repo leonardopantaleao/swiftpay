@@ -15,14 +15,14 @@ class SignInPageTests: XCTestCase {
     var validationService: ValidationService!
     var client: ClientProtocolMock!
     var presenter: SignInPresenter!
-    var viewDelegate: SignInViewDelagateMock!
+    var viewDelegate: SignInViewDelegateMock!
     
     override func setUp() {
-        super.setUp()
         validationService = ValidationService()
         client = mock(ClientProtocol.self)
-        viewDelegate = mock(SignInViewDelagate.self)
-        presenter = SignInPresenter(signInViewDelagate: viewDelegate,validationService: validationService, client: client) as? SignInPresenterMock
+        viewDelegate = mock(SignInViewDelegate.self)
+        presenter = SignInPresenter(signInViewDelagate: viewDelegate, validationService: validationService, client: client)
+        super.setUp()
     }
     
     override func tearDown() {
@@ -32,33 +32,94 @@ class SignInPageTests: XCTestCase {
     }
     
     func testLoginWithEmptyEmail(){
-        given(viewDelegate.loginDidFailed(message: Constants.LocalizedStrings.invalidValue)).willReturn()
-        presenter.SignIn("", "")
-        verify(viewDelegate.loginDidFailed(message: Constants.LocalizedStrings.invalidValue)).wasCalled()
+        given(viewDelegate.showProgress()).willReturn()
+        given(viewDelegate.hideProgress()).willReturn()
+        given(viewDelegate.loginDidFailed(message: any())).willReturn()
+        presenter.signIn(nil, nil)
+        verify(viewDelegate.loginDidFailed(message: any())).wasCalled()
+        verify(viewDelegate.showProgress()).wasCalled()
+        verify(viewDelegate.hideProgress()).wasCalled()
     }
     
     func testLoginWithInvalidEmail(){
-        
-        XCTFail()
+        given(viewDelegate.showProgress()).willReturn()
+        given(viewDelegate.hideProgress()).willReturn()
+        given(viewDelegate.loginDidFailed(message: any())).willReturn()
+        presenter.signIn("invalidEmail", nil)
+        verify(viewDelegate.loginDidFailed(message: any())).wasCalled()
+        verify(viewDelegate.showProgress()).wasCalled()
+        verify(viewDelegate.hideProgress()).wasCalled()
     }
     
     func testLoginWithEmptyPassword(){
-        XCTFail()
+        given(viewDelegate.showProgress()).willReturn()
+        given(viewDelegate.hideProgress()).willReturn()
+        given(viewDelegate.loginDidFailed(message: any())).willReturn()
+        presenter.signIn("email@email.com", nil)
+        verify(viewDelegate.loginDidFailed(message: any())).wasCalled()
+        verify(viewDelegate.showProgress()).wasCalled()
+        verify(viewDelegate.hideProgress()).wasCalled()
     }
     
     func testLoginWithInvalidPassword(){
-        XCTFail()
+        given(viewDelegate.showProgress()).willReturn()
+        given(viewDelegate.hideProgress()).willReturn()
+        given(viewDelegate.loginDidFailed(message: any())).willReturn()
+        presenter.signIn("email@email.com", "invalid")
+        verify(viewDelegate.loginDidFailed(message: any())).wasCalled()
+        verify(viewDelegate.showProgress()).wasCalled()
+        verify(viewDelegate.hideProgress()).wasCalled()
     }
     
     func testLoginWithWrongPassword(){
-        XCTFail()
+        given(viewDelegate.showProgress()).willReturn()
+        given(viewDelegate.hideProgress()).willReturn()
+        given(viewDelegate.loginDidFailed(message: any())).willReturn()
+        given(client.signIn(any(), any(), completionHandler: any())).will { email, password, callback in
+            callback(.failure(ValidationError.wrongPassword))
+        }
+        presenter.signIn("email@email.com", "funciona01!!")
+        verify(viewDelegate.loginDidFailed(message: any())).wasCalled()
+        verify(viewDelegate.showProgress()).wasCalled()
+        verify(viewDelegate.hideProgress()).wasCalled()
     }
     
     func testLoginWithNonExistingEmail(){
-        XCTFail()
+        given(viewDelegate.showProgress()).willReturn()
+        given(viewDelegate.hideProgress()).willReturn()
+        given(viewDelegate.loginDidFailed(message: any())).willReturn()
+        given(client.signIn(any(), any(), completionHandler: any())).will { email, password, callback in
+            callback(.failure(ValidationError.noUserFound))
+        }
+        presenter.signIn("no_email@email.com", "funciona01!!")
+        verify(viewDelegate.loginDidFailed(message: any())).wasCalled()
+        verify(viewDelegate.showProgress()).wasCalled()
+        verify(viewDelegate.hideProgress()).wasCalled()
+    }
+    
+    func testLoginNoConnection(){
+        given(viewDelegate.showProgress()).willReturn()
+        given(viewDelegate.hideProgress()).willReturn()
+        given(viewDelegate.loginDidFailed(message: any())).willReturn()
+        given(client.signIn(any(), any(), completionHandler: any())).will { email, password, callback in
+            callback(.failure(ValidationError.noConnection))
+        }
+        presenter.signIn("email@email.com", "funciona01!!")
+        verify(viewDelegate.loginDidFailed(message: any())).wasCalled()
+        verify(viewDelegate.showProgress()).wasCalled()
+        verify(viewDelegate.hideProgress()).wasCalled()
     }
     
     func testLoginWithAllFilledCorrectly(){
-        XCTFail()
+        given(viewDelegate.showProgress()).willReturn()
+        given(viewDelegate.hideProgress()).willReturn()
+        given(viewDelegate.loginDidSucceed()).willReturn()
+        given(client.signIn(any(), any(), completionHandler: any())).will { email, password, callback in
+            callback(.success("email@email.com"))
+        }
+        presenter.signIn("email@email.com", "funciona01#")
+        verify(viewDelegate.loginDidSucceed()).wasCalled()
+        verify(viewDelegate.showProgress()).wasCalled()
+        verify(viewDelegate.hideProgress()).wasCalled()
     }
 }

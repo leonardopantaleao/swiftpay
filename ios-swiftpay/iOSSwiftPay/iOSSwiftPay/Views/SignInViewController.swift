@@ -8,17 +8,33 @@
 
 import UIKit
 
-class SignInViewController: UIViewController, SignInViewDelagate {
+class SignInViewController: UIViewController, SignInViewDelegate {
+    
+    func navigateToSignUp() {
+        let firebaseClient = FirebaseFirestoreClient()
+        let validationService = ValidationService()
+        let presenter = SignUpPresenter(validationService: validationService, client: firebaseClient)
+        let signUpViewController = SignUpViewController(signUpPresenter: presenter)
+        self.navigationController?.pushViewController(signUpViewController, animated: true)
+    }
+    
     func showProgress() {
+        view.isUserInteractionEnabled = false
         signInActivityIndicator?.startAnimating()
     }
     
     func hideProgress() {
+        view.isUserInteractionEnabled = true
         signInActivityIndicator?.stopAnimating()
     }
     
     func loginDidSucceed() {
-        self.navigationController?.pushViewController(HomeViewController(), animated: true)
+        let options: UIView.AnimationOptions = .transitionFlipFromRight
+        let duration: TimeInterval = 0.3
+        UIApplication.shared.windows.first?.rootViewController = HomeViewController()
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
+        UIView.transition(with: UIApplication.shared.windows.first!, duration: duration, options: options, animations: {}, completion:
+        nil)
     }
     
     func loginDidFailed(message: String) {
@@ -53,6 +69,8 @@ class SignInViewController: UIViewController, SignInViewDelagate {
     
     let emailTxField : UITextField = {
         let textField = UITextField(frame: CGRect(x: 0, y: 0, width: (Constants.ScreenInfo.screenWidth - 40), height: 50))
+        textField.keyboardType = .emailAddress
+        textField.autocapitalizationType = .none
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -60,11 +78,12 @@ class SignInViewController: UIViewController, SignInViewDelagate {
     let passwordTxField : UITextField = {
         let textField = UITextField(frame: CGRect(x: 0, y: 0, width: (Constants.ScreenInfo.screenWidth - 40), height: 50))
         textField.isSecureTextEntry = true
+        textField.autocapitalizationType = .none
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
     
-    let createAccountBtn : UIButton = {
+    let signUpBtn : UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -119,7 +138,7 @@ class SignInViewController: UIViewController, SignInViewDelagate {
         formStackView.addArrangedSubview(emailTxField)
         formStackView.addArrangedSubview(passwordTxField)
         formStackView.addArrangedSubview(signInBtn)
-        formStackView.addArrangedSubview(createAccountBtn)
+        formStackView.addArrangedSubview(signUpBtn)
         formStackView.addArrangedSubview(copyrightLabel)
         formStackView.addArrangedSubview(errorLabel)
     }
@@ -136,26 +155,31 @@ class SignInViewController: UIViewController, SignInViewDelagate {
         formStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         formStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40).isActive = true
         //Other elements have same height
-        createAccountBtn.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        createAccountBtn.leftAnchor.constraint(equalTo: formStackView.leftAnchor).isActive = true
-        createAccountBtn.rightAnchor.constraint(equalTo: formStackView.rightAnchor).isActive = true
-        signInBtn.heightAnchor.constraint(equalTo: createAccountBtn.heightAnchor).isActive = true
+        signUpBtn.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        signUpBtn.leftAnchor.constraint(equalTo: formStackView.leftAnchor).isActive = true
+        signUpBtn.rightAnchor.constraint(equalTo: formStackView.rightAnchor).isActive = true
+        signInBtn.heightAnchor.constraint(equalTo: signUpBtn.heightAnchor).isActive = true
         signInBtn.leftAnchor.constraint(equalTo: formStackView.leftAnchor).isActive = true
         signInBtn.rightAnchor.constraint(equalTo: formStackView.rightAnchor).isActive = true
-        emailTxField.heightAnchor.constraint(equalTo: createAccountBtn.heightAnchor).isActive = true
+        emailTxField.heightAnchor.constraint(equalTo: signUpBtn.heightAnchor).isActive = true
         emailTxField.leftAnchor.constraint(equalTo: formStackView.leftAnchor).isActive = true
         emailTxField.rightAnchor.constraint(equalTo: formStackView.rightAnchor).isActive = true
-        passwordTxField.heightAnchor.constraint(equalTo: createAccountBtn.heightAnchor).isActive = true
+        passwordTxField.heightAnchor.constraint(equalTo: signUpBtn.heightAnchor).isActive = true
         passwordTxField.leftAnchor.constraint(equalTo: formStackView.leftAnchor).isActive = true
         passwordTxField.rightAnchor.constraint(equalTo: formStackView.rightAnchor).isActive = true
     }
     
     private func setButtonsResponders(){
         signInBtn.addTarget(self, action: #selector(signInBtnTapped), for: .touchUpInside)
+        signUpBtn.addTarget(self, action: #selector(signUpBtnTapped), for: .touchUpInside)
     }
     
     @objc func signInBtnTapped(sender: UIButton!){
-        signInPresenter.SignIn(emailTxField.text, passwordTxField.text);
+        signInPresenter.signIn(emailTxField.text, passwordTxField.text);
+    }
+    
+    @objc func signUpBtnTapped(sender: UIButton!){
+        signInPresenter.navigateToSignUp();
     }
     
     private func styleVisualElements()
@@ -163,9 +187,9 @@ class SignInViewController: UIViewController, SignInViewDelagate {
         view.backgroundColor = .white
         Utilities.styleTextField(emailTxField)
         Utilities.styleTextField(passwordTxField)
-        Utilities.styleHollowButton(createAccountBtn)
+        Utilities.styleHollowButton(signUpBtn)
         Utilities.styleFilledButton(signInBtn)
-        createAccountBtn.setTitleColor(.black, for: .normal)
+        signUpBtn.setTitleColor(.black, for: .normal)
     }
     
     private func setPlaceholders()
@@ -173,7 +197,7 @@ class SignInViewController: UIViewController, SignInViewDelagate {
         emailTxField.placeholder = NSLocalizedString(Constants.LocalizedStrings.emailPlaceholder, comment: "insert email placeholder")
         passwordTxField.placeholder = NSLocalizedString(Constants.LocalizedStrings.passwordPlaceholder, comment: "insert password placeholder")
         signInBtn.setTitle(NSLocalizedString(Constants.LocalizedStrings.signInBtnText, comment: "sign in button text"), for: .normal)
-        createAccountBtn.setTitle(NSLocalizedString(Constants.LocalizedStrings.createAccountBtnText, comment: "create account button text"), for: UIControl.State.normal)
+        signUpBtn.setTitle(NSLocalizedString(Constants.LocalizedStrings.createAccountBtnText, comment: "create account button text"), for: UIControl.State.normal)
         copyrightLabel.text = NSLocalizedString(Constants.LocalizedStrings.copyright, comment: "copyright text")
     }
 }

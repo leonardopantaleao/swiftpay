@@ -10,6 +10,7 @@ import Foundation
 
 struct ResponseHandler{
     func handleError(_ errorCode : Int) -> ValidationError{
+        if errorCode == 17007 { return ValidationError.userAlreadyExists }
         if errorCode == 17011 { return ValidationError.noUserFound  }
         if errorCode == 17009 { return ValidationError.wrongPassword }
         if errorCode == 17020 { return ValidationError.noConnection }

@@ -8,12 +8,34 @@
 
 import UIKit
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, SignUpViewDelegate {
+    func showProgress() {
+        view.isUserInteractionEnabled = false
+        signUpActivityIndicator?.startAnimating()
+    }
     
-    private let firebaseClient: ClientProtocol
+    func hideProgress() {
+        view.isUserInteractionEnabled = true
+        signUpActivityIndicator?.stopAnimating()
+    }
     
-    init(firebaseClient: ClientProtocol) {
-        self.firebaseClient = firebaseClient
+    func signUpDidSucceed() {
+        let options: UIView.AnimationOptions = .transitionFlipFromRight
+        let duration: TimeInterval = 0.3
+        UIApplication.shared.windows.first?.rootViewController = HomeViewController()
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
+        UIView.transition(with: UIApplication.shared.windows.first!, duration: duration, options: options, animations: {}, completion:
+        nil)
+    }
+    
+    func signUpDidFailed(message: String) {
+        errorLabel.text = message
+    }
+    
+    private let signUpPresenter: SignUpPresenter
+    
+    init(signUpPresenter: SignUpPresenter) {
+        self.signUpPresenter = signUpPresenter
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -37,30 +59,41 @@ class SignUpViewController: UIViewController {
     
     let nameTxField : UITextField = {
         let textField = UITextField(frame: CGRect(x: 0, y: 0, width: (Constants.ScreenInfo.screenWidth - 40), height: 50))
+        textField.autocorrectionType = .no
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
     
     let lastNameTxField : UITextField = {
         let textField = UITextField(frame: CGRect(x: 0, y: 0, width: (Constants.ScreenInfo.screenWidth - 40), height: 50))
+        textField.autocorrectionType = .no
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
     
     let emailTxField : UITextField = {
         let textField = UITextField(frame: CGRect(x: 0, y: 0, width: (Constants.ScreenInfo.screenWidth - 40), height: 50))
+        textField.autocapitalizationType = .none
+        textField.keyboardType = .emailAddress
+        textField.autocorrectionType = .no
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
     
     let passwordTxField : UITextField = {
         let textField = UITextField(frame: CGRect(x: 0, y: 0, width: (Constants.ScreenInfo.screenWidth - 40), height: 50))
+        textField.autocorrectionType = .no
+        textField.autocapitalizationType = .none
+        textField.isSecureTextEntry = true
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
     
     let passwordTxFieldConfirm : UITextField = {
         let textField = UITextField(frame: CGRect(x: 0, y: 0, width: (Constants.ScreenInfo.screenWidth - 40), height: 50))
+        textField.autocorrectionType = .no
+        textField.autocapitalizationType = .none
+        textField.isSecureTextEntry = true
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -77,6 +110,14 @@ class SignUpViewController: UIViewController {
         return view
     }()
     
+    let errorLabel : UILabel = {
+        let label = UILabel()
+        label.adjustsFontSizeToFitWidth = true
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .red
+        return label
+    }()
+    
     let formStackView : UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
@@ -90,7 +131,7 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        signInPresenter.setViewDelegate(signInViewDelagate: self)
+        signUpPresenter.setViewDelegate(signUpViewDelagate: self)
         addSubViews()
         setPlaceholders()
         setUpLayout()
@@ -109,6 +150,7 @@ class SignUpViewController: UIViewController {
         formStackView.addArrangedSubview(passwordTxFieldConfirm)
         formStackView.addArrangedSubview(emptyView)
         formStackView.addArrangedSubview(signUpBtn)
+        formStackView.addArrangedSubview(errorLabel)
     }
     
     private func setUpLayout(){
@@ -149,7 +191,7 @@ class SignUpViewController: UIViewController {
     }
     
     @objc func signUpBtnTapped(sender: UIButton!){
-//        signInPresenter.SignIn();
+        signUpPresenter.signUp(nameTxField.text, lastNameTxField.text, emailTxField.text, passwordTxField.text, passwordTxFieldConfirm.text)
     }
     
     private func styleVisualElements()

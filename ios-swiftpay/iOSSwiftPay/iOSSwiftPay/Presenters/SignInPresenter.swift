@@ -8,38 +8,54 @@
 
 import Foundation
 
-protocol SignInViewDelagate {
+protocol SignInViewDelegate {
     func showProgress()
     func hideProgress()
     func loginDidSucceed()
     func loginDidFailed(message: String)
+    func navigateToSignUp()
 }
 
 class SignInPresenter{
     
-    internal init(signInViewDelagate: SignInViewDelagate? = nil, validationService: ValidationService, client: ClientProtocol) {
+    internal init(signInViewDelagate: SignInViewDelegate? = nil, validationService: ValidationService, client: ClientProtocol) {
         self.signInViewDelagate = signInViewDelagate
         self.validationService = validationService
         self.client = client
     }
     
-    private var signInViewDelagate: SignInViewDelagate?
+    private var signInViewDelagate: SignInViewDelegate?
     var validationService: ValidationService
     var client: ClientProtocol
     
-    func setViewDelegate(signInViewDelagate: SignInViewDelagate?){
+    func setViewDelegate(signInViewDelagate: SignInViewDelegate?){
         self.signInViewDelagate = signInViewDelagate
     }
     
-    func SignIn(_ email: String?, _ password: String?){
+    func signIn(_ email: String?, _ password: String?){
+        self.signInViewDelagate?.showProgress()
         do
         {
-            let validEmail = try validationService.validateEmail(email!)
-            let validPassword = try validationService.validatePassword(password!)
+            let validEmail = try validationService.validateEmail(email)
+            let validPassword = try validationService.validatePassword(password)
+            client.signIn(validEmail, validPassword, completionHandler: { result in
+                switch result {
+                case .success(_):
+                    self.signInViewDelagate?.loginDidSucceed()
+                case .failure(let error):
+                    self.signInViewDelagate?.loginDidFailed(message: error.localizedDescription)
+                }
+                self.signInViewDelagate?.hideProgress()
+            })
         }
         catch {
             self.signInViewDelagate?.loginDidFailed(message: error.localizedDescription)
+            self.signInViewDelagate?.hideProgress()
         }
         
+    }
+    
+    func navigateToSignUp(){
+        self.signInViewDelagate?.navigateToSignUp();
     }
 }

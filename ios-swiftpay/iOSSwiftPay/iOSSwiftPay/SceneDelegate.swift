@@ -25,7 +25,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let validationService = ValidationService()
         let presenter = SignInPresenter(validationService: validationService, client: firebaseClient)
         let viewController = SignInViewController(signInPresenter: presenter)
-        window?.rootViewController = viewController
+        let navigationController = UINavigationController(rootViewController: viewController)
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
 

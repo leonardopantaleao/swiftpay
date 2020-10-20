@@ -33,3 +33,6 @@
 "toTransfer" = "Transferir";
 "toDeposit" = "Depositar";
 "unknownError" = "Error desconhecido";
+"passwordsNotMatching" = "Senhas não coincidem";
+"notValidName" = "Nome não é válido, use apenas letras";
+"userAlreadyExists" = "Usuário já existe com este email";

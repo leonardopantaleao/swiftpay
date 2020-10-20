@@ -23,11 +23,11 @@ class ValidationServiceTests: XCTestCase {
         super.tearDown()
     }
     
-    func test_is_valid_password() throws {
+    func testIsValidPassword() throws {
         XCTAssertNoThrow(try validation.validatePassword("testesenha01#"))
     }
     
-    func test_password_is_nil() throws {
+    func testPasswordIsNil() throws {
         let expectedError = ValidationError.invalidValue
         var error: ValidationError?
         
@@ -40,7 +40,7 @@ class ValidationServiceTests: XCTestCase {
         XCTAssertEqual(expectedError.errorDescription, error?.errorDescription)
     }
     
-    func test_password_too_short() throws {
+    func testPasswordTooShort() throws {
         let expectedError = ValidationError.passwordNotValid
         var error: ValidationError?
         
@@ -53,7 +53,7 @@ class ValidationServiceTests: XCTestCase {
         XCTAssertEqual(expectedError.errorDescription, error?.errorDescription)
     }
     
-    func test_password_too_long() throws {
+    func testPasswordTooLong() throws {
         let expectedError = ValidationError.passwordNotValid
         var error: ValidationError?
         let password = "teste senha muito longa"
@@ -69,7 +69,7 @@ class ValidationServiceTests: XCTestCase {
         XCTAssertEqual(expectedError.errorDescription, error?.errorDescription)
     }
     
-    func test_email_is_nil() throws {
+    func testEmailIsNil() throws {
         let expectedError = ValidationError.invalidValue
         var error: ValidationError?
         
@@ -81,10 +81,51 @@ class ValidationServiceTests: XCTestCase {
         XCTAssertEqual(expectedError.errorDescription, error?.errorDescription)
     }
     
-    func test_is_valid_email() throws {
+    func testIsValidEmail() throws {
         XCTAssertNoThrow(try validation.validateEmail("leonardopspl@gmail.com"))
         XCTAssertThrowsError(try validation.validateEmail("teste.com"))
         XCTAssertThrowsError(try validation.validateEmail(".@com"))
         XCTAssertThrowsError(try validation.validateEmail("leo@com.1"))
+    }
+    
+    func testPasswordsNotMatching() throws {
+        let expectedError = ValidationError.passwordsDontMatch
+        var error: ValidationError?
+        
+        XCTAssertThrowsError(try validation.passwordsMatching("passwordMatch#", "passwordMatch1#")) { throwError in
+            error = throwError as? ValidationError
+        }
+        
+        XCTAssertEqual(expectedError, error)
+        XCTAssertEqual(expectedError.errorDescription, error?.errorDescription)
+    }
+    
+    func testPasswordsMatch() throws {
+        XCTAssertNoThrow(try validation.passwordsMatching("passwordMatch#", "passwordMatch#"))
+        XCTAssertThrowsError(try validation.passwordsMatching("", "passwordMatch#"))
+        XCTAssertThrowsError(try validation.passwordsMatching("passwordMatch#", ""))
+    }
+    
+    func testNameisNil() throws {
+        let expectedError = ValidationError.invalidValue
+        var error: ValidationError?
+        
+        XCTAssertThrowsError(try validation.validateName(nil)) { throwError in
+            error = throwError as? ValidationError
+        }
+        
+        XCTAssertEqual(expectedError, error)
+        XCTAssertEqual(expectedError.errorDescription, error?.errorDescription)
+    }
+    
+    func testIsInvalidName() throws {
+        XCTAssertNoThrow(try validation.validateName("Leonardo"))
+        XCTAssertNoThrow(try validation.validateName("Leão"))
+        XCTAssertNoThrow(try validation.validateName("Panta Leão"))
+        XCTAssertNoThrow(try validation.validateName("Roberto Carlos"))
+        XCTAssertNoThrow(try validation.validateName("Roberto Fulano Carlos"))
+        XCTAssertThrowsError(try validation.validateName("Leonardo1"))
+        XCTAssertThrowsError(try validation.validateName("Leonardo  "))
+        XCTAssertThrowsError(try validation.validateName("Leonardo 123"))
     }
 }
