@@ -29,7 +29,6 @@
 		A75CBA1A2540C38E003C585F /* UserDefaultsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75CBA192540C38E003C585F /* UserDefaultsProtocol.swift */; };
 		A75CBA1C2540C980003C585F /* UserInfoPageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75CBA1B2540C980003C585F /* UserInfoPageTests.swift */; };
 		A76070FC252F5E1B0095611F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76070FB252F5E1B0095611F /* HomeViewController.swift */; };
-		A763DCF025309DCE00C91D43 /* user.json in Sources */ = {isa = PBXBuildFile; fileRef = A763DCEF25309DCE00C91D43 /* user.json */; };
 		A7657C6325387088009CC28E /* ResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7657C6225387088009CC28E /* ResponseHandler.swift */; };
 		A7657C65253871D0009CC28E /* ResponseHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7657C64253871D0009CC28E /* ResponseHandlerTests.swift */; };
 		A76784472538CA8E0081EE79 /* SignInPageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76784462538CA8E0081EE79 /* SignInPageTests.swift */; };
@@ -41,6 +40,7 @@
 		A796D63C25119BA500974974 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A796D63B25119BA400974974 /* GoogleService-Info.plist */; };
 		A7A2D8EB250FA7CF00A10DBB /* ValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A2D8EA250FA7CF00A10DBB /* ValidationService.swift */; };
 		A7A2D8ED25103A8800A10DBB /* ValidationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A2D8EC25103A8800A10DBB /* ValidationServiceTests.swift */; };
+		A7AD02DE2542236B0059DE12 /* DatabaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AD02DD2542236B0059DE12 /* DatabaseError.swift */; };
 		A7B99E4F25236C900049B625 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B99E4E25236C900049B625 /* SignInViewController.swift */; };
 		A7C0A7E0250AE7D60019A841 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C0A7DF250AE7D60019A841 /* SignInVC.swift */; };
 		A7C0A7E4250AEB090019A841 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C0A7E2250AEB070019A841 /* Constants.swift */; };
@@ -99,7 +99,6 @@
 		A75CBA192540C38E003C585F /* UserDefaultsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsProtocol.swift; sourceTree = "<group>"; };
 		A75CBA1B2540C980003C585F /* UserInfoPageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoPageTests.swift; sourceTree = "<group>"; };
 		A76070FB252F5E1B0095611F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		A763DCEF25309DCE00C91D43 /* user.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = user.json; sourceTree = "<group>"; };
 		A7657C6225387088009CC28E /* ResponseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseHandler.swift; sourceTree = "<group>"; };
 		A7657C64253871D0009CC28E /* ResponseHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseHandlerTests.swift; sourceTree = "<group>"; };
 		A76784462538CA8E0081EE79 /* SignInPageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPageTests.swift; sourceTree = "<group>"; };
@@ -116,6 +115,7 @@
 		A79A1D9825126F7F0035C80F /* FirebaseInstallations.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseInstallations.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7A2D8EA250FA7CF00A10DBB /* ValidationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationService.swift; sourceTree = "<group>"; };
 		A7A2D8EC25103A8800A10DBB /* ValidationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationServiceTests.swift; sourceTree = "<group>"; };
+		A7AD02DD2542236B0059DE12 /* DatabaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseError.swift; sourceTree = "<group>"; };
 		A7B99E4E25236C900049B625 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		A7C0A7DF250AE7D60019A841 /* SignInVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		A7C0A7E2250AEB070019A841 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -221,7 +221,6 @@
 		A74B80E824EB06C40081EF4B /* iOSSwiftPay */ = {
 			isa = PBXGroup;
 			children = (
-				A793C2A02526628000AE0DB2 /* DataSource */,
 				A75EF15D252248140050A747 /* Presenters */,
 				A75EF15C252248070050A747 /* Models */,
 				A796D63B25119BA400974974 /* GoogleService-Info.plist */,
@@ -289,24 +288,9 @@
 				A7657C6225387088009CC28E /* ResponseHandler.swift */,
 				A7E4EA322540A8B600170766 /* UserDefaultsService.swift */,
 				A75CBA192540C38E003C585F /* UserDefaultsProtocol.swift */,
+				A7AD02DD2542236B0059DE12 /* DatabaseError.swift */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		A763DCEE25309B9C00C91D43 /* JsonMocks */ = {
-			isa = PBXGroup;
-			children = (
-				A763DCEF25309DCE00C91D43 /* user.json */,
-			);
-			path = JsonMocks;
-			sourceTree = "<group>";
-		};
-		A793C2A02526628000AE0DB2 /* DataSource */ = {
-			isa = PBXGroup;
-			children = (
-				A763DCEE25309B9C00C91D43 /* JsonMocks */,
-			);
-			path = DataSource;
 			sourceTree = "<group>";
 		};
 		A7C0A7DE250AE7C20019A841 /* Views */ = {
@@ -661,10 +645,10 @@
 				A793C2A42526BA1000AE0DB2 /* FirebaseFirestoreClient.swift in Sources */,
 				A73F61C1252CE87900F6C75B /* TransferViewController.swift in Sources */,
 				A7B99E4F25236C900049B625 /* SignInViewController.swift in Sources */,
-				A763DCF025309DCE00C91D43 /* user.json in Sources */,
 				A7C0A7E4250AEB090019A841 /* Constants.swift in Sources */,
 				A75AEBAE252E6A7C001532B6 /* MoneyTransactionTableViewCell.swift in Sources */,
 				A75AEBA8252DEA31001532B6 /* UserInfoViewController.swift in Sources */,
+				A7AD02DE2542236B0059DE12 /* DatabaseError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

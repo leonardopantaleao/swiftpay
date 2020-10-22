@@ -26,13 +26,14 @@ final class FirebaseFirestoreClient : ClientProtocol{
     func getUserInfo(_ email: String?, completionHandler: @escaping (Result<Client, Error>) -> ()) {
         let db = Firestore.firestore()
         db.collection(Constants.DataBaseConstants.usersDocument).whereField(Constants.DataBaseConstants.emailField, isEqualTo: email!)
-            .getDocuments() { (querySnapshot, err) in
-                if let err = err {
-                    print("Error getting documents: \(err)")
+            .getDocuments() { (querySnapshot, error) in
+                if let error = error {
+                    let code = (error as NSError).code
+                    completionHandler(.failure(self.responseHandler.handleError(code)))
                 } else {
-                    for document in querySnapshot!.documents {
-                        print("\(document.documentID) => \(document.data())")
-                    }
+                    let document = querySnapshot!.documents[0]
+                    let client: Client = Client(name: document["name"] as! String, lastName: document["lastName"] as! String, email: document["email"] as! String)
+                    completionHandler(.success(client))
                 }
         }
     }

@@ -9,7 +9,13 @@
 import Foundation
 
 
-struct Client: Codable{
+struct Client {
+    internal init(name: String, lastName: String, email: String) {
+        self.name = name
+        self.lastName = lastName
+        self.email = email
+    }
+    
     var name: String
     var lastName: String
     var email: String

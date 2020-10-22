@@ -37,7 +37,17 @@ class UserInfoPresenter{
     }
     
     func getAndShowUserName(){
-        
+        userInfoDelegate?.showProgress()
+        client.getUserInfo(userDefaults.getStringOnUserDefaults(Constants.UserDefaultsKeys.userEmail), completionHandler: {
+            result in
+            switch result{
+            case .success(let client):
+                self.userInfoDelegate?.setUserName(client.name)
+            case .failure(_):
+                self.userInfoDelegate?.showTryAgainMessageAndButton()
+            }
+            self.userInfoDelegate?.hideProgress()
+        })
     }
     
     func getAndShowCurrentBalance(){
