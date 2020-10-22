@@ -13,7 +13,8 @@ class SignInViewController: UIViewController, SignInViewDelegate {
     func navigateToSignUp() {
         let firebaseClient = FirebaseFirestoreClient()
         let validationService = ValidationService()
-        let presenter = SignUpPresenter(validationService: validationService, client: firebaseClient)
+        let userDefaults = UserDefaultsService()
+        let presenter = SignUpPresenter(validationService: validationService, client: firebaseClient, userDefaults: userDefaults)
         let signUpViewController = SignUpViewController(signUpPresenter: presenter)
         self.navigationController?.pushViewController(signUpViewController, animated: true)
     }

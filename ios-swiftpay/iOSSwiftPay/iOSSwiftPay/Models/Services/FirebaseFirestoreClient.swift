@@ -10,6 +10,33 @@ import Foundation
 import Firebase
 
 final class FirebaseFirestoreClient : ClientProtocol{
+    func createUserOnDB(_ name: String?, _ lastName: String?, _ email: String?, completionHandler: @escaping (Result<String, ValidationError>) -> ()) {
+        let db = Firestore.firestore()
+        db.collection(Constants.DataBaseConstants.usersDocument).addDocument(data: [ "email": email!, "name": name!, "lastName": lastName!], completion: { error in
+            if error != nil {
+                let code = (error! as NSError).code
+                completionHandler(.failure(self.responseHandler.handleError(code)))
+            }
+            else{
+                completionHandler(.success(email!))
+            }
+        })
+    }
+    
+    func getUserInfo(_ email: String?, completionHandler: @escaping (Result<Client, Error>) -> ()) {
+        let db = Firestore.firestore()
+        db.collection(Constants.DataBaseConstants.usersDocument).whereField(Constants.DataBaseConstants.emailField, isEqualTo: email!)
+            .getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    for document in querySnapshot!.documents {
+                        print("\(document.documentID) => \(document.data())")
+                    }
+                }
+        }
+    }
+    
     func signUp(_ name: String?, _ lastName: String?, _ email: String?, _ password: String?, completionHandler: @escaping (Result<String, ValidationError>) -> ()) {
         Auth.auth().createUser(withEmail: email!, password: password!, completion: { (result, error) in
             if error != nil {
@@ -41,5 +68,6 @@ final class FirebaseFirestoreClient : ClientProtocol{
             }
         })
     }
+    
     
 }

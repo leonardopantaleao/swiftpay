@@ -15,18 +15,23 @@ class SignUpPageTests: XCTestCase {
     var client: ClientProtocolMock!
     var presenter: SignUpPresenter!
     var viewDelegate: SignUpViewDelegateMock!
+    var userDefaults: UserDefaultsProtocolMock!
     
     override func setUp() {
         validationService = ValidationService()
+        userDefaults = mock(UserDefaultsProtocol.self)
         client = mock(ClientProtocol.self)
         viewDelegate = mock(SignUpViewDelegate.self)
-        presenter = SignUpPresenter(signUpViewDelegate: viewDelegate, validationService: validationService, client: client)
+        presenter = SignUpPresenter(signUpViewDelegate: viewDelegate, validationService: validationService, client: client, userDefaults: userDefaults)
         super.setUp()
     }
     
     override func tearDown() {
         validationService = nil
+        userDefaults = nil
         client = nil
+        presenter = nil
+        viewDelegate = nil
         super.tearDown()
     }
     
@@ -147,15 +152,21 @@ class SignUpPageTests: XCTestCase {
     }
     
     func testSignUpWithAllValidFields(){
+        let enteredEmail = "email@email.com"
+        given(userDefaults.saveStringOnUserDefaults(enteredEmail, Constants.UserDefaultsKeys.userEmail)).willReturn()
         given(viewDelegate.showProgress()).willReturn()
         given(viewDelegate.hideProgress()).willReturn()
         given(viewDelegate.signUpDidSucceed()).willReturn()
         given(client.signUp(any(), any(), any(), any(), completionHandler: any())).will { name, lastName, email, password, callback in
-            callback(.success("email@email.com"))
+            callback(.success(enteredEmail))
         }
-        presenter.signUp("Nome", "Sobrenome", "email@email.com", "testesenha1#", "testesenha1#")
+        given(client.createUserOnDB(any(), any(), enteredEmail, completionHandler: any())).will { name, lastName, email, callback in
+            callback(.success(enteredEmail))
+        }
+        presenter.signUp("Nome", "Sobrenome", enteredEmail, "testesenha1#", "testesenha1#")
         verify(viewDelegate.signUpDidSucceed()).wasCalled()
         verify(viewDelegate.showProgress()).wasCalled()
         verify(viewDelegate.hideProgress()).wasCalled()
+        verify(userDefaults.saveStringOnUserDefaults(enteredEmail, Constants.UserDefaultsKeys.userEmail)).wasCalled()
     }
 }

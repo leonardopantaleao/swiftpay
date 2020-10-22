@@ -18,14 +18,16 @@ protocol SignInViewDelegate {
 
 class SignInPresenter{
     
-    internal init(signInViewDelagate: SignInViewDelegate? = nil, validationService: ValidationService, client: ClientProtocol) {
+    internal init(signInViewDelagate: SignInViewDelegate? = nil, validationService: ValidationService, client: ClientProtocol, userDefaults: UserDefaultsProtocol) {
         self.signInViewDelagate = signInViewDelagate
         self.validationService = validationService
+        self.userDefaults = userDefaults
         self.client = client
     }
     
     private var signInViewDelagate: SignInViewDelegate?
     var validationService: ValidationService
+    var userDefaults: UserDefaultsProtocol
     var client: ClientProtocol
     
     func setViewDelegate(signInViewDelagate: SignInViewDelegate?){
@@ -40,8 +42,9 @@ class SignInPresenter{
             let validPassword = try validationService.validatePassword(password)
             client.signIn(validEmail, validPassword, completionHandler: { result in
                 switch result {
-                case .success(_):
+                case .success(let email):
                     self.signInViewDelagate?.loginDidSucceed()
+                    self.userDefaults.saveStringOnUserDefaults(email, Constants.UserDefaultsKeys.userEmail)
                 case .failure(let error):
                     self.signInViewDelagate?.loginDidFailed(message: error.localizedDescription)
                 }

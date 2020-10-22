@@ -18,11 +18,13 @@ protocol SignUpViewDelegate {
 class SignUpPresenter {
     private var signUpViewDelegate: SignUpViewDelegate?
     var validationService: ValidationService
+    var userDefaults: UserDefaultsProtocol
     var client: ClientProtocol
     
-    internal init(signUpViewDelegate: SignUpViewDelegate? = nil, validationService: ValidationService, client: ClientProtocol) {
+    internal init(signUpViewDelegate: SignUpViewDelegate? = nil, validationService: ValidationService, client: ClientProtocol, userDefaults: UserDefaultsProtocol) {
         self.signUpViewDelegate = signUpViewDelegate
         self.validationService = validationService
+        self.userDefaults = userDefaults
         self.client = client
     }
     
@@ -42,8 +44,8 @@ class SignUpPresenter {
             
             client.signUp(validName, validLastName, validEmail, validPassword, completionHandler:  { result in
                 switch result {
-                case .success(_):
-                    self.signUpViewDelegate?.signUpDidSucceed()
+                case .success(let email):
+                    self.createUserOnDB(validName, validLastName, email)
                 case .failure(let error):
                     self.signUpViewDelegate?.signUpDidFailed(message: error.localizedDescription)
                 }
@@ -54,5 +56,17 @@ class SignUpPresenter {
             self.signUpViewDelegate?.signUpDidFailed(message: error.localizedDescription)
             self.signUpViewDelegate?.hideProgress()
         }
+    }
+    
+    func createUserOnDB(_ name: String, _ lastName: String, _ email: String){
+        client.createUserOnDB(name, lastName, email, completionHandler: { result in
+            switch result {
+            case .success(let email):
+                self.signUpViewDelegate?.signUpDidSucceed()
+                self.userDefaults.saveStringOnUserDefaults(email, Constants.UserDefaultsKeys.userEmail)
+            case .failure(let error):
+                self.signUpViewDelegate?.signUpDidFailed(message: error.localizedDescription)
+            }
+        })
     }
 }

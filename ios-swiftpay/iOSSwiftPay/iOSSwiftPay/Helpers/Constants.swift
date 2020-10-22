@@ -10,13 +10,6 @@ import Foundation
 import UIKit
 
 struct Constants {
-    
-    struct Storyboard {
-        
-        static let homeViewController = "HomeVC"
-        
-    }
-    
     struct ScreenInfo {
         static let screenWidth = UIScreen.main.bounds.width
         static let screenHeight = UIScreen.main.bounds.height
@@ -31,6 +24,10 @@ struct Constants {
         static let rowIconMoneyDeposit = "rowIconMoneyDeposit"
         static let home = "home"
         static let settings = "settings"
+    }
+    
+    struct UserDefaultsKeys {
+        static let userEmail = "userEmail"
     }
     
     struct LocalizedStrings {
@@ -65,5 +62,12 @@ struct Constants {
         static let passwordsNotMatching = "passwordsNotMatching"
         static let notValidName = "notValidName"
         static let userAlreadyExists = "userAlreadyExists"
+        static let tryAgain = "tryAgain"
+    }
+    
+    struct DataBaseConstants {
+        static let transactions = "transactions"
+        static let usersDocument = "users"
+        static let emailField = "email"
     }
 }

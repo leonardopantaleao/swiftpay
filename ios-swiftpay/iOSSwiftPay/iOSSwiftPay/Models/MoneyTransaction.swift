@@ -12,6 +12,6 @@ struct MoneyTransaction: Codable{
     var senderId: String
     var receiverId: String
     var amount: Double
-    var transactionDate: Date
+    var transactionDate: TimeInterval
     var type: String
 }

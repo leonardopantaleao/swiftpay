@@ -16,18 +16,23 @@ class SignInPageTests: XCTestCase {
     var client: ClientProtocolMock!
     var presenter: SignInPresenter!
     var viewDelegate: SignInViewDelegateMock!
+    var userDefaults: UserDefaultsProtocolMock!
     
     override func setUp() {
         validationService = ValidationService()
+        userDefaults = mock(UserDefaultsProtocol.self)
         client = mock(ClientProtocol.self)
         viewDelegate = mock(SignInViewDelegate.self)
-        presenter = SignInPresenter(signInViewDelagate: viewDelegate, validationService: validationService, client: client)
+        presenter = SignInPresenter(signInViewDelagate: viewDelegate, validationService: validationService, client: client, userDefaults: userDefaults)
         super.setUp()
     }
     
     override func tearDown() {
         validationService = nil
+        userDefaults = nil
         client = nil
+        presenter = nil
+        viewDelegate = nil
         super.tearDown()
     }
     
@@ -111,15 +116,18 @@ class SignInPageTests: XCTestCase {
     }
     
     func testLoginWithAllFilledCorrectly(){
+        let enteredEmail = "email@email.com"
+        given(userDefaults.saveStringOnUserDefaults(enteredEmail, Constants.UserDefaultsKeys.userEmail)).willReturn()
         given(viewDelegate.showProgress()).willReturn()
         given(viewDelegate.hideProgress()).willReturn()
         given(viewDelegate.loginDidSucceed()).willReturn()
         given(client.signIn(any(), any(), completionHandler: any())).will { email, password, callback in
-            callback(.success("email@email.com"))
+            callback(.success(enteredEmail))
         }
-        presenter.signIn("email@email.com", "funciona01#")
+        presenter.signIn(enteredEmail, "funciona01#")
         verify(viewDelegate.loginDidSucceed()).wasCalled()
         verify(viewDelegate.showProgress()).wasCalled()
         verify(viewDelegate.hideProgress()).wasCalled()
+        verify(userDefaults.saveStringOnUserDefaults(enteredEmail, Constants.UserDefaultsKeys.userEmail)).wasCalled()
     }
 }

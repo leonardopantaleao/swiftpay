@@ -8,7 +8,69 @@
 
 import UIKit
 
-class UserInfoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class UserInfoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UserInfoDelegate {
+    func showProgress() {
+        view.isUserInteractionEnabled = false
+        transactionsTableView.isHidden = true
+        tryAgainBtn.isHidden = true
+        errorLabel.isHidden = true
+        transactionActivityIndicator?.startAnimating()
+    }
+    
+    func hideProgress() {
+        view.isUserInteractionEnabled = true
+        transactionsTableView.isHidden = false
+        tryAgainBtn.isHidden = false
+        errorLabel.isHidden = false
+        transactionActivityIndicator?.stopAnimating()
+    }
+    
+    func showTryAgainMessageAndButton() {
+        errorLabel.isHidden = false
+        tryAgainBtn.isHidden = false
+        transactionsTableView.isHidden = true
+    }
+    
+    func hideTryAgainMessageAndButton() {
+        errorLabel.isHidden = true
+        tryAgainBtn.isHidden = true
+        transactionsTableView.isHidden = false
+    }
+    
+    func showBalanceLabel() {
+        balanceLabel.isHidden = false
+    }
+    
+    func hideBalanceLabel() {
+        balanceLabel.isHidden = true
+    }
+    
+    func setUserName(_ userName: String) {
+        userNameLabel.text = userName
+    }
+    
+    func setCurrentBalance(_ formattedBalance: String, _ color: UIColor) {
+        balanceLabel.text = formattedBalance
+        balanceLabel.textColor = color
+    }
+    
+    func setTransactionsTable(_ moneyTransactions: [MoneyTransaction]) {
+        transactions = moneyTransactions
+        transactionsTableView.dataSource = self
+        transactionsTableView.delegate = self
+        transactionsTableView.register(MoneyTransactionTableViewCell.self, forCellReuseIdentifier: "transactionCell")
+    }
+    
+    private let userInfoPresenter: UserInfoPresenter
+    
+    init(userInfoPresenter: UserInfoPresenter) {
+        self.userInfoPresenter = userInfoPresenter
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "transactionCell", for: indexPath) as! MoneyTransactionTableViewCell
@@ -91,16 +153,33 @@ class UserInfoViewController: UIViewController, UITableViewDataSource, UITableVi
         return indicator
     }()
     
+    let errorLabel : UILabel = {
+        let label = UILabel()
+        label.adjustsFontSizeToFitWidth = true
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .red
+        label.isHidden = true
+        return label
+    }()
+    
+    let tryAgainBtn : UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle(NSLocalizedString(Constants.LocalizedStrings.tryAgain, comment: "try again button text"), for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.isHidden = true
+        return button
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        signInPresenter.setViewDelegate(signInViewDelagate: self)
+        userInfoPresenter.setViewDelegate(userInfoDelegate: self)
         addSubViews()
         setUpLayout()
         setButtonsResponders()
         styleVisualElements()
         setTexts()
-        setupTableView()
+//        setupTableView()
     }
     
     private func setTexts(){
@@ -116,7 +195,9 @@ class UserInfoViewController: UIViewController, UITableViewDataSource, UITableVi
         view.addSubview(showBalanceBtn)
         view.addSubview(transactionLabel)
         view.addSubview(transactionsTableView)
-        //        view.addSubview(transactionActivityIndicator!)
+        view.addSubview(errorLabel)
+        view.addSubview(tryAgainBtn)
+        view.addSubview(transactionActivityIndicator!)
     }
     
     private func setUpLayout(){
@@ -153,6 +234,15 @@ class UserInfoViewController: UIViewController, UITableViewDataSource, UITableVi
         transactionsTableView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
         transactionsTableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
         transactionsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40).isActive = true
+        //ErrorLabel anchors
+        errorLabel.topAnchor.constraint(equalTo: transactionLabel.bottomAnchor, constant: 20).isActive = true
+        errorLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
+        errorLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
+        errorLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40).isActive = true
+        //TryAgainBtn anchors
+        tryAgainBtn.topAnchor.constraint(equalTo: errorLabel.bottomAnchor, constant: 20).isActive = true
+        tryAgainBtn.leftAnchor.constraint(equalTo: errorLabel.leftAnchor).isActive = true
+        tryAgainBtn.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
     
     private func setButtonsResponders(){
@@ -168,32 +258,33 @@ class UserInfoViewController: UIViewController, UITableViewDataSource, UITableVi
         view.backgroundColor = .white
         userNameLabel.font = .boldSystemFont(ofSize: 20)
         Utilities.styleFilledButton(showBalanceBtn)
+        Utilities.styleFilledButton(tryAgainBtn)
     }
     
-    var transactions : [MoneyTransactionMock] = []
-    
-    private func setupTableView(){
-        let transfer = MoneyTransactionMock(senderId: "leonardopspl@gmail.com", receiverId: "leonardopspl@gmail.com", amount: 5.00, transactionDate: Date().timeIntervalSinceReferenceDate, type: "deposit")
-        let deposit = MoneyTransactionMock(senderId: "test_sender@gmail.com", receiverId: "leonardopspl@gmail.com", amount: 5.00, transactionDate: Date().timeIntervalSinceReferenceDate, type: "transfer")
-        transactions = [ transfer, deposit ]
-        transactionsTableView.dataSource = self
-        transactionsTableView.delegate = self
-        transactionsTableView.register(MoneyTransactionTableViewCell.self, forCellReuseIdentifier: "transactionCell")
-    }
+//    var transactions : [MoneyTransactionMock] = []
+    var transactions : [MoneyTransaction] = []
+//    private func setupTableView(){
+//        let transfer = MoneyTransactionMock(senderId: "leonardopspl@gmail.com", receiverId: "leonardopspl@gmail.com", amount: 5.00, transactionDate: Date().timeIntervalSinceReferenceDate, type: "deposit")
+//        let deposit = MoneyTransactionMock(senderId: "test_sender@gmail.com", receiverId: "leonardopspl@gmail.com", amount: 5.00, transactionDate: Date().timeIntervalSinceReferenceDate, type: "transfer")
+//        transactions = [ transfer, deposit ]
+//        transactionsTableView.dataSource = self
+//        transactionsTableView.delegate = self
+//        transactionsTableView.register(MoneyTransactionTableViewCell.self, forCellReuseIdentifier: "transactionCell")
+//    }
 }
 
-public class MoneyTransactionMock{
-    internal init(senderId: String, receiverId: String, amount: Double, transactionDate: TimeInterval, type: String) {
-        self.senderId = senderId
-        self.receiverId = receiverId
-        self.amount = amount
-        self.transactionDate = transactionDate
-        self.type = type
-    }
-    
-    public var senderId: String
-    public var receiverId: String
-    public var amount: Double
-    public var transactionDate: TimeInterval
-    public var type: String
-}
+//public class MoneyTransactionMock{
+//    internal init(senderId: String, receiverId: String, amount: Double, transactionDate: TimeInterval, type: String) {
+//        self.senderId = senderId
+//        self.receiverId = receiverId
+//        self.amount = amount
+//        self.transactionDate = transactionDate
+//        self.type = type
+//    }
+//
+//    public var senderId: String
+//    public var receiverId: String
+//    public var amount: Double
+//    public var transactionDate: TimeInterval
+//    public var type: String
+//}

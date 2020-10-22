@@ -89,6 +89,26 @@ public final class ClientProtocolMock: iOSSwiftPay.ClientProtocol, Mockingbird.M
     self.sourceLocation = sourceLocation
   }
 
+  // MARK: Mocked `getUserInfo`(_ `email`: String?, `completionHandler`: @escaping (Result<iOSSwiftPay.Client, Error>) -> ())
+
+  public func `getUserInfo`(_ `email`: String?, `completionHandler`: @escaping (Result<iOSSwiftPay.Client, Error>) -> ()) -> Void {
+    let invocation: Mockingbird.Invocation = Mockingbird.Invocation(selectorName: "`getUserInfo`(_ `email`: String?, `completionHandler`: @escaping (Result<iOSSwiftPay.Client, Error>) -> ()) -> Void", arguments: [Mockingbird.ArgumentMatcher(`email`), Mockingbird.ArgumentMatcher(`completionHandler`)], returnType: Swift.ObjectIdentifier((Void).self))
+    self.mockingContext.didInvoke(invocation) { () -> Void in
+      let implementation = self.stubbingContext.implementation(for: invocation)
+      if let concreteImplementation = implementation as? (String?, @escaping (Result<iOSSwiftPay.Client, Error>) -> ()) -> Void {
+        concreteImplementation(`email`, `completionHandler`)
+      } else if let concreteImplementation = implementation as? () -> Void {
+        concreteImplementation()
+      }
+    }
+  }
+
+  public func `getUserInfo`(_ `email`: @escaping @autoclosure () -> String?, `completionHandler`: @escaping @autoclosure () -> (Result<iOSSwiftPay.Client, Error>) -> ()) -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (String?, @escaping (Result<iOSSwiftPay.Client, Error>) -> ()) -> Void, Void> {
+    let arguments: [Mockingbird.ArgumentMatcher] = [Mockingbird.resolve(`email`), Mockingbird.resolve(`completionHandler`)]
+    let invocation: Mockingbird.Invocation = Mockingbird.Invocation(selectorName: "`getUserInfo`(_ `email`: String?, `completionHandler`: @escaping (Result<iOSSwiftPay.Client, Error>) -> ()) -> Void", arguments: arguments, returnType: Swift.ObjectIdentifier((Void).self))
+    return Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (String?, @escaping (Result<iOSSwiftPay.Client, Error>) -> ()) -> Void, Void>(mock: self, invocation: invocation)
+  }
+
   // MARK: Mocked `signIn`(_ `email`: String?, _ `password`: String?, `completionHandler`: @escaping (Result<String, iOSSwiftPay.ValidationError>) -> ())
 
   public func `signIn`(_ `email`: String?, _ `password`: String?, `completionHandler`: @escaping (Result<String, iOSSwiftPay.ValidationError>) -> ()) -> Void {
@@ -107,6 +127,26 @@ public final class ClientProtocolMock: iOSSwiftPay.ClientProtocol, Mockingbird.M
     let arguments: [Mockingbird.ArgumentMatcher] = [Mockingbird.resolve(`email`), Mockingbird.resolve(`password`), Mockingbird.resolve(`completionHandler`)]
     let invocation: Mockingbird.Invocation = Mockingbird.Invocation(selectorName: "`signIn`(_ `email`: String?, _ `password`: String?, `completionHandler`: @escaping (Result<String, iOSSwiftPay.ValidationError>) -> ()) -> Void", arguments: arguments, returnType: Swift.ObjectIdentifier((Void).self))
     return Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (String?, String?, @escaping (Result<String, iOSSwiftPay.ValidationError>) -> ()) -> Void, Void>(mock: self, invocation: invocation)
+  }
+
+  // MARK: Mocked `createUserOnDB`(_ `name`: String?, _ `lastName`: String?, _ `email`: String?, `completionHandler`: @escaping (Result<String, iOSSwiftPay.ValidationError>) -> ())
+
+  public func `createUserOnDB`(_ `name`: String?, _ `lastName`: String?, _ `email`: String?, `completionHandler`: @escaping (Result<String, iOSSwiftPay.ValidationError>) -> ()) -> Void {
+    let invocation: Mockingbird.Invocation = Mockingbird.Invocation(selectorName: "`createUserOnDB`(_ `name`: String?, _ `lastName`: String?, _ `email`: String?, `completionHandler`: @escaping (Result<String, iOSSwiftPay.ValidationError>) -> ()) -> Void", arguments: [Mockingbird.ArgumentMatcher(`name`), Mockingbird.ArgumentMatcher(`lastName`), Mockingbird.ArgumentMatcher(`email`), Mockingbird.ArgumentMatcher(`completionHandler`)], returnType: Swift.ObjectIdentifier((Void).self))
+    self.mockingContext.didInvoke(invocation) { () -> Void in
+      let implementation = self.stubbingContext.implementation(for: invocation)
+      if let concreteImplementation = implementation as? (String?, String?, String?, @escaping (Result<String, iOSSwiftPay.ValidationError>) -> ()) -> Void {
+        concreteImplementation(`name`, `lastName`, `email`, `completionHandler`)
+      } else if let concreteImplementation = implementation as? () -> Void {
+        concreteImplementation()
+      }
+    }
+  }
+
+  public func `createUserOnDB`(_ `name`: @escaping @autoclosure () -> String?, _ `lastName`: @escaping @autoclosure () -> String?, _ `email`: @escaping @autoclosure () -> String?, `completionHandler`: @escaping @autoclosure () -> (Result<String, iOSSwiftPay.ValidationError>) -> ()) -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (String?, String?, String?, @escaping (Result<String, iOSSwiftPay.ValidationError>) -> ()) -> Void, Void> {
+    let arguments: [Mockingbird.ArgumentMatcher] = [Mockingbird.resolve(`name`), Mockingbird.resolve(`lastName`), Mockingbird.resolve(`email`), Mockingbird.resolve(`completionHandler`)]
+    let invocation: Mockingbird.Invocation = Mockingbird.Invocation(selectorName: "`createUserOnDB`(_ `name`: String?, _ `lastName`: String?, _ `email`: String?, `completionHandler`: @escaping (Result<String, iOSSwiftPay.ValidationError>) -> ()) -> Void", arguments: arguments, returnType: Swift.ObjectIdentifier((Void).self))
+    return Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (String?, String?, String?, @escaping (Result<String, iOSSwiftPay.ValidationError>) -> ()) -> Void, Void>(mock: self, invocation: invocation)
   }
 
   // MARK: Mocked `signUp`(_ `name`: String?, _ `lastName`: String?, _ `email`: String?, _ `password`: String?, `completionHandler`: @escaping (Result<String, iOSSwiftPay.ValidationError>) -> ())
@@ -189,69 +229,6 @@ public final class HomeViewControllerMock: Mockingbird.Mock {
 @available(*, unavailable, message: "'HomeViewController' does not declare any accessible designated initializers and cannot be mocked")
 public func mock(_ type: iOSSwiftPay.HomeViewController.Type, file: StaticString = #file, line: UInt = #line) -> HomeViewControllerMock {
   fatalError()
-}
-
-// MARK: - Mocked MoneyTransactionMock
-
-public final class MoneyTransactionMockMock: iOSSwiftPay.MoneyTransactionMock, Mockingbird.Mock {
-  static let staticMock = Mockingbird.StaticMock()
-  public let mockingContext = Mockingbird.MockingContext()
-  public let stubbingContext = Mockingbird.StubbingContext()
-  public let mockMetadata = Mockingbird.MockMetadata(["generator_version": "0.16.0", "module_name": "iOSSwiftPay"])
-  public var sourceLocation: Mockingbird.SourceLocation? { get { fatalError("See 'Thunk Pruning' in the README") } set { fatalError("See 'Thunk Pruning' in the README") } }
-
-  public enum InitializerProxy {
-    public static func initialize(`senderId`: String, `receiverId`: String, `amount`: Double, `transactionDate`: TimeInterval, `type`: String, __file: StaticString = #file, __line: UInt = #line) -> MoneyTransactionMockMock { fatalError("See 'Thunk Pruning' in the README") }
-  }
-
-  // MARK: Mocked amount
-
-  override public var `amount`: Double { get { fatalError("See 'Thunk Pruning' in the README") } set { fatalError("See 'Thunk Pruning' in the README") } }
-
-  public func getAmount() -> Mockingbird.Mockable<Mockingbird.PropertyGetterDeclaration, () -> Double, Double> { fatalError("See 'Thunk Pruning' in the README") }
-
-  public func setAmount(_ newValue: @escaping @autoclosure () -> Double) -> Mockingbird.Mockable<Mockingbird.PropertySetterDeclaration, (Double) -> Void, Void> { fatalError("See 'Thunk Pruning' in the README") }
-
-  // MARK: Mocked receiverId
-
-  override public var `receiverId`: String { get { fatalError("See 'Thunk Pruning' in the README") } set { fatalError("See 'Thunk Pruning' in the README") } }
-
-  public func getReceiverId() -> Mockingbird.Mockable<Mockingbird.PropertyGetterDeclaration, () -> String, String> { fatalError("See 'Thunk Pruning' in the README") }
-
-  public func setReceiverId(_ newValue: @escaping @autoclosure () -> String) -> Mockingbird.Mockable<Mockingbird.PropertySetterDeclaration, (String) -> Void, Void> { fatalError("See 'Thunk Pruning' in the README") }
-
-  // MARK: Mocked senderId
-
-  override public var `senderId`: String { get { fatalError("See 'Thunk Pruning' in the README") } set { fatalError("See 'Thunk Pruning' in the README") } }
-
-  public func getSenderId() -> Mockingbird.Mockable<Mockingbird.PropertyGetterDeclaration, () -> String, String> { fatalError("See 'Thunk Pruning' in the README") }
-
-  public func setSenderId(_ newValue: @escaping @autoclosure () -> String) -> Mockingbird.Mockable<Mockingbird.PropertySetterDeclaration, (String) -> Void, Void> { fatalError("See 'Thunk Pruning' in the README") }
-
-  // MARK: Mocked transactionDate
-
-  override public var `transactionDate`: TimeInterval { get { fatalError("See 'Thunk Pruning' in the README") } set { fatalError("See 'Thunk Pruning' in the README") } }
-
-  public func getTransactionDate() -> Mockingbird.Mockable<Mockingbird.PropertyGetterDeclaration, () -> TimeInterval, TimeInterval> { fatalError("See 'Thunk Pruning' in the README") }
-
-  public func setTransactionDate(_ newValue: @escaping @autoclosure () -> TimeInterval) -> Mockingbird.Mockable<Mockingbird.PropertySetterDeclaration, (TimeInterval) -> Void, Void> { fatalError("See 'Thunk Pruning' in the README") }
-
-  // MARK: Mocked type
-
-  override public var `type`: String { get { fatalError("See 'Thunk Pruning' in the README") } set { fatalError("See 'Thunk Pruning' in the README") } }
-
-  public func getType() -> Mockingbird.Mockable<Mockingbird.PropertyGetterDeclaration, () -> String, String> { fatalError("See 'Thunk Pruning' in the README") }
-
-  public func setType(_ newValue: @escaping @autoclosure () -> String) -> Mockingbird.Mockable<Mockingbird.PropertySetterDeclaration, (String) -> Void, Void> { fatalError("See 'Thunk Pruning' in the README") }
-
-  // MARK: Mocked init(`senderId`: String, `receiverId`: String, `amount`: Double, `transactionDate`: TimeInterval, `type`: String)
-
-  public required override init(`senderId`: String, `receiverId`: String, `amount`: Double, `transactionDate`: TimeInterval, `type`: String) { fatalError("See 'Thunk Pruning' in the README") }
-}
-
-/// Returns an abstract mock which should be initialized using `mock(MoneyTransactionMock.self).initialize(…)`.
-public func mock(_ type: iOSSwiftPay.MoneyTransactionMock.Type, file: StaticString = #file, line: UInt = #line) -> MoneyTransactionMockMock.InitializerProxy.Type {
-  return MoneyTransactionMockMock.InitializerProxy.self
 }
 
 // MARK: - Mocked MoneyTransactionTableViewCell
@@ -349,7 +326,7 @@ public final class SignInPresenterMock: iOSSwiftPay.SignInPresenter, Mockingbird
   public var sourceLocation: Mockingbird.SourceLocation? { get { fatalError("See 'Thunk Pruning' in the README") } set { fatalError("See 'Thunk Pruning' in the README") } }
 
   public enum InitializerProxy {
-    public static func initialize(`signInViewDelagate`: iOSSwiftPay.SignInViewDelegate?, `validationService`: iOSSwiftPay.ValidationService, `client`: iOSSwiftPay.ClientProtocol, __file: StaticString = #file, __line: UInt = #line) -> SignInPresenterMock { fatalError("See 'Thunk Pruning' in the README") }
+    public static func initialize(`signInViewDelagate`: iOSSwiftPay.SignInViewDelegate?, `validationService`: iOSSwiftPay.ValidationService, `client`: iOSSwiftPay.ClientProtocol, `userDefaults`: iOSSwiftPay.UserDefaultsProtocol, __file: StaticString = #file, __line: UInt = #line) -> SignInPresenterMock { fatalError("See 'Thunk Pruning' in the README") }
   }
 
   // MARK: Mocked client
@@ -359,6 +336,14 @@ public final class SignInPresenterMock: iOSSwiftPay.SignInPresenter, Mockingbird
   public func getClient() -> Mockingbird.Mockable<Mockingbird.PropertyGetterDeclaration, () -> iOSSwiftPay.ClientProtocol, iOSSwiftPay.ClientProtocol> { fatalError("See 'Thunk Pruning' in the README") }
 
   public func setClient(_ newValue: @escaping @autoclosure () -> iOSSwiftPay.ClientProtocol) -> Mockingbird.Mockable<Mockingbird.PropertySetterDeclaration, (iOSSwiftPay.ClientProtocol) -> Void, Void> { fatalError("See 'Thunk Pruning' in the README") }
+
+  // MARK: Mocked userDefaults
+
+  override public var `userDefaults`: iOSSwiftPay.UserDefaultsProtocol { get { fatalError("See 'Thunk Pruning' in the README") } set { fatalError("See 'Thunk Pruning' in the README") } }
+
+  public func getUserDefaults() -> Mockingbird.Mockable<Mockingbird.PropertyGetterDeclaration, () -> iOSSwiftPay.UserDefaultsProtocol, iOSSwiftPay.UserDefaultsProtocol> { fatalError("See 'Thunk Pruning' in the README") }
+
+  public func setUserDefaults(_ newValue: @escaping @autoclosure () -> iOSSwiftPay.UserDefaultsProtocol) -> Mockingbird.Mockable<Mockingbird.PropertySetterDeclaration, (iOSSwiftPay.UserDefaultsProtocol) -> Void, Void> { fatalError("See 'Thunk Pruning' in the README") }
 
   // MARK: Mocked validationService
 
@@ -380,15 +365,15 @@ public final class SignInPresenterMock: iOSSwiftPay.SignInPresenter, Mockingbird
 
   public func `signIn`(_ `email`: @escaping @autoclosure () -> String?, _ `password`: @escaping @autoclosure () -> String?) -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (String?, String?) -> Void, Void> { fatalError("See 'Thunk Pruning' in the README") }
 
-  // MARK: Mocked `setViewDelegate`(`signInViewDelagate`: iOSSwiftPay.SignInViewDelagate?)
+  // MARK: Mocked `setViewDelegate`(`signInViewDelagate`: iOSSwiftPay.SignInViewDelegate?)
 
   public override func `setViewDelegate`(`signInViewDelagate`: iOSSwiftPay.SignInViewDelegate?) -> Void { fatalError("See 'Thunk Pruning' in the README") }
 
   public func `setViewDelegate`(`signInViewDelagate`: @escaping @autoclosure () -> iOSSwiftPay.SignInViewDelegate?) -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (iOSSwiftPay.SignInViewDelegate?) -> Void, Void> { fatalError("See 'Thunk Pruning' in the README") }
 
-  // MARK: Mocked init(`signInViewDelagate`: iOSSwiftPay.SignInViewDelagate?, `validationService`: iOSSwiftPay.ValidationService, `client`: iOSSwiftPay.ClientProtocol)
+  // MARK: Mocked init(`signInViewDelagate`: iOSSwiftPay.SignInViewDelegate?, `validationService`: iOSSwiftPay.ValidationService, `client`: iOSSwiftPay.ClientProtocol, `userDefaults`: iOSSwiftPay.UserDefaultsProtocol)
 
-  public required override init(`signInViewDelagate`: iOSSwiftPay.SignInViewDelegate?, `validationService`: iOSSwiftPay.ValidationService, `client`: iOSSwiftPay.ClientProtocol) { fatalError("See 'Thunk Pruning' in the README") }
+  public required override init(`signInViewDelagate`: iOSSwiftPay.SignInViewDelegate?, `validationService`: iOSSwiftPay.ValidationService, `client`: iOSSwiftPay.ClientProtocol, `userDefaults`: iOSSwiftPay.UserDefaultsProtocol) { fatalError("See 'Thunk Pruning' in the README") }
 }
 
 /// Returns an abstract mock which should be initialized using `mock(SignInPresenter.self).initialize(…)`.
@@ -588,9 +573,9 @@ public func mock(_ type: iOSSwiftPay.SignInViewController.Type, file: StaticStri
   return SignInViewControllerMock.InitializerProxy.self
 }
 
-// MARK: - Mocked SignInViewDelagate
+// MARK: - Mocked SignInViewDelegate
 
-public final class SignInViewDelagateMock: iOSSwiftPay.SignInViewDelegate, Mockingbird.Mock {
+public final class SignInViewDelegateMock: iOSSwiftPay.SignInViewDelegate, Mockingbird.Mock {
   static let staticMock = Mockingbird.StaticMock()
   public let mockingContext = Mockingbird.MockingContext()
   public let stubbingContext = Mockingbird.StubbingContext()
@@ -599,7 +584,7 @@ public final class SignInViewDelagateMock: iOSSwiftPay.SignInViewDelegate, Mocki
     get { return self.stubbingContext.sourceLocation }
     set {
       self.stubbingContext.sourceLocation = newValue
-      SignInViewDelagateMock.staticMock.stubbingContext.sourceLocation = newValue
+      SignInViewDelegateMock.staticMock.stubbingContext.sourceLocation = newValue
     }
   }
 
@@ -697,9 +682,9 @@ public final class SignInViewDelagateMock: iOSSwiftPay.SignInViewDelegate, Mocki
   }
 }
 
-/// Returns a concrete mock of `SignInViewDelagate`.
-public func mock(_ type: iOSSwiftPay.SignInViewDelegate.Protocol, file: StaticString = #file, line: UInt = #line) -> SignInViewDelagateMock {
-  return SignInViewDelagateMock(sourceLocation: Mockingbird.SourceLocation(file, line))
+/// Returns a concrete mock of `SignInViewDelegate`.
+public func mock(_ type: iOSSwiftPay.SignInViewDelegate.Protocol, file: StaticString = #file, line: UInt = #line) -> SignInViewDelegateMock {
+  return SignInViewDelegateMock(sourceLocation: Mockingbird.SourceLocation(file, line))
 }
 
 // MARK: - Mocked SignUpPresenter
@@ -712,7 +697,7 @@ public final class SignUpPresenterMock: iOSSwiftPay.SignUpPresenter, Mockingbird
   public var sourceLocation: Mockingbird.SourceLocation? { get { fatalError("See 'Thunk Pruning' in the README") } set { fatalError("See 'Thunk Pruning' in the README") } }
 
   public enum InitializerProxy {
-    public static func initialize(`signUpViewDelegate`: iOSSwiftPay.SignUpViewDelegate?, `validationService`: iOSSwiftPay.ValidationService, `client`: iOSSwiftPay.ClientProtocol, __file: StaticString = #file, __line: UInt = #line) -> SignUpPresenterMock { fatalError("See 'Thunk Pruning' in the README") }
+    public static func initialize(`signUpViewDelegate`: iOSSwiftPay.SignUpViewDelegate?, `validationService`: iOSSwiftPay.ValidationService, `client`: iOSSwiftPay.ClientProtocol, `userDefaults`: iOSSwiftPay.UserDefaultsProtocol, __file: StaticString = #file, __line: UInt = #line) -> SignUpPresenterMock { fatalError("See 'Thunk Pruning' in the README") }
   }
 
   // MARK: Mocked client
@@ -723,6 +708,14 @@ public final class SignUpPresenterMock: iOSSwiftPay.SignUpPresenter, Mockingbird
 
   public func setClient(_ newValue: @escaping @autoclosure () -> iOSSwiftPay.ClientProtocol) -> Mockingbird.Mockable<Mockingbird.PropertySetterDeclaration, (iOSSwiftPay.ClientProtocol) -> Void, Void> { fatalError("See 'Thunk Pruning' in the README") }
 
+  // MARK: Mocked userDefaults
+
+  override public var `userDefaults`: iOSSwiftPay.UserDefaultsProtocol { get { fatalError("See 'Thunk Pruning' in the README") } set { fatalError("See 'Thunk Pruning' in the README") } }
+
+  public func getUserDefaults() -> Mockingbird.Mockable<Mockingbird.PropertyGetterDeclaration, () -> iOSSwiftPay.UserDefaultsProtocol, iOSSwiftPay.UserDefaultsProtocol> { fatalError("See 'Thunk Pruning' in the README") }
+
+  public func setUserDefaults(_ newValue: @escaping @autoclosure () -> iOSSwiftPay.UserDefaultsProtocol) -> Mockingbird.Mockable<Mockingbird.PropertySetterDeclaration, (iOSSwiftPay.UserDefaultsProtocol) -> Void, Void> { fatalError("See 'Thunk Pruning' in the README") }
+
   // MARK: Mocked validationService
 
   override public var `validationService`: iOSSwiftPay.ValidationService { get { fatalError("See 'Thunk Pruning' in the README") } set { fatalError("See 'Thunk Pruning' in the README") } }
@@ -731,15 +724,27 @@ public final class SignUpPresenterMock: iOSSwiftPay.SignUpPresenter, Mockingbird
 
   public func setValidationService(_ newValue: @escaping @autoclosure () -> iOSSwiftPay.ValidationService) -> Mockingbird.Mockable<Mockingbird.PropertySetterDeclaration, (iOSSwiftPay.ValidationService) -> Void, Void> { fatalError("See 'Thunk Pruning' in the README") }
 
+  // MARK: Mocked `createUserOnDB`(_ `name`: String, _ `lastName`: String, _ `email`: String)
+
+  public override func `createUserOnDB`(_ `name`: String, _ `lastName`: String, _ `email`: String) -> Void { fatalError("See 'Thunk Pruning' in the README") }
+
+  public func `createUserOnDB`(_ `name`: @escaping @autoclosure () -> String, _ `lastName`: @escaping @autoclosure () -> String, _ `email`: @escaping @autoclosure () -> String) -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (String, String, String) -> Void, Void> { fatalError("See 'Thunk Pruning' in the README") }
+
   // MARK: Mocked `signUp`(_ `name`: String?, _ `lastName`: String?, _ `email`: String?, _ `passwordA`: String?, _ `passwordB`: String?)
 
   public override func `signUp`(_ `name`: String?, _ `lastName`: String?, _ `email`: String?, _ `passwordA`: String?, _ `passwordB`: String?) -> Void { fatalError("See 'Thunk Pruning' in the README") }
 
   public func `signUp`(_ `name`: @escaping @autoclosure () -> String?, _ `lastName`: @escaping @autoclosure () -> String?, _ `email`: @escaping @autoclosure () -> String?, _ `passwordA`: @escaping @autoclosure () -> String?, _ `passwordB`: @escaping @autoclosure () -> String?) -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (String?, String?, String?, String?, String?) -> Void, Void> { fatalError("See 'Thunk Pruning' in the README") }
 
-  // MARK: Mocked init(`signUpViewDelegate`: iOSSwiftPay.SignUpViewDelegate?, `validationService`: iOSSwiftPay.ValidationService, `client`: iOSSwiftPay.ClientProtocol)
+  // MARK: Mocked `setViewDelegate`(`signUpViewDelagate`: iOSSwiftPay.SignUpViewDelegate?)
 
-  public required override init(`signUpViewDelegate`: iOSSwiftPay.SignUpViewDelegate?, `validationService`: iOSSwiftPay.ValidationService, `client`: iOSSwiftPay.ClientProtocol) { fatalError("See 'Thunk Pruning' in the README") }
+  public override func `setViewDelegate`(`signUpViewDelagate`: iOSSwiftPay.SignUpViewDelegate?) -> Void { fatalError("See 'Thunk Pruning' in the README") }
+
+  public func `setViewDelegate`(`signUpViewDelagate`: @escaping @autoclosure () -> iOSSwiftPay.SignUpViewDelegate?) -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (iOSSwiftPay.SignUpViewDelegate?) -> Void, Void> { fatalError("See 'Thunk Pruning' in the README") }
+
+  // MARK: Mocked init(`signUpViewDelegate`: iOSSwiftPay.SignUpViewDelegate?, `validationService`: iOSSwiftPay.ValidationService, `client`: iOSSwiftPay.ClientProtocol, `userDefaults`: iOSSwiftPay.UserDefaultsProtocol)
+
+  public required override init(`signUpViewDelegate`: iOSSwiftPay.SignUpViewDelegate?, `validationService`: iOSSwiftPay.ValidationService, `client`: iOSSwiftPay.ClientProtocol, `userDefaults`: iOSSwiftPay.UserDefaultsProtocol) { fatalError("See 'Thunk Pruning' in the README") }
 }
 
 /// Returns an abstract mock which should be initialized using `mock(SignUpPresenter.self).initialize(…)`.
@@ -759,7 +764,7 @@ public final class SignUpViewControllerMock: iOSSwiftPay.SignUpViewController, M
   public enum InitializerProxy {
     public static func initialize(`coder`: NSCoder, __file: StaticString = #file, __line: UInt = #line) -> SignUpViewControllerMock? { fatalError("See 'Thunk Pruning' in the README") }
 
-    public static func initialize(`firebaseClient`: iOSSwiftPay.ClientProtocol, __file: StaticString = #file, __line: UInt = #line) -> SignUpViewControllerMock { fatalError("See 'Thunk Pruning' in the README") }
+    public static func initialize(`signUpPresenter`: iOSSwiftPay.SignUpPresenter, __file: StaticString = #file, __line: UInt = #line) -> SignUpViewControllerMock { fatalError("See 'Thunk Pruning' in the README") }
   }
 
   // MARK: Mocked `hideProgress`()
@@ -802,9 +807,9 @@ public final class SignUpViewControllerMock: iOSSwiftPay.SignUpViewController, M
 
   public func `signUpBtnTapped`(`sender`: @escaping @autoclosure () -> UIButton) -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (UIButton) -> Void, Void> { fatalError("See 'Thunk Pruning' in the README") }
 
-  // MARK: Mocked init(`firebaseClient`: iOSSwiftPay.ClientProtocol)
+  // MARK: Mocked init(`signUpPresenter`: iOSSwiftPay.SignUpPresenter)
 
-  public required override init(`firebaseClient`: iOSSwiftPay.ClientProtocol) { fatalError("See 'Thunk Pruning' in the README") }
+  public required override init(`signUpPresenter`: iOSSwiftPay.SignUpPresenter) { fatalError("See 'Thunk Pruning' in the README") }
 }
 
 /// Returns an abstract mock which should be initialized using `mock(SignUpViewController.self).initialize(…)`.
@@ -950,6 +955,327 @@ public func mock(_ type: iOSSwiftPay.TransferViewController.Type, file: StaticSt
   return TransferViewControllerMock.InitializerProxy.self
 }
 
+// MARK: - Mocked UserDefaultsProtocol
+
+public final class UserDefaultsProtocolMock: iOSSwiftPay.UserDefaultsProtocol, Mockingbird.Mock {
+  static let staticMock = Mockingbird.StaticMock()
+  public let mockingContext = Mockingbird.MockingContext()
+  public let stubbingContext = Mockingbird.StubbingContext()
+  public let mockMetadata = Mockingbird.MockMetadata(["generator_version": "0.16.0", "module_name": "iOSSwiftPay"])
+  public var sourceLocation: Mockingbird.SourceLocation? {
+    get { return self.stubbingContext.sourceLocation }
+    set {
+      self.stubbingContext.sourceLocation = newValue
+      UserDefaultsProtocolMock.staticMock.stubbingContext.sourceLocation = newValue
+    }
+  }
+
+  fileprivate init(sourceLocation: Mockingbird.SourceLocation) {
+    Mockingbird.checkVersion(for: self)
+    self.sourceLocation = sourceLocation
+  }
+
+  // MARK: Mocked `getStringOnUserDefaults`(_ `key`: String)
+
+  public func `getStringOnUserDefaults`(_ `key`: String) -> String {
+    let invocation: Mockingbird.Invocation = Mockingbird.Invocation(selectorName: "`getStringOnUserDefaults`(_ `key`: String) -> String", arguments: [Mockingbird.ArgumentMatcher(`key`)], returnType: Swift.ObjectIdentifier((String).self))
+    return self.mockingContext.didInvoke(invocation) { () -> String in
+      let implementation = self.stubbingContext.implementation(for: invocation)
+      if let concreteImplementation = implementation as? (String) -> String {
+        return concreteImplementation(`key`)
+      } else if let concreteImplementation = implementation as? () -> String {
+        return concreteImplementation()
+      } else if let defaultValue = self.stubbingContext.defaultValueProvider.provideValue(for: (String).self) {
+        return defaultValue
+      } else {
+        fatalError(self.stubbingContext.failTest(for: invocation))
+      }
+    }
+  }
+
+  public func `getStringOnUserDefaults`(_ `key`: @escaping @autoclosure () -> String) -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (String) -> String, String> {
+    let arguments: [Mockingbird.ArgumentMatcher] = [Mockingbird.resolve(`key`)]
+    let invocation: Mockingbird.Invocation = Mockingbird.Invocation(selectorName: "`getStringOnUserDefaults`(_ `key`: String) -> String", arguments: arguments, returnType: Swift.ObjectIdentifier((String).self))
+    return Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (String) -> String, String>(mock: self, invocation: invocation)
+  }
+
+  // MARK: Mocked `saveStringOnUserDefaults`(_ `value`: String, _ `key`: String)
+
+  public func `saveStringOnUserDefaults`(_ `value`: String, _ `key`: String) -> Void {
+    let invocation: Mockingbird.Invocation = Mockingbird.Invocation(selectorName: "`saveStringOnUserDefaults`(_ `value`: String, _ `key`: String) -> Void", arguments: [Mockingbird.ArgumentMatcher(`value`), Mockingbird.ArgumentMatcher(`key`)], returnType: Swift.ObjectIdentifier((Void).self))
+    self.mockingContext.didInvoke(invocation) { () -> Void in
+      let implementation = self.stubbingContext.implementation(for: invocation)
+      if let concreteImplementation = implementation as? (String, String) -> Void {
+        concreteImplementation(`value`, `key`)
+      } else if let concreteImplementation = implementation as? () -> Void {
+        concreteImplementation()
+      }
+    }
+  }
+
+  public func `saveStringOnUserDefaults`(_ `value`: @escaping @autoclosure () -> String, _ `key`: @escaping @autoclosure () -> String) -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (String, String) -> Void, Void> {
+    let arguments: [Mockingbird.ArgumentMatcher] = [Mockingbird.resolve(`value`), Mockingbird.resolve(`key`)]
+    let invocation: Mockingbird.Invocation = Mockingbird.Invocation(selectorName: "`saveStringOnUserDefaults`(_ `value`: String, _ `key`: String) -> Void", arguments: arguments, returnType: Swift.ObjectIdentifier((Void).self))
+    return Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (String, String) -> Void, Void>(mock: self, invocation: invocation)
+  }
+}
+
+/// Returns a concrete mock of `UserDefaultsProtocol`.
+public func mock(_ type: iOSSwiftPay.UserDefaultsProtocol.Protocol, file: StaticString = #file, line: UInt = #line) -> UserDefaultsProtocolMock {
+  return UserDefaultsProtocolMock(sourceLocation: Mockingbird.SourceLocation(file, line))
+}
+
+// MARK: - Mocked UserInfoDelegate
+
+public final class UserInfoDelegateMock: iOSSwiftPay.UserInfoDelegate, Mockingbird.Mock {
+  static let staticMock = Mockingbird.StaticMock()
+  public let mockingContext = Mockingbird.MockingContext()
+  public let stubbingContext = Mockingbird.StubbingContext()
+  public let mockMetadata = Mockingbird.MockMetadata(["generator_version": "0.16.0", "module_name": "iOSSwiftPay"])
+  public var sourceLocation: Mockingbird.SourceLocation? {
+    get { return self.stubbingContext.sourceLocation }
+    set {
+      self.stubbingContext.sourceLocation = newValue
+      UserInfoDelegateMock.staticMock.stubbingContext.sourceLocation = newValue
+    }
+  }
+
+  fileprivate init(sourceLocation: Mockingbird.SourceLocation) {
+    Mockingbird.checkVersion(for: self)
+    self.sourceLocation = sourceLocation
+  }
+
+  // MARK: Mocked `hideBalanceLabel`()
+
+  public func `hideBalanceLabel`() -> Void {
+    let invocation: Mockingbird.Invocation = Mockingbird.Invocation(selectorName: "`hideBalanceLabel`() -> Void", arguments: [], returnType: Swift.ObjectIdentifier((Void).self))
+    self.mockingContext.didInvoke(invocation) { () -> Void in
+      let implementation = self.stubbingContext.implementation(for: invocation)
+      if let concreteImplementation = implementation as? () -> Void {
+        concreteImplementation()
+      }
+    }
+  }
+
+  public func `hideBalanceLabel`() -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, () -> Void, Void> {
+    let invocation: Mockingbird.Invocation = Mockingbird.Invocation(selectorName: "`hideBalanceLabel`() -> Void", arguments: [], returnType: Swift.ObjectIdentifier((Void).self))
+    return Mockingbird.Mockable<Mockingbird.FunctionDeclaration, () -> Void, Void>(mock: self, invocation: invocation)
+  }
+
+  // MARK: Mocked `hideProgress`()
+
+  public func `hideProgress`() -> Void {
+    let invocation: Mockingbird.Invocation = Mockingbird.Invocation(selectorName: "`hideProgress`() -> Void", arguments: [], returnType: Swift.ObjectIdentifier((Void).self))
+    self.mockingContext.didInvoke(invocation) { () -> Void in
+      let implementation = self.stubbingContext.implementation(for: invocation)
+      if let concreteImplementation = implementation as? () -> Void {
+        concreteImplementation()
+      }
+    }
+  }
+
+  public func `hideProgress`() -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, () -> Void, Void> {
+    let invocation: Mockingbird.Invocation = Mockingbird.Invocation(selectorName: "`hideProgress`() -> Void", arguments: [], returnType: Swift.ObjectIdentifier((Void).self))
+    return Mockingbird.Mockable<Mockingbird.FunctionDeclaration, () -> Void, Void>(mock: self, invocation: invocation)
+  }
+
+  // MARK: Mocked `hideTryAgainMessageAndButton`()
+
+  public func `hideTryAgainMessageAndButton`() -> Void {
+    let invocation: Mockingbird.Invocation = Mockingbird.Invocation(selectorName: "`hideTryAgainMessageAndButton`() -> Void", arguments: [], returnType: Swift.ObjectIdentifier((Void).self))
+    self.mockingContext.didInvoke(invocation) { () -> Void in
+      let implementation = self.stubbingContext.implementation(for: invocation)
+      if let concreteImplementation = implementation as? () -> Void {
+        concreteImplementation()
+      }
+    }
+  }
+
+  public func `hideTryAgainMessageAndButton`() -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, () -> Void, Void> {
+    let invocation: Mockingbird.Invocation = Mockingbird.Invocation(selectorName: "`hideTryAgainMessageAndButton`() -> Void", arguments: [], returnType: Swift.ObjectIdentifier((Void).self))
+    return Mockingbird.Mockable<Mockingbird.FunctionDeclaration, () -> Void, Void>(mock: self, invocation: invocation)
+  }
+
+  // MARK: Mocked `showBalanceLabel`()
+
+  public func `showBalanceLabel`() -> Void {
+    let invocation: Mockingbird.Invocation = Mockingbird.Invocation(selectorName: "`showBalanceLabel`() -> Void", arguments: [], returnType: Swift.ObjectIdentifier((Void).self))
+    self.mockingContext.didInvoke(invocation) { () -> Void in
+      let implementation = self.stubbingContext.implementation(for: invocation)
+      if let concreteImplementation = implementation as? () -> Void {
+        concreteImplementation()
+      }
+    }
+  }
+
+  public func `showBalanceLabel`() -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, () -> Void, Void> {
+    let invocation: Mockingbird.Invocation = Mockingbird.Invocation(selectorName: "`showBalanceLabel`() -> Void", arguments: [], returnType: Swift.ObjectIdentifier((Void).self))
+    return Mockingbird.Mockable<Mockingbird.FunctionDeclaration, () -> Void, Void>(mock: self, invocation: invocation)
+  }
+
+  // MARK: Mocked `showProgress`()
+
+  public func `showProgress`() -> Void {
+    let invocation: Mockingbird.Invocation = Mockingbird.Invocation(selectorName: "`showProgress`() -> Void", arguments: [], returnType: Swift.ObjectIdentifier((Void).self))
+    self.mockingContext.didInvoke(invocation) { () -> Void in
+      let implementation = self.stubbingContext.implementation(for: invocation)
+      if let concreteImplementation = implementation as? () -> Void {
+        concreteImplementation()
+      }
+    }
+  }
+
+  public func `showProgress`() -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, () -> Void, Void> {
+    let invocation: Mockingbird.Invocation = Mockingbird.Invocation(selectorName: "`showProgress`() -> Void", arguments: [], returnType: Swift.ObjectIdentifier((Void).self))
+    return Mockingbird.Mockable<Mockingbird.FunctionDeclaration, () -> Void, Void>(mock: self, invocation: invocation)
+  }
+
+  // MARK: Mocked `showTryAgainMessageAndButton`()
+
+  public func `showTryAgainMessageAndButton`() -> Void {
+    let invocation: Mockingbird.Invocation = Mockingbird.Invocation(selectorName: "`showTryAgainMessageAndButton`() -> Void", arguments: [], returnType: Swift.ObjectIdentifier((Void).self))
+    self.mockingContext.didInvoke(invocation) { () -> Void in
+      let implementation = self.stubbingContext.implementation(for: invocation)
+      if let concreteImplementation = implementation as? () -> Void {
+        concreteImplementation()
+      }
+    }
+  }
+
+  public func `showTryAgainMessageAndButton`() -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, () -> Void, Void> {
+    let invocation: Mockingbird.Invocation = Mockingbird.Invocation(selectorName: "`showTryAgainMessageAndButton`() -> Void", arguments: [], returnType: Swift.ObjectIdentifier((Void).self))
+    return Mockingbird.Mockable<Mockingbird.FunctionDeclaration, () -> Void, Void>(mock: self, invocation: invocation)
+  }
+
+  // MARK: Mocked `setCurrentBalance`(_ `formattedBalance`: String, _ `color`: UIColor)
+
+  public func `setCurrentBalance`(_ `formattedBalance`: String, _ `color`: UIColor) -> Void {
+    let invocation: Mockingbird.Invocation = Mockingbird.Invocation(selectorName: "`setCurrentBalance`(_ `formattedBalance`: String, _ `color`: UIColor) -> Void", arguments: [Mockingbird.ArgumentMatcher(`formattedBalance`), Mockingbird.ArgumentMatcher(`color`)], returnType: Swift.ObjectIdentifier((Void).self))
+    self.mockingContext.didInvoke(invocation) { () -> Void in
+      let implementation = self.stubbingContext.implementation(for: invocation)
+      if let concreteImplementation = implementation as? (String, UIColor) -> Void {
+        concreteImplementation(`formattedBalance`, `color`)
+      } else if let concreteImplementation = implementation as? () -> Void {
+        concreteImplementation()
+      }
+    }
+  }
+
+  public func `setCurrentBalance`(_ `formattedBalance`: @escaping @autoclosure () -> String, _ `color`: @escaping @autoclosure () -> UIColor) -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (String, UIColor) -> Void, Void> {
+    let arguments: [Mockingbird.ArgumentMatcher] = [Mockingbird.resolve(`formattedBalance`), Mockingbird.resolve(`color`)]
+    let invocation: Mockingbird.Invocation = Mockingbird.Invocation(selectorName: "`setCurrentBalance`(_ `formattedBalance`: String, _ `color`: UIColor) -> Void", arguments: arguments, returnType: Swift.ObjectIdentifier((Void).self))
+    return Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (String, UIColor) -> Void, Void>(mock: self, invocation: invocation)
+  }
+
+  // MARK: Mocked `setUserName`(_ `userName`: String)
+
+  public func `setUserName`(_ `userName`: String) -> Void {
+    let invocation: Mockingbird.Invocation = Mockingbird.Invocation(selectorName: "`setUserName`(_ `userName`: String) -> Void", arguments: [Mockingbird.ArgumentMatcher(`userName`)], returnType: Swift.ObjectIdentifier((Void).self))
+    self.mockingContext.didInvoke(invocation) { () -> Void in
+      let implementation = self.stubbingContext.implementation(for: invocation)
+      if let concreteImplementation = implementation as? (String) -> Void {
+        concreteImplementation(`userName`)
+      } else if let concreteImplementation = implementation as? () -> Void {
+        concreteImplementation()
+      }
+    }
+  }
+
+  public func `setUserName`(_ `userName`: @escaping @autoclosure () -> String) -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (String) -> Void, Void> {
+    let arguments: [Mockingbird.ArgumentMatcher] = [Mockingbird.resolve(`userName`)]
+    let invocation: Mockingbird.Invocation = Mockingbird.Invocation(selectorName: "`setUserName`(_ `userName`: String) -> Void", arguments: arguments, returnType: Swift.ObjectIdentifier((Void).self))
+    return Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (String) -> Void, Void>(mock: self, invocation: invocation)
+  }
+
+  // MARK: Mocked `setTransactionsTable`(_ `moneyTransactions`: [iOSSwiftPay.MoneyTransaction])
+
+  public func `setTransactionsTable`(_ `moneyTransactions`: [iOSSwiftPay.MoneyTransaction]) -> Void {
+    let invocation: Mockingbird.Invocation = Mockingbird.Invocation(selectorName: "`setTransactionsTable`(_ `moneyTransactions`: [iOSSwiftPay.MoneyTransaction]) -> Void", arguments: [Mockingbird.ArgumentMatcher(`moneyTransactions`)], returnType: Swift.ObjectIdentifier((Void).self))
+    self.mockingContext.didInvoke(invocation) { () -> Void in
+      let implementation = self.stubbingContext.implementation(for: invocation)
+      if let concreteImplementation = implementation as? ([iOSSwiftPay.MoneyTransaction]) -> Void {
+        concreteImplementation(`moneyTransactions`)
+      } else if let concreteImplementation = implementation as? () -> Void {
+        concreteImplementation()
+      }
+    }
+  }
+
+  public func `setTransactionsTable`(_ `moneyTransactions`: @escaping @autoclosure () -> [iOSSwiftPay.MoneyTransaction]) -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, ([iOSSwiftPay.MoneyTransaction]) -> Void, Void> {
+    let arguments: [Mockingbird.ArgumentMatcher] = [Mockingbird.resolve(`moneyTransactions`)]
+    let invocation: Mockingbird.Invocation = Mockingbird.Invocation(selectorName: "`setTransactionsTable`(_ `moneyTransactions`: [iOSSwiftPay.MoneyTransaction]) -> Void", arguments: arguments, returnType: Swift.ObjectIdentifier((Void).self))
+    return Mockingbird.Mockable<Mockingbird.FunctionDeclaration, ([iOSSwiftPay.MoneyTransaction]) -> Void, Void>(mock: self, invocation: invocation)
+  }
+}
+
+/// Returns a concrete mock of `UserInfoDelegate`.
+public func mock(_ type: iOSSwiftPay.UserInfoDelegate.Protocol, file: StaticString = #file, line: UInt = #line) -> UserInfoDelegateMock {
+  return UserInfoDelegateMock(sourceLocation: Mockingbird.SourceLocation(file, line))
+}
+
+// MARK: - Mocked UserInfoPresenter
+
+public final class UserInfoPresenterMock: iOSSwiftPay.UserInfoPresenter, Mockingbird.Mock {
+  static let staticMock = Mockingbird.StaticMock()
+  public let mockingContext = Mockingbird.MockingContext()
+  public let stubbingContext = Mockingbird.StubbingContext()
+  public let mockMetadata = Mockingbird.MockMetadata(["generator_version": "0.16.0", "module_name": "iOSSwiftPay"])
+  public var sourceLocation: Mockingbird.SourceLocation? { get { fatalError("See 'Thunk Pruning' in the README") } set { fatalError("See 'Thunk Pruning' in the README") } }
+
+  public enum InitializerProxy {
+    public static func initialize(`userInfoDelegate`: iOSSwiftPay.UserInfoDelegate?, `client`: iOSSwiftPay.ClientProtocol, `userDefaults`: iOSSwiftPay.UserDefaultsProtocol, __file: StaticString = #file, __line: UInt = #line) -> UserInfoPresenterMock { fatalError("See 'Thunk Pruning' in the README") }
+  }
+
+  // MARK: Mocked client
+
+  override public var `client`: iOSSwiftPay.ClientProtocol { get { fatalError("See 'Thunk Pruning' in the README") } set { fatalError("See 'Thunk Pruning' in the README") } }
+
+  public func getClient() -> Mockingbird.Mockable<Mockingbird.PropertyGetterDeclaration, () -> iOSSwiftPay.ClientProtocol, iOSSwiftPay.ClientProtocol> { fatalError("See 'Thunk Pruning' in the README") }
+
+  public func setClient(_ newValue: @escaping @autoclosure () -> iOSSwiftPay.ClientProtocol) -> Mockingbird.Mockable<Mockingbird.PropertySetterDeclaration, (iOSSwiftPay.ClientProtocol) -> Void, Void> { fatalError("See 'Thunk Pruning' in the README") }
+
+  // MARK: Mocked userDefaults
+
+  override public var `userDefaults`: iOSSwiftPay.UserDefaultsProtocol { get { fatalError("See 'Thunk Pruning' in the README") } set { fatalError("See 'Thunk Pruning' in the README") } }
+
+  public func getUserDefaults() -> Mockingbird.Mockable<Mockingbird.PropertyGetterDeclaration, () -> iOSSwiftPay.UserDefaultsProtocol, iOSSwiftPay.UserDefaultsProtocol> { fatalError("See 'Thunk Pruning' in the README") }
+
+  public func setUserDefaults(_ newValue: @escaping @autoclosure () -> iOSSwiftPay.UserDefaultsProtocol) -> Mockingbird.Mockable<Mockingbird.PropertySetterDeclaration, (iOSSwiftPay.UserDefaultsProtocol) -> Void, Void> { fatalError("See 'Thunk Pruning' in the README") }
+
+  // MARK: Mocked `getAndShowCurrentBalance`()
+
+  public override func `getAndShowCurrentBalance`() -> Void { fatalError("See 'Thunk Pruning' in the README") }
+
+  public func `getAndShowCurrentBalance`() -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, () -> Void, Void> { fatalError("See 'Thunk Pruning' in the README") }
+
+  // MARK: Mocked `getAndShowTransactions`()
+
+  public override func `getAndShowTransactions`() -> Void { fatalError("See 'Thunk Pruning' in the README") }
+
+  public func `getAndShowTransactions`() -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, () -> Void, Void> { fatalError("See 'Thunk Pruning' in the README") }
+
+  // MARK: Mocked `getAndShowUserName`()
+
+  public override func `getAndShowUserName`() -> Void { fatalError("See 'Thunk Pruning' in the README") }
+
+  public func `getAndShowUserName`() -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, () -> Void, Void> { fatalError("See 'Thunk Pruning' in the README") }
+
+  // MARK: Mocked `setViewDelegate`(`userInfoDelegate`: iOSSwiftPay.UserInfoDelegate?)
+
+  public override func `setViewDelegate`(`userInfoDelegate`: iOSSwiftPay.UserInfoDelegate?) -> Void { fatalError("See 'Thunk Pruning' in the README") }
+
+  public func `setViewDelegate`(`userInfoDelegate`: @escaping @autoclosure () -> iOSSwiftPay.UserInfoDelegate?) -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (iOSSwiftPay.UserInfoDelegate?) -> Void, Void> { fatalError("See 'Thunk Pruning' in the README") }
+
+  // MARK: Mocked init(`userInfoDelegate`: iOSSwiftPay.UserInfoDelegate?, `client`: iOSSwiftPay.ClientProtocol, `userDefaults`: iOSSwiftPay.UserDefaultsProtocol)
+
+  public required override init(`userInfoDelegate`: iOSSwiftPay.UserInfoDelegate?, `client`: iOSSwiftPay.ClientProtocol, `userDefaults`: iOSSwiftPay.UserDefaultsProtocol) { fatalError("See 'Thunk Pruning' in the README") }
+}
+
+/// Returns an abstract mock which should be initialized using `mock(UserInfoPresenter.self).initialize(…)`.
+public func mock(_ type: iOSSwiftPay.UserInfoPresenter.Type, file: StaticString = #file, line: UInt = #line) -> UserInfoPresenterMock.InitializerProxy.Type {
+  return UserInfoPresenterMock.InitializerProxy.self
+}
+
 // MARK: - Mocked UserInfoViewController
 
 public final class UserInfoViewControllerMock: iOSSwiftPay.UserInfoViewController, Mockingbird.Mock {
@@ -962,16 +1288,16 @@ public final class UserInfoViewControllerMock: iOSSwiftPay.UserInfoViewControlle
   public enum InitializerProxy {
     public static func initialize(`coder`: NSCoder, __file: StaticString = #file, __line: UInt = #line) -> UserInfoViewControllerMock? { fatalError("See 'Thunk Pruning' in the README") }
 
-    public static func initialize(`nibName` `nibNameOrNil`: String?, `bundle` `nibBundleOrNil`: Bundle?, __file: StaticString = #file, __line: UInt = #line) -> UserInfoViewControllerMock { fatalError("See 'Thunk Pruning' in the README") }
+    public static func initialize(`userInfoPresenter`: iOSSwiftPay.UserInfoPresenter, __file: StaticString = #file, __line: UInt = #line) -> UserInfoViewControllerMock { fatalError("See 'Thunk Pruning' in the README") }
   }
 
   // MARK: Mocked transactions
 
-  override public var `transactions`: [iOSSwiftPay.MoneyTransactionMock] { get { fatalError("See 'Thunk Pruning' in the README") } set { fatalError("See 'Thunk Pruning' in the README") } }
+  override public var `transactions`: [iOSSwiftPay.MoneyTransaction] { get { fatalError("See 'Thunk Pruning' in the README") } set { fatalError("See 'Thunk Pruning' in the README") } }
 
-  public func getTransactions() -> Mockingbird.Mockable<Mockingbird.PropertyGetterDeclaration, () -> [iOSSwiftPay.MoneyTransactionMock], [iOSSwiftPay.MoneyTransactionMock]> { fatalError("See 'Thunk Pruning' in the README") }
+  public func getTransactions() -> Mockingbird.Mockable<Mockingbird.PropertyGetterDeclaration, () -> [iOSSwiftPay.MoneyTransaction], [iOSSwiftPay.MoneyTransaction]> { fatalError("See 'Thunk Pruning' in the README") }
 
-  public func setTransactions(_ newValue: @escaping @autoclosure () -> [iOSSwiftPay.MoneyTransactionMock]) -> Mockingbird.Mockable<Mockingbird.PropertySetterDeclaration, ([iOSSwiftPay.MoneyTransactionMock]) -> Void, Void> { fatalError("See 'Thunk Pruning' in the README") }
+  public func setTransactions(_ newValue: @escaping @autoclosure () -> [iOSSwiftPay.MoneyTransaction]) -> Mockingbird.Mockable<Mockingbird.PropertySetterDeclaration, ([iOSSwiftPay.MoneyTransaction]) -> Void, Void> { fatalError("See 'Thunk Pruning' in the README") }
 
   // MARK: Mocked `tableView`(_ `tableView`: UITableView, `heightForRowAt` `indexPath`: IndexPath)
 
@@ -991,6 +1317,42 @@ public final class UserInfoViewControllerMock: iOSSwiftPay.UserInfoViewControlle
 
   public func `tableView`(_ `tableView`: @escaping @autoclosure () -> UITableView, `cellForRowAt` `indexPath`: @escaping @autoclosure () -> IndexPath) -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (UITableView, IndexPath) -> UITableViewCell, UITableViewCell> { fatalError("See 'Thunk Pruning' in the README") }
 
+  // MARK: Mocked `hideBalanceLabel`()
+
+  public override func `hideBalanceLabel`() -> Void { fatalError("See 'Thunk Pruning' in the README") }
+
+  public func `hideBalanceLabel`() -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, () -> Void, Void> { fatalError("See 'Thunk Pruning' in the README") }
+
+  // MARK: Mocked `hideProgress`()
+
+  public override func `hideProgress`() -> Void { fatalError("See 'Thunk Pruning' in the README") }
+
+  public func `hideProgress`() -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, () -> Void, Void> { fatalError("See 'Thunk Pruning' in the README") }
+
+  // MARK: Mocked `hideTryAgainMessageAndButton`()
+
+  public override func `hideTryAgainMessageAndButton`() -> Void { fatalError("See 'Thunk Pruning' in the README") }
+
+  public func `hideTryAgainMessageAndButton`() -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, () -> Void, Void> { fatalError("See 'Thunk Pruning' in the README") }
+
+  // MARK: Mocked `showBalanceLabel`()
+
+  public override func `showBalanceLabel`() -> Void { fatalError("See 'Thunk Pruning' in the README") }
+
+  public func `showBalanceLabel`() -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, () -> Void, Void> { fatalError("See 'Thunk Pruning' in the README") }
+
+  // MARK: Mocked `showProgress`()
+
+  public override func `showProgress`() -> Void { fatalError("See 'Thunk Pruning' in the README") }
+
+  public func `showProgress`() -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, () -> Void, Void> { fatalError("See 'Thunk Pruning' in the README") }
+
+  // MARK: Mocked `showTryAgainMessageAndButton`()
+
+  public override func `showTryAgainMessageAndButton`() -> Void { fatalError("See 'Thunk Pruning' in the README") }
+
+  public func `showTryAgainMessageAndButton`() -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, () -> Void, Void> { fatalError("See 'Thunk Pruning' in the README") }
+
   // MARK: Mocked `viewDidLoad`()
 
   public override func `viewDidLoad`() -> Void { fatalError("See 'Thunk Pruning' in the README") }
@@ -1001,15 +1363,33 @@ public final class UserInfoViewControllerMock: iOSSwiftPay.UserInfoViewControlle
 
   public required init?(`coder`: NSCoder) { fatalError("See 'Thunk Pruning' in the README") }
 
-  // MARK: Mocked init(`nibName` `nibNameOrNil`: String?, `bundle` `nibBundleOrNil`: Bundle?)
+  // MARK: Mocked `setCurrentBalance`(_ `formattedBalance`: String, _ `color`: UIColor)
 
-  public required override init(`nibName` `nibNameOrNil`: String?, `bundle` `nibBundleOrNil`: Bundle?) { fatalError("See 'Thunk Pruning' in the README") }
+  public override func `setCurrentBalance`(_ `formattedBalance`: String, _ `color`: UIColor) -> Void { fatalError("See 'Thunk Pruning' in the README") }
+
+  public func `setCurrentBalance`(_ `formattedBalance`: @escaping @autoclosure () -> String, _ `color`: @escaping @autoclosure () -> UIColor) -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (String, UIColor) -> Void, Void> { fatalError("See 'Thunk Pruning' in the README") }
+
+  // MARK: Mocked `setUserName`(_ `userName`: String)
+
+  public override func `setUserName`(_ `userName`: String) -> Void { fatalError("See 'Thunk Pruning' in the README") }
+
+  public func `setUserName`(_ `userName`: @escaping @autoclosure () -> String) -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (String) -> Void, Void> { fatalError("See 'Thunk Pruning' in the README") }
 
   // MARK: Mocked `showBalanceBtnTapped`(`sender`: UIButton!)
 
   public override func `showBalanceBtnTapped`(`sender`: UIButton!) -> Void { fatalError("See 'Thunk Pruning' in the README") }
 
   public func `showBalanceBtnTapped`(`sender`: @escaping @autoclosure () -> UIButton) -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (UIButton) -> Void, Void> { fatalError("See 'Thunk Pruning' in the README") }
+
+  // MARK: Mocked `setTransactionsTable`(_ `moneyTransactions`: [iOSSwiftPay.MoneyTransaction])
+
+  public override func `setTransactionsTable`(_ `moneyTransactions`: [iOSSwiftPay.MoneyTransaction]) -> Void { fatalError("See 'Thunk Pruning' in the README") }
+
+  public func `setTransactionsTable`(_ `moneyTransactions`: @escaping @autoclosure () -> [iOSSwiftPay.MoneyTransaction]) -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, ([iOSSwiftPay.MoneyTransaction]) -> Void, Void> { fatalError("See 'Thunk Pruning' in the README") }
+
+  // MARK: Mocked init(`userInfoPresenter`: iOSSwiftPay.UserInfoPresenter)
+
+  public required override init(`userInfoPresenter`: iOSSwiftPay.UserInfoPresenter) { fatalError("See 'Thunk Pruning' in the README") }
 }
 
 /// Returns an abstract mock which should be initialized using `mock(UserInfoViewController.self).initialize(…)`.
