@@ -23,7 +23,7 @@ final class FirebaseFirestoreClient : ClientProtocol{
         })
     }
     
-    func getUserInfo(_ email: String?, completionHandler: @escaping (Result<Client, Error>) -> ()) {
+    func getUserInfo(_ email: String?, completionHandler: @escaping (Result<String, ValidationError>) -> ()) {
         let db = Firestore.firestore()
         db.collection(Constants.DataBaseConstants.usersDocument).whereField(Constants.DataBaseConstants.emailField, isEqualTo: email!)
             .getDocuments() { (querySnapshot, error) in
@@ -31,9 +31,9 @@ final class FirebaseFirestoreClient : ClientProtocol{
                     let code = (error as NSError).code
                     completionHandler(.failure(self.responseHandler.handleError(code)))
                 } else {
-                    let document = querySnapshot!.documents[0]
-                    let client: Client = Client(name: document["name"] as! String, lastName: document["lastName"] as! String, email: document["email"] as! String)
-                    completionHandler(.success(client))
+//                    let document = querySnapshot!.documents[0]
+//                    let client: Client = Client(name: document["name"] as! String, lastName: document["lastName"] as! String, email: document["email"] as! String)
+                    completionHandler(.success("string"))
                 }
         }
     }

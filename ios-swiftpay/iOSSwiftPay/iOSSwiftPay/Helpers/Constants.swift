@@ -28,6 +28,8 @@ struct Constants {
     
     struct UserDefaultsKeys {
         static let userEmail = "userEmail"
+        static let userName = "userName"
+        static let userData = "userData"
     }
     
     struct LocalizedStrings {

@@ -38,11 +38,13 @@ class UserInfoPresenter{
     
     func getAndShowUserName(){
         userInfoDelegate?.showProgress()
-        client.getUserInfo(userDefaults.getStringOnUserDefaults(Constants.UserDefaultsKeys.userEmail), completionHandler: {
+        let userEmail = userDefaults.getStringOnUserDefaults(Constants.UserDefaultsKeys.userEmail)
+        client.getUserInfo(userEmail, completionHandler: {
             result in
             switch result{
-            case .success(let client):
-                self.userInfoDelegate?.setUserName(client.name)
+            case .success(let clientName):
+//                self.userDefaults.saveStringOnUserDefaults(clientName, Constants.UserDefaultsKeys.userName)
+                self.userInfoDelegate?.setUserName(clientName)
             case .failure(_):
                 self.userInfoDelegate?.showTryAgainMessageAndButton()
             }

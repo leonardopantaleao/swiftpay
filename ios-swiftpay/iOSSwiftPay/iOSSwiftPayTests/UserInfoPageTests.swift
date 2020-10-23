@@ -27,11 +27,11 @@ class UserInfoPageTests: XCTestCase {
     
     func testFetchUserInfoFailed(){
         let userEmail = "email@email.com"
-        let userName = "Leonardo"
+        given(userDefaults.getStringOnUserDefaults(Constants.UserDefaultsKeys.userEmail)).willReturn(userEmail)
         given(viewDelegate.showTryAgainMessageAndButton()).willReturn()
         given(viewDelegate.showProgress()).willReturn()
         given(viewDelegate.hideProgress()).willReturn()
-        given(viewDelegate.setUserName(userName)).willReturn()
+        given(viewDelegate.setUserName(any())).willReturn()
         given(client.getUserInfo(userEmail, completionHandler: any())).will { email, callback in
             callback(.failure(ValidationError.noConnection))
         }
@@ -39,24 +39,26 @@ class UserInfoPageTests: XCTestCase {
         verify(viewDelegate.showProgress()).wasCalled()
         verify(viewDelegate.hideProgress()).wasCalled()
         verify(viewDelegate.showTryAgainMessageAndButton()).wasCalled()
-        verify(viewDelegate.setUserName(userName)).wasNeverCalled()
+        verify(viewDelegate.setUserName(any())).wasNeverCalled()
+        verify(userDefaults.getStringOnUserDefaults(Constants.UserDefaultsKeys.userEmail)).wasCalled()
     }
     
     func testFetchUserInfoSuccessfully(){
         let userEmail = "email@email.com"
-        let userName = "Leonardo"
+        given(userDefaults.getStringOnUserDefaults(Constants.UserDefaultsKeys.userEmail)).willReturn(userEmail)
         given(viewDelegate.showTryAgainMessageAndButton()).willReturn()
         given(viewDelegate.showProgress()).willReturn()
         given(viewDelegate.hideProgress()).willReturn()
-        given(viewDelegate.setUserName(userName)).willReturn()
+        given(viewDelegate.setUserName(any())).willReturn()
         given(client.getUserInfo(userEmail, completionHandler: any())).will { email, callback in
-            callback(.success(any()))
+            callback(.success("string"))
         }
         presenter.getAndShowUserName()
         verify(viewDelegate.showProgress()).wasCalled()
         verify(viewDelegate.hideProgress()).wasCalled()
         verify(viewDelegate.showTryAgainMessageAndButton()).wasNeverCalled()
-        verify(viewDelegate.setUserName(userName)).wasCalled()
+        verify(viewDelegate.setUserName(any())).wasCalled()
+        verify(userDefaults.getStringOnUserDefaults(Constants.UserDefaultsKeys.userEmail)).wasCalled()
     }
     
     func testFetchUserTransactionsFailed(){
