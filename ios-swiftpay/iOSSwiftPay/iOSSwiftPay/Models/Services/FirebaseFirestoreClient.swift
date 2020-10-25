@@ -10,6 +10,11 @@ import Foundation
 import Firebase
 
 final class FirebaseFirestoreClient : ClientProtocol{
+    func saveResultOnUserDefaults(_ result: String, _ key: String) {
+        let userDefaults = UserDefaultsService()
+        userDefaults.saveStringOnUserDefaults(result, key)
+    }
+    
     func createUserOnDB(_ name: String?, _ lastName: String?, _ email: String?, completionHandler: @escaping (Result<String, ValidationError>) -> ()) {
         let db = Firestore.firestore()
         db.collection(Constants.DataBaseConstants.usersDocument).addDocument(data: [ "email": email!, "name": name!, "lastName": lastName!], completion: { error in
@@ -31,9 +36,13 @@ final class FirebaseFirestoreClient : ClientProtocol{
                     let code = (error as NSError).code
                     completionHandler(.failure(self.responseHandler.handleError(code)))
                 } else {
-//                    let document = querySnapshot!.documents[0]
-//                    let client: Client = Client(name: document["name"] as! String, lastName: document["lastName"] as! String, email: document["email"] as! String)
-                    completionHandler(.success("string"))
+                    let document = querySnapshot!.documents[0]
+                    let userName = document["name"] as! String
+                    let userLastName = document["lastName"] as! String
+                    let userEmail = document["email"] as! String
+                    self.saveResultOnUserDefaults(userName, Constants.UserDefaultsKeys.userName)
+                    self.saveResultOnUserDefaults(userLastName, Constants.UserDefaultsKeys.userLastName)
+                    completionHandler(.success(userEmail))
                 }
         }
     }

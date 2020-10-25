@@ -182,8 +182,14 @@ class UserInfoViewController: UIViewController, UITableViewDataSource, UITableVi
 //        setupTableView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        userInfoPresenter.getAndShowUserName()
+        userInfoPresenter.getAndShowCurrentBalance()
+        userInfoPresenter.getAndShowTransactions()
+    }
+    
     private func setTexts(){
-        userNameLabel.text = "Leonardo Panta Leão"
+        userNameLabel.text = NSLocalizedString(Constants.LocalizedStrings.loading, comment: "loading user name label")
         showBalanceBtn.setTitle(NSLocalizedString(Constants.LocalizedStrings.show, comment: "show balance button"), for: .normal)
     }
     

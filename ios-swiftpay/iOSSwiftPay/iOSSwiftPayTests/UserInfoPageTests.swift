@@ -45,20 +45,30 @@ class UserInfoPageTests: XCTestCase {
     
     func testFetchUserInfoSuccessfully(){
         let userEmail = "email@email.com"
+        let userName = "Name"
+        let userLastName = "Last Name"
+        given(client.saveResultOnUserDefaults(userName, Constants.UserDefaultsKeys.userName)).willReturn()
+        given(client.saveResultOnUserDefaults(userLastName, Constants.UserDefaultsKeys.userLastName)).willReturn()
         given(userDefaults.getStringOnUserDefaults(Constants.UserDefaultsKeys.userEmail)).willReturn(userEmail)
+        given(userDefaults.getStringOnUserDefaults(Constants.UserDefaultsKeys.userName)).willReturn(userName)
+        given(userDefaults.getStringOnUserDefaults(Constants.UserDefaultsKeys.userLastName)).willReturn(userLastName)
         given(viewDelegate.showTryAgainMessageAndButton()).willReturn()
         given(viewDelegate.showProgress()).willReturn()
         given(viewDelegate.hideProgress()).willReturn()
         given(viewDelegate.setUserName(any())).willReturn()
         given(client.getUserInfo(userEmail, completionHandler: any())).will { email, callback in
-            callback(.success("string"))
+            callback(.success(userEmail))
         }
         presenter.getAndShowUserName()
         verify(viewDelegate.showProgress()).wasCalled()
         verify(viewDelegate.hideProgress()).wasCalled()
         verify(viewDelegate.showTryAgainMessageAndButton()).wasNeverCalled()
         verify(viewDelegate.setUserName(any())).wasCalled()
+        verify(client.saveResultOnUserDefaults(userName, Constants.UserDefaultsKeys.userName)).wasNeverCalled()
+        verify(client.saveResultOnUserDefaults(userLastName, Constants.UserDefaultsKeys.userLastName)).wasNeverCalled()
         verify(userDefaults.getStringOnUserDefaults(Constants.UserDefaultsKeys.userEmail)).wasCalled()
+        verify(userDefaults.getStringOnUserDefaults(Constants.UserDefaultsKeys.userName)).wasCalled()
+        verify(userDefaults.getStringOnUserDefaults(Constants.UserDefaultsKeys.userLastName)).wasCalled()
     }
     
     func testFetchUserTransactionsFailed(){

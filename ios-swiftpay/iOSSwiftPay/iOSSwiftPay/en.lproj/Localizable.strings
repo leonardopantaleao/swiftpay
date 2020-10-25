@@ -37,3 +37,4 @@
 "notValidName" = "Name is not valid, use only letters";
 "userAlreadyExists" = "User already exists with this email";
 "tryAgain" = "Try Again!";
+"loading" = "Loading...";

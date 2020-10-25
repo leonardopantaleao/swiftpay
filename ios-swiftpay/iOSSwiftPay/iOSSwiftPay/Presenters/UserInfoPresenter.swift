@@ -42,9 +42,11 @@ class UserInfoPresenter{
         client.getUserInfo(userEmail, completionHandler: {
             result in
             switch result{
-            case .success(let clientName):
-//                self.userDefaults.saveStringOnUserDefaults(clientName, Constants.UserDefaultsKeys.userName)
-                self.userInfoDelegate?.setUserName(clientName)
+            case .success(_):
+                let userName = self.userDefaults.getStringOnUserDefaults(Constants.UserDefaultsKeys.userName)
+                let userLastName = self.userDefaults.getStringOnUserDefaults(Constants.UserDefaultsKeys.userLastName)
+                let completeName = "\(userName) \(userLastName)"
+                self.userInfoDelegate?.setUserName(completeName)
             case .failure(_):
                 self.userInfoDelegate?.showTryAgainMessageAndButton()
             }

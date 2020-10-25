@@ -13,5 +13,6 @@ protocol ClientProtocol {
     func signUp(_ name: String?, _ lastName: String?, _ email: String?, _ password: String?, completionHandler: @escaping (Result<String, ValidationError>) -> ())
     func createUserOnDB(_ name: String?, _ lastName: String?, _ email: String?, completionHandler:  @escaping (Result<String, ValidationError>) -> ())
     func getUserInfo(_ email: String?, completionHandler: @escaping (Result<String, ValidationError>) -> ())
+    func saveResultOnUserDefaults(_ result: String, _ key: String)
     var responseHandler: ResponseHandler { get set }
 }

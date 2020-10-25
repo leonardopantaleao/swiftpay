@@ -89,6 +89,26 @@ public final class ClientProtocolMock: iOSSwiftPay.ClientProtocol, Mockingbird.M
     self.sourceLocation = sourceLocation
   }
 
+  // MARK: Mocked `saveResultOnUserDefaults`(_ `result`: String, _ `key`: String)
+
+  public func `saveResultOnUserDefaults`(_ `result`: String, _ `key`: String) -> Void {
+    let invocation: Mockingbird.Invocation = Mockingbird.Invocation(selectorName: "`saveResultOnUserDefaults`(_ `result`: String, _ `key`: String) -> Void", arguments: [Mockingbird.ArgumentMatcher(`result`), Mockingbird.ArgumentMatcher(`key`)], returnType: Swift.ObjectIdentifier((Void).self))
+    self.mockingContext.didInvoke(invocation) { () -> Void in
+      let implementation = self.stubbingContext.implementation(for: invocation)
+      if let concreteImplementation = implementation as? (String, String) -> Void {
+        concreteImplementation(`result`, `key`)
+      } else if let concreteImplementation = implementation as? () -> Void {
+        concreteImplementation()
+      }
+    }
+  }
+
+  public func `saveResultOnUserDefaults`(_ `result`: @escaping @autoclosure () -> String, _ `key`: @escaping @autoclosure () -> String) -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (String, String) -> Void, Void> {
+    let arguments: [Mockingbird.ArgumentMatcher] = [Mockingbird.resolve(`result`), Mockingbird.resolve(`key`)]
+    let invocation: Mockingbird.Invocation = Mockingbird.Invocation(selectorName: "`saveResultOnUserDefaults`(_ `result`: String, _ `key`: String) -> Void", arguments: arguments, returnType: Swift.ObjectIdentifier((Void).self))
+    return Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (String, String) -> Void, Void>(mock: self, invocation: invocation)
+  }
+
   // MARK: Mocked `getUserInfo`(_ `email`: String?, `completionHandler`: @escaping (Result<String, iOSSwiftPay.ValidationError>) -> ())
 
   public func `getUserInfo`(_ `email`: String?, `completionHandler`: @escaping (Result<String, iOSSwiftPay.ValidationError>) -> ()) -> Void {
@@ -1243,6 +1263,12 @@ public final class UserInfoViewControllerMock: iOSSwiftPay.UserInfoViewControlle
   public override func `viewDidLoad`() -> Void { fatalError("See 'Thunk Pruning' in the README") }
 
   public func `viewDidLoad`() -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, () -> Void, Void> { fatalError("See 'Thunk Pruning' in the README") }
+
+  // MARK: Mocked `viewWillAppear`(_ `animated`: Bool)
+
+  public override func `viewWillAppear`(_ `animated`: Bool) -> Void { fatalError("See 'Thunk Pruning' in the README") }
+
+  public func `viewWillAppear`(_ `animated`: @escaping @autoclosure () -> Bool) -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (Bool) -> Void, Void> { fatalError("See 'Thunk Pruning' in the README") }
 
   // MARK: Mocked init?(`coder`: NSCoder)
 

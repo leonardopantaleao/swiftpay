@@ -29,6 +29,7 @@ struct Constants {
     struct UserDefaultsKeys {
         static let userEmail = "userEmail"
         static let userName = "userName"
+        static let userLastName = "userLastName"
         static let userData = "userData"
     }
     
@@ -65,6 +66,7 @@ struct Constants {
         static let notValidName = "notValidName"
         static let userAlreadyExists = "userAlreadyExists"
         static let tryAgain = "tryAgain"
+        static let loading = "loading"
     }
     
     struct DataBaseConstants {
