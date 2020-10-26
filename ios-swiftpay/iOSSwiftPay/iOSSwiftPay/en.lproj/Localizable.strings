@@ -38,3 +38,6 @@
 "userAlreadyExists" = "User already exists with this email";
 "tryAgain" = "Try Again!";
 "loading" = "Loading...";
+"transactionSuccess" = "Transaction performed successfully!";
+"transactionFail" = "Transaction couldn't be completed, try again later!";
+"invalidAmount" = "Insert a valid amount (R$ xx.xx)";

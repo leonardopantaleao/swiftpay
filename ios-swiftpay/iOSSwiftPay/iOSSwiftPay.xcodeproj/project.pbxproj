@@ -41,6 +41,8 @@
 		A7A2D8ED25103A8800A10DBB /* ValidationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A2D8EC25103A8800A10DBB /* ValidationServiceTests.swift */; };
 		A7AD02DE2542236B0059DE12 /* DatabaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AD02DD2542236B0059DE12 /* DatabaseError.swift */; };
 		A7B99E4F25236C900049B625 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B99E4E25236C900049B625 /* SignInViewController.swift */; };
+		A7B9FDBE2547125800BA3F6B /* DepositPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B9FDBD2547125800BA3F6B /* DepositPresenter.swift */; };
+		A7B9FDC02547148900BA3F6B /* DepositPageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B9FDBF2547148900BA3F6B /* DepositPageTests.swift */; };
 		A7C0A7E4250AEB090019A841 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C0A7E2250AEB070019A841 /* Constants.swift */; };
 		A7C0A7E5250AEB090019A841 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C0A7E3250AEB090019A841 /* Utilities.swift */; };
 		A7C0A7E8250AEF820019A841 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A7C0A7EA250AEF820019A841 /* Localizable.strings */; };
@@ -114,6 +116,8 @@
 		A7A2D8EC25103A8800A10DBB /* ValidationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationServiceTests.swift; sourceTree = "<group>"; };
 		A7AD02DD2542236B0059DE12 /* DatabaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseError.swift; sourceTree = "<group>"; };
 		A7B99E4E25236C900049B625 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		A7B9FDBD2547125800BA3F6B /* DepositPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositPresenter.swift; sourceTree = "<group>"; };
+		A7B9FDBF2547148900BA3F6B /* DepositPageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositPageTests.swift; sourceTree = "<group>"; };
 		A7C0A7E2250AEB070019A841 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A7C0A7E3250AEB090019A841 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		A7C0A7E9250AEF820019A841 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -242,6 +246,7 @@
 				A76784462538CA8E0081EE79 /* SignInPageTests.swift */,
 				A77C84CE253E013F00DD9897 /* SignUpPageTests.swift */,
 				A75CBA1B2540C980003C585F /* UserInfoPageTests.swift */,
+				A7B9FDBF2547148900BA3F6B /* DepositPageTests.swift */,
 			);
 			path = iOSSwiftPayTests;
 			sourceTree = "<group>";
@@ -271,6 +276,7 @@
 				A793C29E25265F4E00AE0DB2 /* SignInPresenter.swift */,
 				A77C84CC253DFF4C00DD9897 /* SignUpPresenter.swift */,
 				A7E4EA3025408CF000170766 /* UserInfoPresenter.swift */,
+				A7B9FDBD2547125800BA3F6B /* DepositPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -626,6 +632,7 @@
 				A77C84CD253DFF4C00DD9897 /* SignUpPresenter.swift in Sources */,
 				A7C0A7E5250AEB090019A841 /* Utilities.swift in Sources */,
 				A793C2A22526B4AE00AE0DB2 /* ClientProtocol.swift in Sources */,
+				A7B9FDBE2547125800BA3F6B /* DepositPresenter.swift in Sources */,
 				A76070FC252F5E1B0095611F /* HomeViewController.swift in Sources */,
 				A74B811A24EB0C970081EF4B /* Client.swift in Sources */,
 				A7E4EA332540A8B600170766 /* UserDefaultsService.swift in Sources */,
@@ -649,6 +656,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A76784472538CA8E0081EE79 /* SignInPageTests.swift in Sources */,
+				A7B9FDC02547148900BA3F6B /* DepositPageTests.swift in Sources */,
 				A77C84CF253E013F00DD9897 /* SignUpPageTests.swift in Sources */,
 				A7657C65253871D0009CC28E /* ResponseHandlerTests.swift in Sources */,
 				A7A2D8ED25103A8800A10DBB /* ValidationServiceTests.swift in Sources */,

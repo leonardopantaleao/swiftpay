@@ -13,7 +13,8 @@ class HomeViewController: UITabBarController{
     override func viewDidLoad() {
         super.viewDidLoad()
         let userInfoPresenter = UserInfoPresenter(client: FirebaseFirestoreClient(), userDefaults: UserDefaultsService())
-        viewControllers = [ UserInfoViewController(userInfoPresenter: userInfoPresenter), DepositViewController(), TransferViewController(), SettingsViewController() ]
+        let depositPresenter = DepositPresenter(userDefaults: UserDefaultsService(), client: FirebaseFirestoreClient(), validationService: ValidationService())
+        viewControllers = [ UserInfoViewController(userInfoPresenter: userInfoPresenter), DepositViewController(presenter: depositPresenter), TransferViewController(), SettingsViewController() ]
         setBarItems()
         selectedViewController = viewControllers![0]
     }

@@ -128,4 +128,39 @@ class ValidationServiceTests: XCTestCase {
         XCTAssertThrowsError(try validation.validateName("Leonardo  "))
         XCTAssertThrowsError(try validation.validateName("Leonardo 123"))
     }
+    
+    func testIsAmountEmpty() throws {
+        let expectedError = ValidationError.invalidValue
+        var error: ValidationError?
+        
+        XCTAssertThrowsError(try validation.validateAmount(nil)) { throwError in
+            error = throwError as? ValidationError
+        }
+        
+        XCTAssertEqual(expectedError, error)
+        XCTAssertEqual(expectedError.errorDescription, error?.errorDescription)
+    }
+    
+    func testIsAmountInvalid() throws {
+        let expectedError = ValidationError.invalidAmount
+        var error: ValidationError?
+        
+        XCTAssertThrowsError(try validation.validateAmount("123.0012")) { throwError in
+            error = throwError as? ValidationError
+        }
+        
+        XCTAssertEqual(expectedError, error)
+        XCTAssertEqual(expectedError.errorDescription, error?.errorDescription)
+    }
+    
+    func testIsAmountValid() throws {
+        XCTAssertNoThrow(try validation.validateAmount("123"))
+        XCTAssertNoThrow(try validation.validateAmount("123.45"))
+        XCTAssertNoThrow(try validation.validateAmount("123.00"))
+        XCTAssertNoThrow(try validation.validateAmount("2000.00"))
+        XCTAssertNoThrow(try validation.validateAmount("123"))
+        XCTAssertNoThrow(try validation.validateAmount("123,45"))
+        XCTAssertNoThrow(try validation.validateAmount("123,00"))
+        XCTAssertNoThrow(try validation.validateAmount("2000,00"))
+    }
 }

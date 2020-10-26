@@ -10,6 +10,19 @@ import Foundation
 import Firebase
 
 final class FirebaseFirestoreClient : ClientProtocol{
+    func performTransaction(_ senderEmail: String?, _ receiverEmail: String?, _ amount: Double?, _ transactionType: String?, _ transactionDate: TimeInterval?, completionHandler: @escaping (Result<String, ValidationError>) -> ()) {
+        let db = Firestore.firestore()
+        db.collection(Constants.DataBaseConstants.transactions).addDocument(data: ["senderId": senderEmail!, "receiverId": receiverEmail!, "amount": amount!, "transactionType": transactionType!, "transactionDate": transactionDate!], completion: { error in
+            if error != nil {
+                let code = (error! as NSError).code
+                completionHandler(.failure(self.responseHandler.handleError(code)))
+            }
+            else{
+                completionHandler(.success(senderEmail!))
+            }
+        })
+    }
+    
     func saveResultOnUserDefaults(_ result: String, _ key: String) {
         let userDefaults = UserDefaultsService()
         userDefaults.saveStringOnUserDefaults(result, key)
@@ -45,6 +58,10 @@ final class FirebaseFirestoreClient : ClientProtocol{
                     completionHandler(.success(userEmail))
                 }
         }
+    }
+    
+    func getUserCurrentBalance(_ email: String?, completionHandler: @escaping (Result<String, ValidationError>) -> ()) {
+        
     }
     
     func signUp(_ name: String?, _ lastName: String?, _ email: String?, _ password: String?, completionHandler: @escaping (Result<String, ValidationError>) -> ()) {

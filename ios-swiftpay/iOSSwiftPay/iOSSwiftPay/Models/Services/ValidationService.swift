@@ -28,6 +28,13 @@ struct ValidationService {
         return name
     }
     
+    func validateAmount(_ amount: String?) throws -> Double {
+        guard let amount = amount else { throw ValidationError.invalidValue }
+        let noCommaAmount = amount.replacingOccurrences(of: ",", with: ".")
+        guard isAmountValid(noCommaAmount) else { throw ValidationError.invalidAmount }
+        return Double(noCommaAmount)!
+    }
+    
     func isPasswordValid(_ password : String) -> Bool {
         
         let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[$@$#!%*?&])[A-Za-z\\d$@$#!%*?&]{8,20}")
@@ -47,9 +54,17 @@ struct ValidationService {
     }
     
     func isNameValid(_ name: String) -> Bool {
-        let nameRedEx = "([A-Z]{1}[a-záàâãéèêíïóôõöúçñ]{2,}[ ]?)+"
-        let namePred = NSPredicate(format: "SELF MATCHES %@", nameRedEx)
+        let nameRegex = "([A-Z]{1}[a-záàâãéèêíïóôõöúçñ]{2,}[ ]?)+"
+        let namePred = NSPredicate(format: "SELF MATCHES %@", nameRegex)
         return namePred.evaluate(with: name)
+    }
+    
+    func isAmountValid(_ amount: String) -> Bool {
+        guard let amountValue = Double(amount) else { return false}
+        guard amountValue > 0 else { return false }
+        let amountRegex = "[0-9]+([.]{1}[0-9]{2})?"
+        let amountPred = NSPredicate(format: "SELF MATCHES %@", amountRegex)
+        return amountPred.evaluate(with: amount)
     }
 }
 
@@ -64,6 +79,7 @@ enum ValidationError: LocalizedError {
     case passwordsDontMatch
     case nameNotValid
     case userAlreadyExists
+    case invalidAmount
     
     var errorDescription: String? {
         switch self {
@@ -87,6 +103,8 @@ enum ValidationError: LocalizedError {
             return NSLocalizedString(Constants.LocalizedStrings.notValidName, comment: "error message")
         case .userAlreadyExists:
             return NSLocalizedString(Constants.LocalizedStrings.userAlreadyExists, comment: "error message")
+        case .invalidAmount:
+            return NSLocalizedString(Constants.LocalizedStrings.invalidAmount, comment: "error message")
         }
     }
 }

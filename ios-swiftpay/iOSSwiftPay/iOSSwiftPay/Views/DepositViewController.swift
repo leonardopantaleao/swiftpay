@@ -8,7 +8,33 @@
 
 import UIKit
 
-class DepositViewController: UIViewController {
+class DepositViewController: UIViewController, DepositViewDelegate {
+    func showProgress() {
+        transactionActivityIndicator?.isHidden = false
+        transactionActivityIndicator?.startAnimating()
+    }
+    
+    func hideProgress() {
+        transactionActivityIndicator?.isHidden = false
+        transactionActivityIndicator?.stopAnimating()
+    }
+    
+    func showMessage(_ message: String?, _ color: UIColor) {
+        messageLabel.text = message
+        messageLabel.textColor = color
+    }
+    
+    
+    private let presenter: DepositPresenter
+    
+    init(presenter: DepositPresenter) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     let moneyDepositImage : UIImageView = {
         let image = UIImage(named: Constants.Assets.moneyDeposit)
@@ -38,6 +64,7 @@ class DepositViewController: UIViewController {
     
     let amountTxField : UITextField = {
         let textField = UITextField(frame: CGRect(x: 0, y: 0, width: (Constants.ScreenInfo.screenWidth - 80), height: 50))
+        textField.keyboardType = .decimalPad
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -65,10 +92,18 @@ class DepositViewController: UIViewController {
         return stack
     }()
     
+    let messageLabel : UILabel = {
+        let label = UILabel()
+        label.adjustsFontSizeToFitWidth = true
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .red
+        return label
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        signInPresenter.setViewDelegate(signInViewDelagate: self)
+        presenter.setViewDelegate(self)
         addSubViews()
         setUpLayout()
         setButtonsResponders()
@@ -90,7 +125,8 @@ class DepositViewController: UIViewController {
         formStackView.addArrangedSubview(currencyView)
         formStackView.addArrangedSubview(emptyView)
         formStackView.addArrangedSubview(moneyDepositBtn)
-        formStackView.addArrangedSubview(transactionActivityIndicator!)
+        formStackView.addArrangedSubview(messageLabel)
+        view.addSubview(transactionActivityIndicator!)
     }
     
     private func setUpLayout(){
@@ -120,6 +156,13 @@ class DepositViewController: UIViewController {
         amountTxField.rightAnchor.constraint(equalTo: currencyView.rightAnchor).isActive = true
         amountTxField.leftAnchor.constraint(equalTo: currencyLabel.rightAnchor).isActive = true
         amountTxField.centerYAnchor.constraint(equalTo: currencyLabel.centerYAnchor).isActive = true
+        messageLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        messageLabel.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        messageLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        transactionActivityIndicator?.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        transactionActivityIndicator?.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        transactionActivityIndicator?.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        transactionActivityIndicator?.topAnchor.constraint(equalTo: formStackView.bottomAnchor, constant: 20).isActive = true
     }
     
     private func setButtonsResponders(){
@@ -127,7 +170,7 @@ class DepositViewController: UIViewController {
     }
     
     @objc func moneyDepositBtnTapped(sender: UIButton!){
-        //        signInPresenter.SignIn();
+        presenter.performDepositTransaction(amountTxField.text)
     }
     
     private func styleVisualElements()

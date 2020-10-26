@@ -71,6 +71,20 @@ class UserInfoPageTests: XCTestCase {
         verify(userDefaults.getStringOnUserDefaults(Constants.UserDefaultsKeys.userLastName)).wasCalled()
     }
     
+    func testFetchCurrentBalanceFailed(){
+        let email = "panta@test.com"
+        given(viewDelegate.showProgress()).willReturn()
+        given(viewDelegate.hideProgress()).willReturn()
+        given(userDefaults.getStringOnUserDefaults(Constants.UserDefaultsKeys.userEmail)).willReturn(email)
+        presenter.getAndShowCurrentBalance()
+        verify(viewDelegate.showProgress()).wasCalled()
+        verify(viewDelegate.hideProgress()).wasCalled()
+    }
+    
+    func testFetchCurrentBalanceSuccess(){
+        
+    }
+    
     func testFetchUserTransactionsFailed(){
         XCTFail()
     }

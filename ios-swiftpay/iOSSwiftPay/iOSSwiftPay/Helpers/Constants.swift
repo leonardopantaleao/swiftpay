@@ -67,6 +67,14 @@ struct Constants {
         static let userAlreadyExists = "userAlreadyExists"
         static let tryAgain = "tryAgain"
         static let loading = "loading"
+        static let transactionSuccess = "transactionSuccess"
+        static let transactionFail = "transactionFail"
+        static let invalidAmount = "invalidAmount"
+    }
+    
+    struct TransactionTypes{
+        static let transfer = "transfer"
+        static let deposit = "deposit"
     }
     
     struct DataBaseConstants {
