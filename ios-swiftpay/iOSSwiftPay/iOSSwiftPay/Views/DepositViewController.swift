@@ -24,7 +24,6 @@ class DepositViewController: UIViewController, DepositViewDelegate {
         messageLabel.textColor = color
     }
     
-    
     private let presenter: DepositPresenter
     
     init(presenter: DepositPresenter) {

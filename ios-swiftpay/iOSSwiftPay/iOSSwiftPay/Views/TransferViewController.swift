@@ -8,7 +8,32 @@
 
 import UIKit
 
-class TransferViewController: UIViewController {
+class TransferViewController: UIViewController, TransferViewDelegate {
+    func showProgress() {
+        transactionActivityIndicator?.isHidden = false
+        transactionActivityIndicator?.startAnimating()
+    }
+    
+    func hideProgress() {
+        transactionActivityIndicator?.isHidden = false
+        transactionActivityIndicator?.stopAnimating()
+    }
+    
+    func showMessage(_ message: String?, _ color: UIColor) {
+        messageLabel.text = message
+        messageLabel.textColor = color
+    }
+    
+    private let presenter: TransferPresenter
+    
+    init(presenter: TransferPresenter) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     let moneyTransferImage : UIImageView = {
         let image = UIImage(named: Constants.Assets.moneyTransfer)
@@ -38,6 +63,9 @@ class TransferViewController: UIViewController {
     
     let emailTxField : UITextField = {
         let textField = UITextField(frame: CGRect(x: 0, y: 0, width: (Constants.ScreenInfo.screenWidth - 40), height: 50))
+        textField.autocapitalizationType = .none
+        textField.keyboardType = .emailAddress
+        textField.autocorrectionType = .no
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -71,10 +99,18 @@ class TransferViewController: UIViewController {
         return stack
     }()
     
+    let messageLabel : UILabel = {
+        let label = UILabel()
+        label.adjustsFontSizeToFitWidth = true
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .red
+        return label
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        signInPresenter.setViewDelegate(signInViewDelagate: self)
+        presenter.setViewDelegate(self)
         addSubViews()
         setUpLayout()
         setButtonsResponders()
@@ -97,7 +133,8 @@ class TransferViewController: UIViewController {
         formStackView.addArrangedSubview(currencyView)
         formStackView.addArrangedSubview(emptyView)
         formStackView.addArrangedSubview(moneyTransferBtn)
-        formStackView.addArrangedSubview(transactionActivityIndicator!)
+        formStackView.addArrangedSubview(messageLabel)
+        view.addSubview(transactionActivityIndicator!)
     }
     
     private func setUpLayout(){
@@ -130,6 +167,13 @@ class TransferViewController: UIViewController {
         amountTxField.rightAnchor.constraint(equalTo: currencyView.rightAnchor).isActive = true
         amountTxField.leftAnchor.constraint(equalTo: currencyLabel.rightAnchor).isActive = true
         amountTxField.centerYAnchor.constraint(equalTo: currencyLabel.centerYAnchor).isActive = true
+        messageLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        messageLabel.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        messageLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        transactionActivityIndicator?.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        transactionActivityIndicator?.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        transactionActivityIndicator?.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        transactionActivityIndicator?.topAnchor.constraint(equalTo: formStackView.bottomAnchor, constant: 20).isActive = true
     }
     
     private func setButtonsResponders(){
@@ -137,7 +181,7 @@ class TransferViewController: UIViewController {
     }
     
     @objc func moneyTransferBtnTapped(sender: UIButton!){
-        //        signInPresenter.SignIn();
+        presenter.performTransferTransaction(emailTxField.text, amountTxField.text)
     }
     
     private func styleVisualElements()

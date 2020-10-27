@@ -46,6 +46,8 @@
 		A7C0A7E4250AEB090019A841 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C0A7E2250AEB070019A841 /* Constants.swift */; };
 		A7C0A7E5250AEB090019A841 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C0A7E3250AEB090019A841 /* Utilities.swift */; };
 		A7C0A7E8250AEF820019A841 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A7C0A7EA250AEF820019A841 /* Localizable.strings */; };
+		A7CBAEC725479642006595DF /* TransferPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CBAEC625479642006595DF /* TransferPresenter.swift */; };
+		A7CBAEC925479933006595DF /* TransferPageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CBAEC825479933006595DF /* TransferPageTests.swift */; };
 		A7E4EA3125408CF000170766 /* UserInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E4EA3025408CF000170766 /* UserInfoPresenter.swift */; };
 		A7E4EA332540A8B600170766 /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E4EA322540A8B600170766 /* UserDefaultsService.swift */; };
 /* End PBXBuildFile section */
@@ -122,6 +124,8 @@
 		A7C0A7E3250AEB090019A841 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		A7C0A7E9250AEF820019A841 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A7C0A7F3250AF4DA0019A841 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		A7CBAEC625479642006595DF /* TransferPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferPresenter.swift; sourceTree = "<group>"; };
+		A7CBAEC825479933006595DF /* TransferPageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferPageTests.swift; sourceTree = "<group>"; };
 		A7E4EA3025408CF000170766 /* UserInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoPresenter.swift; sourceTree = "<group>"; };
 		A7E4EA322540A8B600170766 /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
 		C1763E539EE432954D678A4F /* libPods-iOSSwiftPay.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iOSSwiftPay.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -247,6 +251,7 @@
 				A77C84CE253E013F00DD9897 /* SignUpPageTests.swift */,
 				A75CBA1B2540C980003C585F /* UserInfoPageTests.swift */,
 				A7B9FDBF2547148900BA3F6B /* DepositPageTests.swift */,
+				A7CBAEC825479933006595DF /* TransferPageTests.swift */,
 			);
 			path = iOSSwiftPayTests;
 			sourceTree = "<group>";
@@ -277,6 +282,7 @@
 				A77C84CC253DFF4C00DD9897 /* SignUpPresenter.swift */,
 				A7E4EA3025408CF000170766 /* UserInfoPresenter.swift */,
 				A7B9FDBD2547125800BA3F6B /* DepositPresenter.swift */,
+				A7CBAEC625479642006595DF /* TransferPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -648,6 +654,7 @@
 				A75AEBAE252E6A7C001532B6 /* MoneyTransactionTableViewCell.swift in Sources */,
 				A75AEBA8252DEA31001532B6 /* UserInfoViewController.swift in Sources */,
 				A7AD02DE2542236B0059DE12 /* DatabaseError.swift in Sources */,
+				A7CBAEC725479642006595DF /* TransferPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -655,6 +662,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7CBAEC925479933006595DF /* TransferPageTests.swift in Sources */,
 				A76784472538CA8E0081EE79 /* SignInPageTests.swift in Sources */,
 				A7B9FDC02547148900BA3F6B /* DepositPageTests.swift in Sources */,
 				A77C84CF253E013F00DD9897 /* SignUpPageTests.swift in Sources */,
