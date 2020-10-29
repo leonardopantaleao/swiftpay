@@ -37,12 +37,14 @@ class UserInfoViewController: UIViewController, UITableViewDataSource, UITableVi
         transactionsTableView.isHidden = false
     }
     
-    func showBalanceLabel() {
-        balanceLabel.isHidden = false
+    func showBalanceLabel(color: UIColor) {
+        balanceTxField.isSecureTextEntry = false
+        balanceTxField.textColor = color
     }
     
     func hideBalanceLabel() {
-        balanceLabel.isHidden = true
+        balanceTxField.isSecureTextEntry = true
+        balanceTxField.textColor = .black
     }
     
     func setUserName(_ userName: String) {
@@ -50,15 +52,18 @@ class UserInfoViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func setCurrentBalance(_ formattedBalance: String, _ color: UIColor) {
-        balanceLabel.text = formattedBalance
-        balanceLabel.textColor = color
+        balanceTxField.text = formattedBalance
+        balanceTxField.textColor = balanceTxField.isSecureTextEntry ? .black : color
     }
     
-    func setTransactionsTable(_ moneyTransactions: [MoneyTransaction]) {
-        transactions = moneyTransactions
+    var transactions : [MoneyTransaction] = []
+    func setTransactionsTable(_ moneyTransactions: [MoneyTransaction]?) {
+        guard let transactions = moneyTransactions else { return }
+        self.transactions = transactions
         transactionsTableView.dataSource = self
         transactionsTableView.delegate = self
         transactionsTableView.register(MoneyTransactionTableViewCell.self, forCellReuseIdentifier: "transactionCell")
+        transactionsTableView.reloadData()
     }
     
     private let userInfoPresenter: UserInfoPresenter
@@ -80,7 +85,9 @@ class UserInfoViewController: UIViewController, UITableViewDataSource, UITableVi
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.yyyy HH:mm:ss"
         cell.transactionSubtitle.text = formatter.string(from: Date(timeIntervalSinceReferenceDate: transaction.transactionDate))
-        cell.transactionAmount.text = "\(transaction.type == "transfer" ? "-" : "+")R$ \(transaction.amount)"
+        let transactionSymbol = "\(transaction.type == "transfer" ? "-" : "+")"
+        let transactionAmount = String(format: "R$ \(transactionSymbol)%.02f", transaction.amount)
+        cell.transactionAmount.text = "\(transactionAmount)"
         cell.transactionAmount.textColor = transaction.type == "transfer" ? .red : .green
         cell.selectionStyle = .none
         return cell
@@ -121,8 +128,8 @@ class UserInfoViewController: UIViewController, UITableViewDataSource, UITableVi
         let textField = UITextField(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
         textField.isSecureTextEntry = true
         textField.isEnabled = false
-        textField.text = "R$ 00,00"
         textField.borderStyle = .none
+        textField.minimumFontSize = 28.0
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -182,10 +189,9 @@ class UserInfoViewController: UIViewController, UITableViewDataSource, UITableVi
 //        setupTableView()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        userInfoPresenter.getAndShowUserName()
-        userInfoPresenter.getAndShowCurrentBalance()
-        userInfoPresenter.getAndShowTransactions()
+    override func viewDidAppear(_ animated: Bool) {
+        userInfoPresenter.fetchUserName()
+        userInfoPresenter.fetchTransactionsAndBalance()
     }
     
     private func setTexts(){
@@ -256,7 +262,7 @@ class UserInfoViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     @objc func showBalanceBtnTapped(sender: UIButton!){
-        //        signInPresenter.SignIn();
+        userInfoPresenter.toggleBalanceLabel(balanceTxField.isSecureTextEntry, balanceTxField.text!)
     }
     
     private func styleVisualElements()
@@ -266,31 +272,5 @@ class UserInfoViewController: UIViewController, UITableViewDataSource, UITableVi
         Utilities.styleFilledButton(showBalanceBtn)
         Utilities.styleFilledButton(tryAgainBtn)
     }
-    
-//    var transactions : [MoneyTransactionMock] = []
-    var transactions : [MoneyTransaction] = []
-//    private func setupTableView(){
-//        let transfer = MoneyTransactionMock(senderId: "leonardopspl@gmail.com", receiverId: "leonardopspl@gmail.com", amount: 5.00, transactionDate: Date().timeIntervalSinceReferenceDate, type: "deposit")
-//        let deposit = MoneyTransactionMock(senderId: "test_sender@gmail.com", receiverId: "leonardopspl@gmail.com", amount: 5.00, transactionDate: Date().timeIntervalSinceReferenceDate, type: "transfer")
-//        transactions = [ transfer, deposit ]
-//        transactionsTableView.dataSource = self
-//        transactionsTableView.delegate = self
-//        transactionsTableView.register(MoneyTransactionTableViewCell.self, forCellReuseIdentifier: "transactionCell")
-//    }
 }
-
-//public class MoneyTransactionMock{
-//    internal init(senderId: String, receiverId: String, amount: Double, transactionDate: TimeInterval, type: String) {
-//        self.senderId = senderId
-//        self.receiverId = receiverId
-//        self.amount = amount
-//        self.transactionDate = transactionDate
-//        self.type = type
-//    }
-//
-//    public var senderId: String
-//    public var receiverId: String
-//    public var amount: Double
-//    public var transactionDate: TimeInterval
-//    public var type: String
-//}
+    

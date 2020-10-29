@@ -24,7 +24,7 @@
 "insertAmount" = "Insert amount";
 "balance" = "Balance";
 "transactions" = "Transactions";
-"show" = "Show";
+"show" = "Show/Hide";
 "transfer" = "Transfer";
 "deposit" = "Deposit";
 "to" = "to";
@@ -41,3 +41,6 @@
 "transactionSuccess" = "Transaction performed successfully!";
 "transactionFail" = "Transaction couldn't be completed, try again later!";
 "invalidAmount" = "Insert a valid amount (R$ xx.xx)";
+"unableToEncode" = "Unable to encode object into data";
+"noValue" = "No data object found for the given key";
+"unableToDecode" = "Unable to decode object into given type";

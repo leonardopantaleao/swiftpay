@@ -24,7 +24,7 @@
 "insertAmount" = "Insira o valor";
 "balance" = "Saldo";
 "transactions" = "Transações";
-"show" = "Exibir";
+"show" = "Exibir/Ocultar";
 "transfer" = "Transferência";
 "deposit" = "Depósito";
 "to" = "para";
@@ -41,3 +41,6 @@
 "transactionSuccess" = "Transação concluída com sucesso!";
 "transactionFail" = "A transação não pode ser concluída, tente novamente mais tarde!";
 "invalidAmount" = "Insira um valor válido (R$ xx.xx)";
+"unableToEncode" = "Não foi possível codificar o objeto para data";
+"noValue" = "Objeto não foi encontrado para esta chave";
+"unableToDecode" = "Não foi possível decodificar o objeto para o tipo";

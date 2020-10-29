@@ -10,6 +10,7 @@
 import XCTest
 import Mockingbird
 import Firebase
+import UIKit
 
 class UserInfoPageTests: XCTestCase {
     var client: ClientProtocolMock!
@@ -25,6 +26,36 @@ class UserInfoPageTests: XCTestCase {
         super.setUp()
     }
     
+    func testShowPositiveBalance(){
+        let labelIsHidden = true
+        let amountString = "R$ 0.20"
+        given(viewDelegate.showBalanceLabel(color: .green)).willReturn()
+        given(viewDelegate.hideBalanceLabel()).willReturn()
+        presenter.toggleBalanceLabel(labelIsHidden, amountString)
+        verify(viewDelegate.showBalanceLabel(color: .green)).wasCalled()
+        verify(viewDelegate.hideBalanceLabel()).wasNeverCalled()
+    }
+    
+    func testShowNegativeBalance(){
+        let labelIsHidden = true
+        let amountString = "R$ -5.20"
+        given(viewDelegate.showBalanceLabel(color: .red)).willReturn()
+        given(viewDelegate.hideBalanceLabel()).willReturn()
+        presenter.toggleBalanceLabel(labelIsHidden, amountString)
+        verify(viewDelegate.showBalanceLabel(color: .red)).wasCalled()
+        verify(viewDelegate.hideBalanceLabel()).wasNeverCalled()
+    }
+    
+    func testHideBalance(){
+        let labelIsHidden = false
+        let amountString = "R$ -5.20"
+        given(viewDelegate.showBalanceLabel(color: .red)).willReturn()
+        given(viewDelegate.hideBalanceLabel()).willReturn()
+        presenter.toggleBalanceLabel(labelIsHidden, amountString)
+        verify(viewDelegate.showBalanceLabel(color: .red)).wasNeverCalled()
+        verify(viewDelegate.hideBalanceLabel()).wasCalled()
+    }
+    
     func testFetchUserInfoFailed(){
         let userEmail = "email@email.com"
         given(userDefaults.getStringOnUserDefaults(Constants.UserDefaultsKeys.userEmail)).willReturn(userEmail)
@@ -35,7 +66,7 @@ class UserInfoPageTests: XCTestCase {
         given(client.getUserInfo(userEmail, completionHandler: any())).will { email, callback in
             callback(.failure(ValidationError.noConnection))
         }
-        presenter.getAndShowUserName()
+        presenter.fetchUserName()
         verify(viewDelegate.showProgress()).wasCalled()
         verify(viewDelegate.hideProgress()).wasCalled()
         verify(viewDelegate.showTryAgainMessageAndButton()).wasCalled()
@@ -59,7 +90,7 @@ class UserInfoPageTests: XCTestCase {
         given(client.getUserInfo(userEmail, completionHandler: any())).will { email, callback in
             callback(.success(userEmail))
         }
-        presenter.getAndShowUserName()
+        presenter.fetchUserName()
         verify(viewDelegate.showProgress()).wasCalled()
         verify(viewDelegate.hideProgress()).wasCalled()
         verify(viewDelegate.showTryAgainMessageAndButton()).wasNeverCalled()
@@ -71,25 +102,73 @@ class UserInfoPageTests: XCTestCase {
         verify(userDefaults.getStringOnUserDefaults(Constants.UserDefaultsKeys.userLastName)).wasCalled()
     }
     
-    func testFetchCurrentBalanceFailed(){
+    func testFetchTransactionsCurrentBalanceFailed(){
         let email = "panta@test.com"
         given(viewDelegate.showProgress()).willReturn()
         given(viewDelegate.hideProgress()).willReturn()
+        given(viewDelegate.showTryAgainMessageAndButton()).willReturn()
         given(userDefaults.getStringOnUserDefaults(Constants.UserDefaultsKeys.userEmail)).willReturn(email)
-        presenter.getAndShowCurrentBalance()
+        given(client.getTransactionsBalance(email, completionHandler: any())).will { email, callback in
+            callback(.failure(ValidationError.noConnection))
+        }
+        presenter.fetchTransactionsAndBalance()
         verify(viewDelegate.showProgress()).wasCalled()
         verify(viewDelegate.hideProgress()).wasCalled()
+        verify(viewDelegate.showTryAgainMessageAndButton()).wasCalled()
+        verify(userDefaults.getStringOnUserDefaults(Constants.UserDefaultsKeys.userEmail)).wasCalled()
     }
     
-    func testFetchCurrentBalanceSuccess(){
-        
+    func testFetchTransactionsCurrentBalanceSuccessPositive(){
+        let email = "panta@test.com"
+        let resultBalance = 10.00
+        let formattedBalance = String(format: "R$ %.02f", 10.00)
+        let aTransaction: MoneyTransaction = MoneyTransaction(senderId: email, receiverId: email, amount: resultBalance, transactionDate: Date().timeIntervalSinceReferenceDate, type: Constants.TransactionTypes.deposit)
+        let transactions: [MoneyTransaction] = [aTransaction]
+        let encoder = JSONEncoder()
+        let data = try? encoder.encode(transactions)
+        let json = String(data: data!, encoding: .utf8)
+        given(viewDelegate.setCurrentBalance(formattedBalance, .green)).willReturn()
+        given(viewDelegate.showProgress()).willReturn()
+        given(viewDelegate.hideProgress()).willReturn()
+        given(viewDelegate.showTryAgainMessageAndButton()).willReturn()
+        given(userDefaults.getStringOnUserDefaults(Constants.UserDefaultsKeys.transactions)).willReturn(json!)
+        given(userDefaults.getStringOnUserDefaults(Constants.UserDefaultsKeys.userEmail)).willReturn(email)
+        given(client.getTransactionsBalance(email, completionHandler: any())).will { email, callback in
+            callback(.success(resultBalance))
+        }
+        presenter.fetchTransactionsAndBalance()
+        verify(viewDelegate.showProgress()).wasCalled()
+        verify(viewDelegate.hideProgress()).wasCalled()
+        verify(viewDelegate.showTryAgainMessageAndButton()).wasNeverCalled()
+        verify(userDefaults.getStringOnUserDefaults(Constants.UserDefaultsKeys.userEmail)).wasCalled()
+        verify(viewDelegate.setCurrentBalance(formattedBalance, .green)).wasCalled()
+        verify(userDefaults.getStringOnUserDefaults(Constants.UserDefaultsKeys.transactions)).wasCalled()
     }
     
-    func testFetchUserTransactionsFailed(){
-        XCTFail()
-    }
-    
-    func testFetchUserTransactionsSuccessfully(){
-        XCTFail()
+    func testFetchTransactionsCurrentBalanceSuccessNegative(){
+        let email = "panta@test.com"
+        let resultBalance = -2.50
+        let formattedBalance = String(format: "R$ %.02f", -2.50)
+        let aTransaction: MoneyTransaction = MoneyTransaction(senderId: email, receiverId: email, amount: resultBalance, transactionDate: Date().timeIntervalSinceReferenceDate, type: Constants.TransactionTypes.deposit)
+        let transactions: [MoneyTransaction] = [aTransaction]
+        let encoder = JSONEncoder()
+        let data = try? encoder.encode(transactions)
+        let json = String(data: data!, encoding: .utf8)
+        given(viewDelegate.setCurrentBalance(formattedBalance, .red)).willReturn()
+        given(viewDelegate.showProgress()).willReturn()
+        given(viewDelegate.hideProgress()).willReturn()
+        given(viewDelegate.showTryAgainMessageAndButton()).willReturn()
+        given(userDefaults.getStringOnUserDefaults(Constants.UserDefaultsKeys.transactions)).willReturn(json!)
+        given(userDefaults.getStringOnUserDefaults(Constants.UserDefaultsKeys.userEmail)).willReturn(email)
+        given(client.getTransactionsBalance(email, completionHandler: any())).will { email, callback in
+            callback(.success(resultBalance))
+        }
+        presenter.fetchTransactionsAndBalance()
+        verify(viewDelegate.showProgress()).wasCalled()
+        verify(viewDelegate.hideProgress()).wasCalled()
+        verify(viewDelegate.showTryAgainMessageAndButton()).wasNeverCalled()
+        verify(userDefaults.getStringOnUserDefaults(Constants.UserDefaultsKeys.userEmail)).wasCalled()
+        verify(viewDelegate.setCurrentBalance(formattedBalance, .red)).wasCalled()
+        verify(userDefaults.getStringOnUserDefaults(Constants.UserDefaultsKeys.transactions)).wasCalled()
     }
 }

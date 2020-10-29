@@ -14,11 +14,11 @@ protocol UserInfoDelegate{
     func hideProgress()
     func showTryAgainMessageAndButton()
     func hideTryAgainMessageAndButton()
-    func showBalanceLabel()
+    func showBalanceLabel(color: UIColor)
     func hideBalanceLabel()
     func setUserName(_ userName: String)
     func setCurrentBalance(_ formattedBalance: String, _ color: UIColor)
-    func setTransactionsTable(_ moneyTransactions: [MoneyTransaction])
+    func setTransactionsTable(_ moneyTransactions: [MoneyTransaction]?)
 }
 
 class UserInfoPresenter{
@@ -36,7 +36,7 @@ class UserInfoPresenter{
         self.userInfoDelegate = userInfoDelegate
     }
     
-    func getAndShowUserName(){
+    func fetchUserName(){
         userInfoDelegate?.showProgress()
         let userEmail = userDefaults.getStringOnUserDefaults(Constants.UserDefaultsKeys.userEmail)
         client.getUserInfo(userEmail, completionHandler: {
@@ -54,11 +54,33 @@ class UserInfoPresenter{
         })
     }
     
-    func getAndShowCurrentBalance(){
-        
+    func fetchTransactionsAndBalance(){
+        userInfoDelegate?.showProgress()
+        let userEmail = userDefaults.getStringOnUserDefaults(Constants.UserDefaultsKeys.userEmail)
+        client.getTransactionsBalance(userEmail, completionHandler: {
+            result in
+            switch result{
+            case .success(let amount):
+                let decoder = JSONDecoder()
+                let transactionsJson = self.userDefaults.getStringOnUserDefaults(Constants.UserDefaultsKeys.transactions)
+                let transactionsData = Data(transactionsJson.utf8)
+                let transactions = try? decoder.decode([MoneyTransaction].self, from: transactionsData)
+                self.userInfoDelegate?.setTransactionsTable(transactions)
+                self.userInfoDelegate?.setCurrentBalance(String(format: "R$ %.02f", amount), amount >= 0.00 ? .green : .red)
+            case .failure(_):
+                self.userInfoDelegate?.showTryAgainMessageAndButton()
+            }
+            self.userInfoDelegate?.hideProgress()
+        })
     }
     
-    func getAndShowTransactions(){
-        
+    func toggleBalanceLabel(_ labelIsSecure: Bool, _ formattedAmount: String){
+        let amount = Double(formattedAmount.replacingOccurrences(of: "R$ ", with: ""))!
+        if(labelIsSecure){
+            userInfoDelegate?.showBalanceLabel(color: amount >= 0.00 ? .green : .red)
+        }
+        else{
+            userInfoDelegate?.hideBalanceLabel()
+        }
     }
 }

@@ -10,9 +10,13 @@ import Foundation
 import Firebase
 
 final class FirebaseFirestoreClient : ClientProtocol{
+    var responseHandler: ResponseHandler = ResponseHandler()
+    
+    init() {}
+    
     func performTransaction(_ senderEmail: String?, _ receiverEmail: String?, _ amount: Double?, _ transactionType: String?, _ transactionDate: TimeInterval?, completionHandler: @escaping (Result<String, ValidationError>) -> ()) {
         let db = Firestore.firestore()
-        db.collection(Constants.DataBaseConstants.transactions).addDocument(data: ["senderId": senderEmail!, "receiverId": receiverEmail!, "amount": amount!, "transactionType": transactionType!, "transactionDate": transactionDate!], completion: { error in
+        db.collection(Constants.DataBaseConstants.transactionsDocument).addDocument(data: ["senderId": senderEmail!, "receiverId": receiverEmail!, "amount": amount!, "transactionType": transactionType!, "transactionDate": transactionDate!], completion: { error in
             if error != nil {
                 let code = (error! as NSError).code
                 completionHandler(.failure(self.responseHandler.handleError(code)))
@@ -60,8 +64,40 @@ final class FirebaseFirestoreClient : ClientProtocol{
         }
     }
     
-    func getUserCurrentBalance(_ email: String?, completionHandler: @escaping (Result<String, ValidationError>) -> ()) {
-        
+    func getTransactionsBalance(_ email: String?, completionHandler: @escaping (Result<Double, ValidationError>) -> ()) {
+        let db = Firestore.firestore()
+        var totalTransfersReceived: Double = 0
+        var totalTransafersMade: Double = 0
+        var transactions = [MoneyTransaction]()
+        db.collection(Constants.DataBaseConstants.transactionsDocument).whereField(Constants.DataBaseConstants.senderIdField, isEqualTo: email!)
+            .getDocuments() { (querySnapshot, error) in
+                if let error = error {
+                    let code = (error as NSError).code
+                    completionHandler(.failure(self.responseHandler.handleError(code)))
+                } else {
+                    let documents = querySnapshot!.documents
+                    documents.forEach { document in
+                        let transaction = MoneyTransaction(senderId: document["senderId"] as! String, receiverId: document["receiverId"] as! String, amount: document["amount"] as! Double, transactionDate: document["transactionDate"] as! TimeInterval, type: document["transactionType"] as! String)
+                        transactions.append(transaction)
+                        let amount = document["amount"] as! Double
+                        if(document["transactionType"] as! String == "deposit"){
+                            totalTransfersReceived += amount
+                        }else{
+                            totalTransafersMade += amount
+                        }
+                    }
+                    let encoder = JSONEncoder()
+                    transactions.sort {
+                        $0.transactionDate > $1.transactionDate
+                    }
+                    let data = try? encoder.encode(transactions)
+                    let json = String(data: data!, encoding: .utf8)
+                    self.saveResultOnUserDefaults(json!, Constants.UserDefaultsKeys.transactions)
+                    let totalAmount = totalTransfersReceived - totalTransafersMade
+                    
+                    completionHandler(.success(totalAmount))
+                }
+        }
     }
     
     func signUp(_ name: String?, _ lastName: String?, _ email: String?, _ password: String?, completionHandler: @escaping (Result<String, ValidationError>) -> ()) {
@@ -76,11 +112,6 @@ final class FirebaseFirestoreClient : ClientProtocol{
             }
         })
     }
-    
-    
-    var responseHandler: ResponseHandler = ResponseHandler()
-    
-    init() {}
     
     func signIn(_ email: String?, _ password: String?, completionHandler: @escaping (Result<String, ValidationError>) -> ()) {
         

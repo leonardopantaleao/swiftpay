@@ -24,7 +24,6 @@
 		A75AEBA8252DEA31001532B6 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75AEBA7252DEA31001532B6 /* UserInfoViewController.swift */; };
 		A75AEBAA252E5514001532B6 /* MoneyTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75AEBA9252E5514001532B6 /* MoneyTransaction.swift */; };
 		A75AEBAE252E6A7C001532B6 /* MoneyTransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75AEBAD252E6A7C001532B6 /* MoneyTransactionTableViewCell.swift */; };
-		A75CBA1A2540C38E003C585F /* UserDefaultsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75CBA192540C38E003C585F /* UserDefaultsProtocol.swift */; };
 		A75CBA1C2540C980003C585F /* UserInfoPageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75CBA1B2540C980003C585F /* UserInfoPageTests.swift */; };
 		A76070FC252F5E1B0095611F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76070FB252F5E1B0095611F /* HomeViewController.swift */; };
 		A7657C6325387088009CC28E /* ResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7657C6225387088009CC28E /* ResponseHandler.swift */; };
@@ -96,7 +95,6 @@
 		A75AEBA7252DEA31001532B6 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		A75AEBA9252E5514001532B6 /* MoneyTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTransaction.swift; sourceTree = "<group>"; };
 		A75AEBAD252E6A7C001532B6 /* MoneyTransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTransactionTableViewCell.swift; sourceTree = "<group>"; };
-		A75CBA192540C38E003C585F /* UserDefaultsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsProtocol.swift; sourceTree = "<group>"; };
 		A75CBA1B2540C980003C585F /* UserInfoPageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoPageTests.swift; sourceTree = "<group>"; };
 		A76070FB252F5E1B0095611F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A7657C6225387088009CC28E /* ResponseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseHandler.swift; sourceTree = "<group>"; };
@@ -295,7 +293,6 @@
 				A793C2A32526BA1000AE0DB2 /* FirebaseFirestoreClient.swift */,
 				A7657C6225387088009CC28E /* ResponseHandler.swift */,
 				A7E4EA322540A8B600170766 /* UserDefaultsService.swift */,
-				A75CBA192540C38E003C585F /* UserDefaultsProtocol.swift */,
 				A7AD02DD2542236B0059DE12 /* DatabaseError.swift */,
 			);
 			path = Services;
@@ -634,7 +631,6 @@
 				A75AEBAA252E5514001532B6 /* MoneyTransaction.swift in Sources */,
 				A793C29F25265F4E00AE0DB2 /* SignInPresenter.swift in Sources */,
 				A7E4EA3125408CF000170766 /* UserInfoPresenter.swift in Sources */,
-				A75CBA1A2540C38E003C585F /* UserDefaultsProtocol.swift in Sources */,
 				A77C84CD253DFF4C00DD9897 /* SignUpPresenter.swift in Sources */,
 				A7C0A7E5250AEB090019A841 /* Utilities.swift in Sources */,
 				A793C2A22526B4AE00AE0DB2 /* ClientProtocol.swift in Sources */,

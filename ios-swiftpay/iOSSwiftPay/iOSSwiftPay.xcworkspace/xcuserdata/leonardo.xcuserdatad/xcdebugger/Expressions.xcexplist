@@ -14,6 +14,34 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "closure #1 in closure #1 in FirebaseFirestoreClient.getTransactionsBalance(_:completionHandler:):FirebaseFirestoreClient.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "document[&quot;amount&quot;] as! Double">
+            </PersistentString>
+            <PersistentString
+               value = "document[&quot;type&quot;] as! String">
+            </PersistentString>
+            <PersistentString
+               value = "document[&quot;senderId&quot;] as! String">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in UserInfoPresenter.fetchTransactionsAndBalance():UserInfoPresenter.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "transactions == nil">
+            </PersistentString>
+            <PersistentString
+               value = "transactions">
+            </PersistentString>
+            <PersistentString
+               value = "transactionsData as String">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "SignInViewController.setPlaceholders():SignInViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -21,6 +49,14 @@
             </PersistentString>
             <PersistentString
                value = "signInBtn.bounds">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in FirebaseFirestoreClient.getTransactionsBalance(_:completionHandler:):FirebaseFirestoreClient.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "encoder.encode(transactions)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -36,10 +72,10 @@
          contextName = "SignInPageTests.testLoginWithEmptyEmail():SignInPageTests.swift">
          <PersistentStrings>
             <PersistentString
-               value = "Constants.LocalizedStrings.invalidValue">
+               value = "presenter">
             </PersistentString>
             <PersistentString
-               value = "presenter">
+               value = "Constants.LocalizedStrings.invalidValue">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

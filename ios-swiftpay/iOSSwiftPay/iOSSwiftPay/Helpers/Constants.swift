@@ -31,6 +31,7 @@ struct Constants {
         static let userName = "userName"
         static let userLastName = "userLastName"
         static let userData = "userData"
+        static let transactions = "transactions"
     }
     
     struct LocalizedStrings {
@@ -70,6 +71,9 @@ struct Constants {
         static let transactionSuccess = "transactionSuccess"
         static let transactionFail = "transactionFail"
         static let invalidAmount = "invalidAmount"
+        static let unableToEncode = "unableToEncode"
+        static let noValue = "noValue"
+        static let unableToDecode = "unableToDecode"
     }
     
     struct TransactionTypes{
@@ -78,8 +82,13 @@ struct Constants {
     }
     
     struct DataBaseConstants {
-        static let transactions = "transactions"
+        static let transactionsDocument = "transactions"
         static let usersDocument = "users"
         static let emailField = "email"
+        static let amountField = "amount"
+        static let receiverIdField = "receiverId"
+        static let senderIdField = "senderId"
+        static let transactionDate = "transactionDate"
+        static let transactionType = "transactionType"
     }
 }
