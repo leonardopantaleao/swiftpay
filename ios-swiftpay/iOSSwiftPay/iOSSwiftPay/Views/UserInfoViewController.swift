@@ -155,8 +155,9 @@ class UserInfoViewController: UIViewController, UITableViewDataSource, UITableVi
     }()
     
     let transactionActivityIndicator: UIActivityIndicatorView? = {
-        let indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        let indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
         indicator.hidesWhenStopped = true
+        indicator.translatesAutoresizingMaskIntoConstraints = false
         return indicator
     }()
     
@@ -186,7 +187,6 @@ class UserInfoViewController: UIViewController, UITableViewDataSource, UITableVi
         setButtonsResponders()
         styleVisualElements()
         setTexts()
-//        setupTableView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -201,6 +201,7 @@ class UserInfoViewController: UIViewController, UITableViewDataSource, UITableVi
     
     private func addSubViews(){
         view.addSubview(userImage)
+        view.addSubview(transactionActivityIndicator!)
         view.addSubview(userNameLabel)
         view.addSubview(balanceLabel)
         view.addSubview(balanceTxField)
@@ -209,7 +210,6 @@ class UserInfoViewController: UIViewController, UITableViewDataSource, UITableVi
         view.addSubview(transactionsTableView)
         view.addSubview(errorLabel)
         view.addSubview(tryAgainBtn)
-        view.addSubview(transactionActivityIndicator!)
     }
     
     private func setUpLayout(){
@@ -218,11 +218,14 @@ class UserInfoViewController: UIViewController, UITableViewDataSource, UITableVi
         userImage.heightAnchor.constraint(equalToConstant: 100).isActive = true
         userImage.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         userImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true
+        //Activity indicator anchors
+        transactionActivityIndicator?.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        transactionActivityIndicator?.topAnchor.constraint(equalTo: userImage.bottomAnchor, constant: 10).isActive = true
         //Name label anchors
         userNameLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
         userNameLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
         userNameLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        userNameLabel.topAnchor.constraint(equalTo: userImage.bottomAnchor, constant: 20).isActive = true
+        userNameLabel.topAnchor.constraint(equalTo: userImage.bottomAnchor, constant: 40).isActive = true
         //Balance label anchors
         balanceLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
         balanceLabel.topAnchor.constraint(equalTo: userNameLabel.bottomAnchor).isActive = true

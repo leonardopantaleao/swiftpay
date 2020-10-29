@@ -45,6 +45,7 @@ class DepositViewController: UIViewController, DepositViewDelegate {
     
     let transactionActivityIndicator: UIActivityIndicatorView? = {
         let indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        indicator.translatesAutoresizingMaskIntoConstraints = false
         indicator.hidesWhenStopped = true
         return indicator
     }()
