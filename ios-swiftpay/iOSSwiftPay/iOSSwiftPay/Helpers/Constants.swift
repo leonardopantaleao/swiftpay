@@ -24,6 +24,7 @@ struct Constants {
         static let rowIconMoneyDeposit = "rowIconMoneyDeposit"
         static let home = "home"
         static let settings = "settings"
+        static let appName = "SwiftPay"
     }
     
     struct UserDefaultsKeys {

@@ -6,7 +6,7 @@
 //  Copyright © 2020 Leonardo. All rights reserved.
 //
 
-@testable import iOSSwiftPay
+@testable import SwiftPay
 import XCTest
 
 

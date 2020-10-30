@@ -79,7 +79,7 @@
 		A73F61BC252CCFFC00F6C75B /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		A73F61BE252CDAF500F6C75B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		A73F61C0252CE87900F6C75B /* TransferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferViewController.swift; sourceTree = "<group>"; };
-		A74B80E624EB06C40081EF4B /* iOSSwiftPay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSSwiftPay.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A74B80E624EB06C40081EF4B /* SwiftPay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftPay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A74B80E924EB06C40081EF4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A74B80EB24EB06C40081EF4B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A74B80F224EB06C70081EF4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -213,7 +213,7 @@
 		A74B80E724EB06C40081EF4B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A74B80E624EB06C40081EF4B /* iOSSwiftPay.app */,
+				A74B80E624EB06C40081EF4B /* SwiftPay.app */,
 				A74B80FC24EB06C70081EF4B /* iOSSwiftPayTests.xctest */,
 				A74B810724EB06C70081EF4B /* iOSSwiftPayUITests.xctest */,
 			);
@@ -341,7 +341,7 @@
 			);
 			name = iOSSwiftPay;
 			productName = iOSSwiftPay;
-			productReference = A74B80E624EB06C40081EF4B /* iOSSwiftPay.app */;
+			productReference = A74B80E624EB06C40081EF4B /* SwiftPay.app */;
 			productType = "com.apple.product-type.application";
 		};
 		A74B80FB24EB06C70081EF4B /* iOSSwiftPayTests */ = {
@@ -841,7 +841,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Panta.iOSSwiftPay;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SwiftPay;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -860,7 +860,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Panta.iOSSwiftPay;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SwiftPay;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -884,7 +884,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOSSwiftPay.app/iOSSwiftPay";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftPay.app/SwiftPay";
 			};
 			name = Debug;
 		};
@@ -906,7 +906,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOSSwiftPay.app/iOSSwiftPay";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftPay.app/SwiftPay";
 			};
 			name = Release;
 		};

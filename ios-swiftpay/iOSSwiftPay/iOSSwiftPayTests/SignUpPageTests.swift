@@ -5,7 +5,7 @@
 //  Created by Leonardo on 19/10/20.
 //  Copyright © 2020 Leonardo. All rights reserved.
 //
-@testable import iOSSwiftPay
+@testable import SwiftPay
 import XCTest
 import Mockingbird
 import Firebase

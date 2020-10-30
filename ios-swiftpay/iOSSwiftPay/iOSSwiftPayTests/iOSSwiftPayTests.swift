@@ -8,7 +8,7 @@
 
 import XCTest
 import FBSnapshotTestCase
-@testable import iOSSwiftPay
+@testable import SwiftPay
 
 class iOSSwiftPayTests: FBSnapshotTestCase {
     

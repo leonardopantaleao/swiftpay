@@ -46,7 +46,7 @@ class DepositPresenter{
         }
         guard doubleAmount > 0 else { return }
         viewDelegate?.showProgress()
-        client.performTransaction(email, email, doubleAmount, Constants.TransactionTypes.deposit, Date().timeIntervalSinceReferenceDate, completionHandler: { result in
+        client.performTransaction(Constants.Assets.appName, email, doubleAmount, Constants.TransactionTypes.deposit, Date().timeIntervalSinceReferenceDate, completionHandler: { result in
             switch result{
             case .success(_):
                 self.viewDelegate?.showMessage(NSLocalizedString(Constants.LocalizedStrings.transactionSuccess, comment: "transaction success message"), .green)

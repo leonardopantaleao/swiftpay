@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A74B80E524EB06C40081EF4B"
-               BuildableName = "iOSSwiftPay.app"
+               BuildableName = "SwiftPay.app"
                BlueprintName = "iOSSwiftPay"
                ReferencedContainer = "container:iOSSwiftPay.xcodeproj">
             </BuildableReference>
@@ -66,7 +66,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A74B80E524EB06C40081EF4B"
-            BuildableName = "iOSSwiftPay.app"
+            BuildableName = "SwiftPay.app"
             BlueprintName = "iOSSwiftPay"
             ReferencedContainer = "container:iOSSwiftPay.xcodeproj">
          </BuildableReference>
@@ -101,7 +101,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A74B80E524EB06C40081EF4B"
-            BuildableName = "iOSSwiftPay.app"
+            BuildableName = "SwiftPay.app"
             BlueprintName = "iOSSwiftPay"
             ReferencedContainer = "container:iOSSwiftPay.xcodeproj">
          </BuildableReference>

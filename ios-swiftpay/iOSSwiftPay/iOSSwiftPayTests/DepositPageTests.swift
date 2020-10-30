@@ -6,7 +6,7 @@
 //  Copyright © 2020 Leonardo. All rights reserved.
 //
 
-@testable import iOSSwiftPay
+@testable import SwiftPay
 import XCTest
 import Mockingbird
 import Firebase
@@ -60,14 +60,14 @@ class DepositPageTests: XCTestCase {
         given(userDefaults.getStringOnUserDefaults(Constants.UserDefaultsKeys.userEmail)).willReturn(userEmail)
         given(viewDelegate.showProgress()).willReturn()
         given(viewDelegate.hideProgress()).willReturn()
-        given(viewDelegate.showMessage(Constants.LocalizedStrings.transactionFail, .red)).willReturn()
+        given(viewDelegate.showMessage(any(), .red)).willReturn()
         given(client.performTransaction(any(), any(), any(), any(), any(), completionHandler: any())).will { (senderEmail, receiverEmail, amount, type, timeInterval, callback) in
             callback(.failure(ValidationError.noConnection))
         }
         presenter.performDepositTransaction("123.45")
         verify(viewDelegate.showProgress()).wasCalled()
         verify(viewDelegate.hideProgress()).wasCalled()
-        verify(viewDelegate.showMessage(Constants.LocalizedStrings.transactionFail, .red)).wasCalled()
+        verify(viewDelegate.showMessage(any(), .red)).wasCalled()
         verify(userDefaults.getStringOnUserDefaults(Constants.UserDefaultsKeys.userEmail)).wasCalled()
     }
     
@@ -76,14 +76,14 @@ class DepositPageTests: XCTestCase {
         given(userDefaults.getStringOnUserDefaults(Constants.UserDefaultsKeys.userEmail)).willReturn(userEmail)
         given(viewDelegate.showProgress()).willReturn()
         given(viewDelegate.hideProgress()).willReturn()
-        given(viewDelegate.showMessage(Constants.LocalizedStrings.transactionSuccess, .green)).willReturn()
-        given(client.performTransaction(userEmail, any(), any(), any(), any(), completionHandler: any())).will { (senderEmail, receiverEmail, amount, type, timeInterval, callback) in
+        given(viewDelegate.showMessage(any(), .green)).willReturn()
+        given(client.performTransaction(any(), any(), any(), any(), any(), completionHandler: any())).will { (senderEmail, receiverEmail, amount, type, timeInterval, callback) in
             callback(.success(userEmail))
         }
         presenter.performDepositTransaction("123.45")
         verify(viewDelegate.showProgress()).wasCalled()
         verify(viewDelegate.hideProgress()).wasCalled()
-        verify(viewDelegate.showMessage(Constants.LocalizedStrings.transactionSuccess, .green)).wasCalled()
+        verify(viewDelegate.showMessage(any(), .green)).wasCalled()
         verify(userDefaults.getStringOnUserDefaults(Constants.UserDefaultsKeys.userEmail)).wasCalled()
     }
 }

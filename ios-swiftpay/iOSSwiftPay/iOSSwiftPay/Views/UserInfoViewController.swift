@@ -85,10 +85,11 @@ class UserInfoViewController: UIViewController, UITableViewDataSource, UITableVi
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.yyyy HH:mm:ss"
         cell.transactionSubtitle.text = formatter.string(from: Date(timeIntervalSinceReferenceDate: transaction.transactionDate))
-        let transactionSymbol = "\(transaction.type == "transfer" ? "-" : "+")"
+        let userEmail = UserDefaults.standard.string(forKey: Constants.UserDefaultsKeys.userEmail)
+        let transactionSymbol = "\(transaction.type == "transfer" && transaction.receiverId != userEmail ? "-" : "+")"
         let transactionAmount = String(format: "R$ \(transactionSymbol)%.02f", transaction.amount)
         cell.transactionAmount.text = "\(transactionAmount)"
-        cell.transactionAmount.textColor = transaction.type == "transfer" ? .red : .green
+        cell.transactionAmount.textColor = transaction.receiverId == userEmail ? .green : .red
         cell.selectionStyle = .none
         return cell
     }
