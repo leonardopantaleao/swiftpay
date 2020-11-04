@@ -1,4 +1,0 @@
-module SQLBenchmark {
-    header "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/x86_64-apple-macosx/debug/SQLBenchmark.build/SQLBenchmark-Swift.h"
-    requires objc
-}

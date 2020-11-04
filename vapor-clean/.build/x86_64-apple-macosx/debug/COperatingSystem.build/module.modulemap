@@ -1,4 +1,0 @@
-module COperatingSystem {
-    header "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/x86_64-apple-macosx/debug/COperatingSystem.build/COperatingSystem-Swift.h"
-    requires objc
-}

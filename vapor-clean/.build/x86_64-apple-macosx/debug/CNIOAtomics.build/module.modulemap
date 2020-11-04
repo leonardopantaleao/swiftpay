@@ -1,4 +1,0 @@
-module CNIOAtomics {
-    umbrella header "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/swift-nio/Sources/CNIOAtomics/include/CNIOAtomics.h"
-    export *
-}

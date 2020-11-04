@@ -1,8 +1,0 @@
-version: "Apple Swift version 5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)"
-options: "b6344c74456ce447e024ecaebe95ca02"
-build_time: [1597548712, 930027000]
-inputs:
-  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/console/Sources/Logging/Exports.swift": [1597548661, 789496656]
-  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/console/Sources/Logging/LogLevel.swift": [1597548661, 789827855]
-  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/console/Sources/Logging/Logger.swift": [1597548661, 790243250]
-  "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/checkouts/console/Sources/Logging/PrintLogger.swift": [1597548661, 790609255]

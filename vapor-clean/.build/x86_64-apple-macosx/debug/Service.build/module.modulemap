@@ -1,4 +1,0 @@
-module Service {
-    header "/Users/leonardo/Documents/SwiftPay/vapor-clean/.build/x86_64-apple-macosx/debug/Service.build/Service-Swift.h"
-    requires objc
-}
