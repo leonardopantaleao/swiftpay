@@ -53,7 +53,6 @@ class UserInfoPresenter{
             self.userInfoDelegate?.hideProgress()
         })
     }
-    
     func fetchTransactionsAndBalance(){
         userInfoDelegate?.showProgress()
         let userEmail = userDefaults.getStringOnUserDefaults(Constants.UserDefaultsKeys.userEmail)
@@ -66,7 +65,12 @@ class UserInfoPresenter{
                 let transactionsData = Data(transactionsJson.utf8)
                 let transactions = try? decoder.decode([MoneyTransaction].self, from: transactionsData)
                 self.userInfoDelegate?.setTransactionsTable(transactions)
-                self.userInfoDelegate?.setCurrentBalance(String(format: "R$ %.02f", amount), amount >= 0.00 ? .green : .red)
+                let currencyFormatter = NumberFormatter()
+                currencyFormatter.locale = Locale.init(identifier: "pt_BR")
+                currencyFormatter.numberStyle = .currency
+                let transactionAmount = "\(currencyFormatter.string(from: amount as NSNumber) ?? "")"
+                self.userDefaults.saveDoubleOnUserDefaults(amount, Constants.UserDefaultsKeys.currentAmount)
+                self.userInfoDelegate?.setCurrentBalance(transactionAmount, amount >= 0.00 ? .green : .red)
             case .failure(_):
                 self.userInfoDelegate?.showTryAgainMessageAndButton()
             }
@@ -74,10 +78,10 @@ class UserInfoPresenter{
         })
     }
     
-    func toggleBalanceLabel(_ labelIsSecure: Bool, _ formattedAmount: String){
-        let amount = Double(formattedAmount.replacingOccurrences(of: "R$ ", with: ""))!
+    func toggleBalanceLabel(_ labelIsSecure: Bool){
+        let currentBalance = userDefaults.getDoubleOnUserDefaults(Constants.UserDefaultsKeys.currentAmount)
         if(labelIsSecure){
-            userInfoDelegate?.showBalanceLabel(color: amount >= 0.00 ? .green : .red)
+            userInfoDelegate?.showBalanceLabel(color: currentBalance >= 0.00 ? .green : .red)
         }
         else{
             userInfoDelegate?.hideBalanceLabel()

@@ -196,7 +196,7 @@ class TransferViewController: UIViewController, TransferViewDelegate {
     
     private func setPlaceholders()
     {
-        emailTxField.placeholder = NSLocalizedString(Constants.LocalizedStrings.emailPlaceholder, comment: "insert email placeholder")
+        emailTxField.placeholder = NSLocalizedString(Constants.LocalizedStrings.receiverEmailPlaceholder, comment: "insert email placeholder")
         amountTxField.placeholder = NSLocalizedString(Constants.LocalizedStrings.insertAmount, comment: "amount placeholder")
     }
 }

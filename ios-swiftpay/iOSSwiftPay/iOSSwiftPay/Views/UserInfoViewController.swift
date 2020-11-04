@@ -87,7 +87,10 @@ class UserInfoViewController: UIViewController, UITableViewDataSource, UITableVi
         cell.transactionSubtitle.text = formatter.string(from: Date(timeIntervalSinceReferenceDate: transaction.transactionDate))
         let userEmail = UserDefaults.standard.string(forKey: Constants.UserDefaultsKeys.userEmail)
         let transactionSymbol = "\(transaction.type == "transfer" && transaction.receiverId != userEmail ? "-" : "+")"
-        let transactionAmount = String(format: "R$ \(transactionSymbol)%.02f", transaction.amount)
+        let currencyFormatter = NumberFormatter()
+        currencyFormatter.locale = Locale.init(identifier: "pt_BR")
+        currencyFormatter.numberStyle = .currency
+        let transactionAmount = "\(transactionSymbol) \(currencyFormatter.string(from: transaction.amount as NSNumber) ?? "")"
         cell.transactionAmount.text = "\(transactionAmount)"
         cell.transactionAmount.textColor = transaction.receiverId == userEmail ? .green : .red
         cell.selectionStyle = .none
@@ -126,7 +129,7 @@ class UserInfoViewController: UIViewController, UITableViewDataSource, UITableVi
     }()
     
     let balanceTxField : UITextField = {
-        let textField = UITextField(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+        let textField = UITextField(frame: CGRect(x: 0, y: 0, width: 180, height: 50))
         textField.isSecureTextEntry = true
         textField.isEnabled = false
         textField.borderStyle = .none
@@ -235,7 +238,7 @@ class UserInfoViewController: UIViewController, UITableViewDataSource, UITableVi
         balanceTxField.leftAnchor.constraint(equalTo: balanceLabel.rightAnchor, constant: 10).isActive = true
         balanceTxField.centerYAnchor.constraint(equalTo: balanceLabel.centerYAnchor).isActive = true
         balanceTxField.heightAnchor.constraint(equalTo: userNameLabel.heightAnchor).isActive = true
-        balanceTxField.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        balanceTxField.widthAnchor.constraint(equalToConstant: 180).isActive = true
         //Show balance button anchors
         showBalanceBtn.leftAnchor.constraint(equalTo: balanceTxField.rightAnchor).isActive = true
         showBalanceBtn.centerYAnchor.constraint(equalTo: balanceLabel.centerYAnchor).isActive = true
@@ -266,7 +269,7 @@ class UserInfoViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     @objc func showBalanceBtnTapped(sender: UIButton!){
-        userInfoPresenter.toggleBalanceLabel(balanceTxField.isSecureTextEntry, balanceTxField.text!)
+        userInfoPresenter.toggleBalanceLabel(balanceTxField.isSecureTextEntry)
     }
     
     private func styleVisualElements()

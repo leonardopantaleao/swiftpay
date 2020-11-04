@@ -3,6 +3,28 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "closure #1 in closure #1 in FirebaseFirestoreClient.getTransactionsBalance(_:completionHandler:):FirebaseFirestoreClient.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "document[&quot;amount&quot;] as! Double">
+            </PersistentString>
+            <PersistentString
+               value = "document[&quot;senderId&quot;] as! String">
+            </PersistentString>
+            <PersistentString
+               value = "document[&quot;type&quot;] as! String">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in FirebaseFirestoreClient.getTransactionsBalance(_:completionHandler:):FirebaseFirestoreClient.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "encoder.encode(transactions)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "closure #1 in UserLogin.createUserOnDB(_:_:_:_:_:completionHandler:):UserLogin.swift">
          <PersistentStrings>
             <PersistentString
@@ -14,16 +36,13 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #1 in closure #1 in FirebaseFirestoreClient.getTransactionsBalance(_:completionHandler:):FirebaseFirestoreClient.swift">
+         contextName = "SignInViewController.setPlaceholders():SignInViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "document[&quot;amount&quot;] as! Double">
+               value = "createAccountBtn">
             </PersistentString>
             <PersistentString
-               value = "document[&quot;type&quot;] as! String">
-            </PersistentString>
-            <PersistentString
-               value = "document[&quot;senderId&quot;] as! String">
+               value = "signInBtn.bounds">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -42,25 +61,6 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "SignInViewController.setPlaceholders():SignInViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "createAccountBtn">
-            </PersistentString>
-            <PersistentString
-               value = "signInBtn.bounds">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in FirebaseFirestoreClient.getTransactionsBalance(_:completionHandler:):FirebaseFirestoreClient.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "encoder.encode(transactions)">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "SignInViewController.setUpLayout():SignInViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -72,10 +72,10 @@
          contextName = "SignInPageTests.testLoginWithEmptyEmail():SignInPageTests.swift">
          <PersistentStrings>
             <PersistentString
-               value = "presenter">
+               value = "Constants.LocalizedStrings.invalidValue">
             </PersistentString>
             <PersistentString
-               value = "Constants.LocalizedStrings.invalidValue">
+               value = "presenter">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -150,6 +150,14 @@
             </PersistentString>
             <PersistentString
                value = "(error! as NSError)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SignInViewController.navigateToSignUp():SignInViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.navigationController">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

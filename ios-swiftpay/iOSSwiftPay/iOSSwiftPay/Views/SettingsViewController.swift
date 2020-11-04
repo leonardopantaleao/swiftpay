@@ -8,7 +8,32 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController {
+class SettingsViewController: UIViewController, SettingsViewDelegate {
+    func logOffApp() {
+        let options: UIView.AnimationOptions = .transitionFlipFromLeft
+        let duration: TimeInterval = 0.3
+        let firebaseClient = FirebaseFirestoreClient()
+        let validationService = ValidationService()
+        let userDefaults = UserDefaultsService()
+        let presenter = SignInPresenter(validationService: validationService, client: firebaseClient, userDefaults: userDefaults)
+        let viewController = SignInViewController(signInPresenter: presenter)
+        let navigationController = UINavigationController(rootViewController: viewController)
+        UIApplication.shared.windows.first?.rootViewController = navigationController
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
+        UIView.transition(with: UIApplication.shared.windows.first!, duration: duration, options: options, animations: {}, completion:
+        nil)
+    }
+    
+    private let presenter: SettingsPresenter
+    
+    init(presenter: SettingsPresenter) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     let swiftPayLogoImage : UIImageView = {
         let image = UIImage(named: Constants.Assets.swiftPayLogo)
@@ -50,7 +75,7 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        signInPresenter.setViewDelegate(signInViewDelagate: self)
+        presenter.setViewDelegate(self)
         addSubViews()
         setUpLayout()
         setButtonsResponders()
@@ -92,7 +117,7 @@ class SettingsViewController: UIViewController {
     }
     
     @objc func logOffBtnTapped(sender: UIButton!){
-//        signInPresenter.SignIn();
+        presenter.logOff();
     }
     
     private func styleVisualElements()

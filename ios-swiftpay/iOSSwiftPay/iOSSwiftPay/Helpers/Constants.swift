@@ -33,12 +33,14 @@ struct Constants {
         static let userLastName = "userLastName"
         static let userData = "userData"
         static let transactions = "transactions"
+        static let currentAmount = "currentAmount"
     }
     
     struct LocalizedStrings {
         static let namePlaceholder = "namePlaceholder"
         static let lastNamePlaceholder = "lastNamePlaceholder"
         static let emailPlaceholder = "emailPlaceholder"
+        static let receiverEmailPlaceholder = "receiverEmailPlaceholder"
         static let passwordPlaceholder = "passwordPlaceholder"
         static let signInBtnText = "signInBtnText"
         static let createAccountBtnText = "createAccountBtnText"

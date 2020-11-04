@@ -11,6 +11,9 @@ import Foundation
 protocol UserDefaultsProtocol {
     func saveStringOnUserDefaults(_ value: String, _ key: String)
     func getStringOnUserDefaults(_ key: String) -> String
+    func saveDoubleOnUserDefaults(_ value: Double, _ key: String)
+    func getDoubleOnUserDefaults(_ key: String) -> Double
+    func disposeUserDefaults()
 }
 
 struct UserDefaultsService: UserDefaultsProtocol{
@@ -20,6 +23,20 @@ struct UserDefaultsService: UserDefaultsProtocol{
 
     func getStringOnUserDefaults(_ key: String) -> String {
         return UserDefaults.standard.value(forKey: key) as! String
+    }
+    
+    func saveDoubleOnUserDefaults(_ value: Double, _ key: String){
+        UserDefaults.standard.set(value, forKey: key)
+    }
+
+    func getDoubleOnUserDefaults(_ key: String) -> Double {
+        return UserDefaults.standard.value(forKey: key) as! Double
+    }
+    
+    func disposeUserDefaults(){
+        let domain = Bundle.main.bundleIdentifier!
+        UserDefaults.standard.removePersistentDomain(forName: domain)
+        UserDefaults.standard.synchronize()
     }
 }
 

@@ -524,6 +524,49 @@ public func mock(_ type: SwiftPay.SceneDelegate.Type, file: StaticString = #file
   fatalError()
 }
 
+// MARK: - Mocked SettingsPresenter
+
+public final class SettingsPresenterMock: SwiftPay.SettingsPresenter, Mockingbird.Mock {
+  static let staticMock = Mockingbird.StaticMock()
+  public let mockingContext = Mockingbird.MockingContext()
+  public let stubbingContext = Mockingbird.StubbingContext()
+  public let mockMetadata = Mockingbird.MockMetadata(["generator_version": "0.16.0", "module_name": "SwiftPay"])
+  public var sourceLocation: Mockingbird.SourceLocation? { get { fatalError("See 'Thunk Pruning' in the README") } set { fatalError("See 'Thunk Pruning' in the README") } }
+
+  public enum InitializerProxy {
+    public static func initialize(`viewDelegate`: SwiftPay.SettingsViewDelegate?, `userDefaults`: SwiftPay.UserDefaultsProtocol, __file: StaticString = #file, __line: UInt = #line) -> SettingsPresenterMock { fatalError("See 'Thunk Pruning' in the README") }
+  }
+
+  // MARK: Mocked userDefaults
+
+  override public var `userDefaults`: SwiftPay.UserDefaultsProtocol { get { fatalError("See 'Thunk Pruning' in the README") } set { fatalError("See 'Thunk Pruning' in the README") } }
+
+  public func getUserDefaults() -> Mockingbird.Mockable<Mockingbird.PropertyGetterDeclaration, () -> SwiftPay.UserDefaultsProtocol, SwiftPay.UserDefaultsProtocol> { fatalError("See 'Thunk Pruning' in the README") }
+
+  public func setUserDefaults(_ newValue: @escaping @autoclosure () -> SwiftPay.UserDefaultsProtocol) -> Mockingbird.Mockable<Mockingbird.PropertySetterDeclaration, (SwiftPay.UserDefaultsProtocol) -> Void, Void> { fatalError("See 'Thunk Pruning' in the README") }
+
+  // MARK: Mocked `logOff`()
+
+  public override func `logOff`() -> Void { fatalError("See 'Thunk Pruning' in the README") }
+
+  public func `logOff`() -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, () -> Void, Void> { fatalError("See 'Thunk Pruning' in the README") }
+
+  // MARK: Mocked `setViewDelegate`(_ `viewDelegate`: SwiftPay.SettingsViewDelegate)
+
+  public override func `setViewDelegate`(_ `viewDelegate`: SwiftPay.SettingsViewDelegate) -> Void { fatalError("See 'Thunk Pruning' in the README") }
+
+  public func `setViewDelegate`(_ `viewDelegate`: @escaping @autoclosure () -> SwiftPay.SettingsViewDelegate) -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (SwiftPay.SettingsViewDelegate) -> Void, Void> { fatalError("See 'Thunk Pruning' in the README") }
+
+  // MARK: Mocked init(`viewDelegate`: SwiftPay.SettingsViewDelegate?, `userDefaults`: SwiftPay.UserDefaultsProtocol)
+
+  public required override init(`viewDelegate`: SwiftPay.SettingsViewDelegate?, `userDefaults`: SwiftPay.UserDefaultsProtocol) { fatalError("See 'Thunk Pruning' in the README") }
+}
+
+/// Returns an abstract mock which should be initialized using `mock(SettingsPresenter.self).initialize(…)`.
+public func mock(_ type: SwiftPay.SettingsPresenter.Type, file: StaticString = #file, line: UInt = #line) -> SettingsPresenterMock.InitializerProxy.Type {
+  return SettingsPresenterMock.InitializerProxy.self
+}
+
 // MARK: - Mocked SettingsViewController
 
 public final class SettingsViewControllerMock: SwiftPay.SettingsViewController, Mockingbird.Mock {
@@ -536,8 +579,14 @@ public final class SettingsViewControllerMock: SwiftPay.SettingsViewController, 
   public enum InitializerProxy {
     public static func initialize(`coder`: NSCoder, __file: StaticString = #file, __line: UInt = #line) -> SettingsViewControllerMock? { fatalError("See 'Thunk Pruning' in the README") }
 
-    public static func initialize(`nibName` `nibNameOrNil`: String?, `bundle` `nibBundleOrNil`: Bundle?, __file: StaticString = #file, __line: UInt = #line) -> SettingsViewControllerMock { fatalError("See 'Thunk Pruning' in the README") }
+    public static func initialize(`presenter`: SwiftPay.SettingsPresenter, __file: StaticString = #file, __line: UInt = #line) -> SettingsViewControllerMock { fatalError("See 'Thunk Pruning' in the README") }
   }
+
+  // MARK: Mocked `logOffApp`()
+
+  public override func `logOffApp`() -> Void { fatalError("See 'Thunk Pruning' in the README") }
+
+  public func `logOffApp`() -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, () -> Void, Void> { fatalError("See 'Thunk Pruning' in the README") }
 
   // MARK: Mocked `viewDidLoad`()
 
@@ -549,9 +598,9 @@ public final class SettingsViewControllerMock: SwiftPay.SettingsViewController, 
 
   public required init?(`coder`: NSCoder) { fatalError("See 'Thunk Pruning' in the README") }
 
-  // MARK: Mocked init(`nibName` `nibNameOrNil`: String?, `bundle` `nibBundleOrNil`: Bundle?)
+  // MARK: Mocked init(`presenter`: SwiftPay.SettingsPresenter)
 
-  public required override init(`nibName` `nibNameOrNil`: String?, `bundle` `nibBundleOrNil`: Bundle?) { fatalError("See 'Thunk Pruning' in the README") }
+  public required override init(`presenter`: SwiftPay.SettingsPresenter) { fatalError("See 'Thunk Pruning' in the README") }
 
   // MARK: Mocked `logOffBtnTapped`(`sender`: UIButton!)
 
@@ -563,6 +612,49 @@ public final class SettingsViewControllerMock: SwiftPay.SettingsViewController, 
 /// Returns an abstract mock which should be initialized using `mock(SettingsViewController.self).initialize(…)`.
 public func mock(_ type: SwiftPay.SettingsViewController.Type, file: StaticString = #file, line: UInt = #line) -> SettingsViewControllerMock.InitializerProxy.Type {
   return SettingsViewControllerMock.InitializerProxy.self
+}
+
+// MARK: - Mocked SettingsViewDelegate
+
+public final class SettingsViewDelegateMock: SwiftPay.SettingsViewDelegate, Mockingbird.Mock {
+  static let staticMock = Mockingbird.StaticMock()
+  public let mockingContext = Mockingbird.MockingContext()
+  public let stubbingContext = Mockingbird.StubbingContext()
+  public let mockMetadata = Mockingbird.MockMetadata(["generator_version": "0.16.0", "module_name": "SwiftPay"])
+  public var sourceLocation: Mockingbird.SourceLocation? {
+    get { return self.stubbingContext.sourceLocation }
+    set {
+      self.stubbingContext.sourceLocation = newValue
+      SettingsViewDelegateMock.staticMock.stubbingContext.sourceLocation = newValue
+    }
+  }
+
+  fileprivate init(sourceLocation: Mockingbird.SourceLocation) {
+    Mockingbird.checkVersion(for: self)
+    self.sourceLocation = sourceLocation
+  }
+
+  // MARK: Mocked `logOffApp`()
+
+  public func `logOffApp`() -> Void {
+    let invocation: Mockingbird.Invocation = Mockingbird.Invocation(selectorName: "`logOffApp`() -> Void", arguments: [], returnType: Swift.ObjectIdentifier((Void).self))
+    self.mockingContext.didInvoke(invocation) { () -> Void in
+      let implementation = self.stubbingContext.implementation(for: invocation)
+      if let concreteImplementation = implementation as? () -> Void {
+        concreteImplementation()
+      }
+    }
+  }
+
+  public func `logOffApp`() -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, () -> Void, Void> {
+    let invocation: Mockingbird.Invocation = Mockingbird.Invocation(selectorName: "`logOffApp`() -> Void", arguments: [], returnType: Swift.ObjectIdentifier((Void).self))
+    return Mockingbird.Mockable<Mockingbird.FunctionDeclaration, () -> Void, Void>(mock: self, invocation: invocation)
+  }
+}
+
+/// Returns a concrete mock of `SettingsViewDelegate`.
+public func mock(_ type: SwiftPay.SettingsViewDelegate.Protocol, file: StaticString = #file, line: UInt = #line) -> SettingsViewDelegateMock {
+  return SettingsViewDelegateMock(sourceLocation: Mockingbird.SourceLocation(file, line))
 }
 
 // MARK: - Mocked SignInPresenter
@@ -1266,6 +1358,30 @@ public final class UserDefaultsProtocolMock: SwiftPay.UserDefaultsProtocol, Mock
     self.sourceLocation = sourceLocation
   }
 
+  // MARK: Mocked `getDoubleOnUserDefaults`(_ `key`: String)
+
+  public func `getDoubleOnUserDefaults`(_ `key`: String) -> Double {
+    let invocation: Mockingbird.Invocation = Mockingbird.Invocation(selectorName: "`getDoubleOnUserDefaults`(_ `key`: String) -> Double", arguments: [Mockingbird.ArgumentMatcher(`key`)], returnType: Swift.ObjectIdentifier((Double).self))
+    return self.mockingContext.didInvoke(invocation) { () -> Double in
+      let implementation = self.stubbingContext.implementation(for: invocation)
+      if let concreteImplementation = implementation as? (String) -> Double {
+        return concreteImplementation(`key`)
+      } else if let concreteImplementation = implementation as? () -> Double {
+        return concreteImplementation()
+      } else if let defaultValue = self.stubbingContext.defaultValueProvider.provideValue(for: (Double).self) {
+        return defaultValue
+      } else {
+        fatalError(self.stubbingContext.failTest(for: invocation))
+      }
+    }
+  }
+
+  public func `getDoubleOnUserDefaults`(_ `key`: @escaping @autoclosure () -> String) -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (String) -> Double, Double> {
+    let arguments: [Mockingbird.ArgumentMatcher] = [Mockingbird.resolve(`key`)]
+    let invocation: Mockingbird.Invocation = Mockingbird.Invocation(selectorName: "`getDoubleOnUserDefaults`(_ `key`: String) -> Double", arguments: arguments, returnType: Swift.ObjectIdentifier((Double).self))
+    return Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (String) -> Double, Double>(mock: self, invocation: invocation)
+  }
+
   // MARK: Mocked `getStringOnUserDefaults`(_ `key`: String)
 
   public func `getStringOnUserDefaults`(_ `key`: String) -> String {
@@ -1288,6 +1404,43 @@ public final class UserDefaultsProtocolMock: SwiftPay.UserDefaultsProtocol, Mock
     let arguments: [Mockingbird.ArgumentMatcher] = [Mockingbird.resolve(`key`)]
     let invocation: Mockingbird.Invocation = Mockingbird.Invocation(selectorName: "`getStringOnUserDefaults`(_ `key`: String) -> String", arguments: arguments, returnType: Swift.ObjectIdentifier((String).self))
     return Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (String) -> String, String>(mock: self, invocation: invocation)
+  }
+
+  // MARK: Mocked `disposeUserDefaults`()
+
+  public func `disposeUserDefaults`() -> Void {
+    let invocation: Mockingbird.Invocation = Mockingbird.Invocation(selectorName: "`disposeUserDefaults`() -> Void", arguments: [], returnType: Swift.ObjectIdentifier((Void).self))
+    self.mockingContext.didInvoke(invocation) { () -> Void in
+      let implementation = self.stubbingContext.implementation(for: invocation)
+      if let concreteImplementation = implementation as? () -> Void {
+        concreteImplementation()
+      }
+    }
+  }
+
+  public func `disposeUserDefaults`() -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, () -> Void, Void> {
+    let invocation: Mockingbird.Invocation = Mockingbird.Invocation(selectorName: "`disposeUserDefaults`() -> Void", arguments: [], returnType: Swift.ObjectIdentifier((Void).self))
+    return Mockingbird.Mockable<Mockingbird.FunctionDeclaration, () -> Void, Void>(mock: self, invocation: invocation)
+  }
+
+  // MARK: Mocked `saveDoubleOnUserDefaults`(_ `value`: Double, _ `key`: String)
+
+  public func `saveDoubleOnUserDefaults`(_ `value`: Double, _ `key`: String) -> Void {
+    let invocation: Mockingbird.Invocation = Mockingbird.Invocation(selectorName: "`saveDoubleOnUserDefaults`(_ `value`: Double, _ `key`: String) -> Void", arguments: [Mockingbird.ArgumentMatcher(`value`), Mockingbird.ArgumentMatcher(`key`)], returnType: Swift.ObjectIdentifier((Void).self))
+    self.mockingContext.didInvoke(invocation) { () -> Void in
+      let implementation = self.stubbingContext.implementation(for: invocation)
+      if let concreteImplementation = implementation as? (Double, String) -> Void {
+        concreteImplementation(`value`, `key`)
+      } else if let concreteImplementation = implementation as? () -> Void {
+        concreteImplementation()
+      }
+    }
+  }
+
+  public func `saveDoubleOnUserDefaults`(_ `value`: @escaping @autoclosure () -> Double, _ `key`: @escaping @autoclosure () -> String) -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (Double, String) -> Void, Void> {
+    let arguments: [Mockingbird.ArgumentMatcher] = [Mockingbird.resolve(`value`), Mockingbird.resolve(`key`)]
+    let invocation: Mockingbird.Invocation = Mockingbird.Invocation(selectorName: "`saveDoubleOnUserDefaults`(_ `value`: Double, _ `key`: String) -> Void", arguments: arguments, returnType: Swift.ObjectIdentifier((Void).self))
+    return Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (Double, String) -> Void, Void>(mock: self, invocation: invocation)
   }
 
   // MARK: Mocked `saveStringOnUserDefaults`(_ `value`: String, _ `key`: String)
@@ -1548,11 +1701,11 @@ public final class UserInfoPresenterMock: SwiftPay.UserInfoPresenter, Mockingbir
 
   public func `fetchUserName`() -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, () -> Void, Void> { fatalError("See 'Thunk Pruning' in the README") }
 
-  // MARK: Mocked `toggleBalanceLabel`(_ `labelIsSecure`: Bool, _ `formattedAmount`: String)
+  // MARK: Mocked `toggleBalanceLabel`(_ `labelIsSecure`: Bool)
 
-  public override func `toggleBalanceLabel`(_ `labelIsSecure`: Bool, _ `formattedAmount`: String) -> Void { fatalError("See 'Thunk Pruning' in the README") }
+  public override func `toggleBalanceLabel`(_ `labelIsSecure`: Bool) -> Void { fatalError("See 'Thunk Pruning' in the README") }
 
-  public func `toggleBalanceLabel`(_ `labelIsSecure`: @escaping @autoclosure () -> Bool, _ `formattedAmount`: @escaping @autoclosure () -> String) -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (Bool, String) -> Void, Void> { fatalError("See 'Thunk Pruning' in the README") }
+  public func `toggleBalanceLabel`(_ `labelIsSecure`: @escaping @autoclosure () -> Bool) -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (Bool) -> Void, Void> { fatalError("See 'Thunk Pruning' in the README") }
 
   // MARK: Mocked `setViewDelegate`(`userInfoDelegate`: SwiftPay.UserInfoDelegate?)
 

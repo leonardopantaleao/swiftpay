@@ -23,13 +23,10 @@ class TransferPresenter{
         self.validationService = validationService
     }
     
-    
     private var viewDelegate: TransferViewDelegate?
     var userDefaults: UserDefaultsProtocol
     var client: ClientProtocol
     var validationService: ValidationService
-    
-    
     
     func setViewDelegate(_ viewDelegate: TransferViewDelegate){
         self.viewDelegate = viewDelegate

@@ -11,6 +11,8 @@
 		10A5154EC4034768DD5250B8 /* Pods_iOSSwiftPayTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F724F00E9B58D8CEBA358F40 /* Pods_iOSSwiftPayTests.framework */; };
 		51DEF4FF5B2E770632C91729 /* libPods-iOSSwiftPay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C1763E539EE432954D678A4F /* libPods-iOSSwiftPay.a */; };
 		7630CF34E0687B68AA10E5FB /* Pods_iOSSwiftPayUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1ED88B9289F057C159A0A4C /* Pods_iOSSwiftPayUITests.framework */; };
+		A7248ACB254C50E30093FFE1 /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7248ACA254C50E30093FFE1 /* SettingsPresenter.swift */; };
+		A7248ACD254C578E0093FFE1 /* SettingsPageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7248ACC254C578E0093FFE1 /* SettingsPageTests.swift */; };
 		A73F61BD252CCFFC00F6C75B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73F61BC252CCFFC00F6C75B /* SignUpViewController.swift */; };
 		A73F61BF252CDAF500F6C75B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73F61BE252CDAF500F6C75B /* SettingsViewController.swift */; };
 		A73F61C1252CE87900F6C75B /* TransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73F61C0252CE87900F6C75B /* TransferViewController.swift */; };
@@ -75,6 +77,8 @@
 		3DF314083B31C10683D2F05F /* Pods-iOSSwiftPay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSSwiftPay.release.xcconfig"; path = "Target Support Files/Pods-iOSSwiftPay/Pods-iOSSwiftPay.release.xcconfig"; sourceTree = "<group>"; };
 		53ECE2CDC2C38BF703834023 /* Pods-iOSSwiftPayUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSSwiftPayUITests.debug.xcconfig"; path = "Target Support Files/Pods-iOSSwiftPayUITests/Pods-iOSSwiftPayUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		54E1FE7B967DA303A7FE1FF8 /* Pods-iOSSwiftPayTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSSwiftPayTests.debug.xcconfig"; path = "Target Support Files/Pods-iOSSwiftPayTests/Pods-iOSSwiftPayTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A7248ACA254C50E30093FFE1 /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
+		A7248ACC254C578E0093FFE1 /* SettingsPageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPageTests.swift; sourceTree = "<group>"; };
 		A736C20624EF4BAB00B07FDA /* FBSnapshotTestCase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSnapshotTestCase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A73F61BC252CCFFC00F6C75B /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		A73F61BE252CDAF500F6C75B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -250,6 +254,7 @@
 				A75CBA1B2540C980003C585F /* UserInfoPageTests.swift */,
 				A7B9FDBF2547148900BA3F6B /* DepositPageTests.swift */,
 				A7CBAEC825479933006595DF /* TransferPageTests.swift */,
+				A7248ACC254C578E0093FFE1 /* SettingsPageTests.swift */,
 			);
 			path = iOSSwiftPayTests;
 			sourceTree = "<group>";
@@ -281,6 +286,7 @@
 				A7E4EA3025408CF000170766 /* UserInfoPresenter.swift */,
 				A7B9FDBD2547125800BA3F6B /* DepositPresenter.swift */,
 				A7CBAEC625479642006595DF /* TransferPresenter.swift */,
+				A7248ACA254C50E30093FFE1 /* SettingsPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -633,6 +639,7 @@
 				A7E4EA3125408CF000170766 /* UserInfoPresenter.swift in Sources */,
 				A77C84CD253DFF4C00DD9897 /* SignUpPresenter.swift in Sources */,
 				A7C0A7E5250AEB090019A841 /* Utilities.swift in Sources */,
+				A7248ACB254C50E30093FFE1 /* SettingsPresenter.swift in Sources */,
 				A793C2A22526B4AE00AE0DB2 /* ClientProtocol.swift in Sources */,
 				A7B9FDBE2547125800BA3F6B /* DepositPresenter.swift in Sources */,
 				A76070FC252F5E1B0095611F /* HomeViewController.swift in Sources */,
@@ -661,6 +668,7 @@
 				A7CBAEC925479933006595DF /* TransferPageTests.swift in Sources */,
 				A76784472538CA8E0081EE79 /* SignInPageTests.swift in Sources */,
 				A7B9FDC02547148900BA3F6B /* DepositPageTests.swift in Sources */,
+				A7248ACD254C578E0093FFE1 /* SettingsPageTests.swift in Sources */,
 				A77C84CF253E013F00DD9897 /* SignUpPageTests.swift in Sources */,
 				A7657C65253871D0009CC28E /* ResponseHandlerTests.swift in Sources */,
 				A7A2D8ED25103A8800A10DBB /* ValidationServiceTests.swift in Sources */,
